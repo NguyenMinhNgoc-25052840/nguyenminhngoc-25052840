@@ -1929,9 +1929,8 @@ function Conclusion() {
         </h3>
         <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-foreground/85">
           Portfolio này được em thực hiện với tinh thần học tập nghiêm túc. Toàn bộ nội dung do chính em tự tìm hiểu, biên soạn và diễn đạt bằng ngôn ngữ của mình. AI chỉ đóng vai trò công cụ hỗ trợ — gợi ý, kiểm tra, biên tập — chứ không thay thế cho quá trình suy nghĩ và học tập của bản thân. Em cam kết tuân thủ nguyên tắc liêm chính học thuật trong suốt quá trình học tại trường.
-          <br />-
-          <div className="mt-2 font-display font-bold">-Nguyễn Minh Ngọc-</div>
         </p>
+        <div className="mt-2 font-display font-bold">-Nguyễn Minh Ngọc-</div>
       </div>
     </Section>
   );
