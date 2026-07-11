@@ -856,15 +856,15 @@ function TeamTable() {
 
 function AIWorkflow() {
   const steps = [
-    { s: "Lên ý tưởng", h: "Con người", a: "Xác định khái niệm & thông điệp" },
-    { s: "Viết kịch bản", h: "AI + Con người", a: "AI đề xuất, người biên tập" },
-    { s: "Tạo hình ảnh / giọng đọc", h: "AI", a: "DALL·E / TTS tạo bản nháp" },
-    { s: "Dựng video", h: "Con người", a: "CapCut / Canva ghép hoàn thiện" },
-    { s: "Kiểm tra chất lượng", h: "Con người", a: "Đối chiếu tính chính xác học thuật" },
-    { s: "Hoàn thiện & xuất bản", h: "Con người", a: "Chuẩn hoá thương hiệu, đăng tải" },
+    { s: "Xác định chủ đề", h: "Con người", a: "Chọn: Lợi ích và rủi ro của AI trong giáo dục" },
+    { s: "Xây dựng nội dung", h: "ChatGPT", a: "Sinh bản nháp: khái niệm, lợi ích, rủi ro, khuyến nghị" },
+    { s: "Bổ sung & so sánh ý", h: "Google Gemini", a: "Rút gọn theo bullet, đối chiếu để chọn ý phù hợp" },
+    { s: "Thiết kế infographic", h: "Canva AI", a: "Gợi ý bố cục, tông màu xanh dương – trắng" },
+    { s: "Biên tập cá nhân", h: "Con người", a: "Rút gọn câu, đổi biểu tượng, thêm ví dụ thực tế" },
+    { s: "Kiểm chứng & hoàn thiện", h: "Con người", a: "Xác minh thông tin, đảm bảo bản quyền, xuất bản" },
   ];
   return (
-    <Block title="Quy trình sản xuất nội dung với AI (6 bước)">
+    <Block title="Quy trình sáng tạo nội dung với 3 công cụ AI (6 bước)">
       <ol className="grid gap-2 sm:grid-cols-2">
         {steps.map((s, i) => (
           <li key={s.s} className="rounded-xl border border-border bg-surface p-3">
