@@ -989,7 +989,12 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[number]; index: number
           <EvaluationBlock strengths={p.strengths} improvements={p.improvements} highlights={p.highlights} />
           <IntegrityBlock aiUsage={p.aiUsage} integrity={p.integrity} />
 
-          <EvidenceBox note={p.evidence} tag={`Bài ${p.n}`} img={EVIDENCE_IMG[p.n]} />
+          <EvidenceBox
+            note={p.evidence}
+            tag={`Bài ${p.n}`}
+            img={p.n === "01" ? undefined : EVIDENCE_IMG[p.n]}
+            gallery={p.n === "01" ? BAI01_GALLERY : undefined}
+          />
 
         </div>
       </div>
