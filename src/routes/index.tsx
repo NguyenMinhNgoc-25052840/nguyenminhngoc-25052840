@@ -492,9 +492,9 @@ function About() {
             SV
           </div>
           <div className="mt-6 space-y-3 text-sm">
-            <Row k="Họ và tên" v="[Điền tên của bạn]" />
-            <Row k="Ngành học" v="[Điền ngành học]" />
-            <Row k="Trường / Lớp" v="[Điền trường/lớp]" />
+            <Row k="Họ và tên" v="\n" />
+            <Row k="Ngành học" v="\n" />
+            <Row k="Trường / Lớp" v="\n" />
             <Row k="Môn học" v="Nhập môn CNS & AI" />
             <Row k="Năm học" v="2025 – 2026" />
           </div>
