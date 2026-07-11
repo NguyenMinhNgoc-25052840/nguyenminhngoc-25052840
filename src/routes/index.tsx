@@ -737,8 +737,8 @@ function About() {
     >
       <div className="grid gap-8 lg:grid-cols-[minmax(0,22rem)_1fr] lg:items-start">
         <div className="reveal rounded-3xl border border-border bg-card p-8 shadow-lift lg:sticky lg:top-28">
-          <div className="mx-auto grid h-32 w-32 place-items-center rounded-full bg-gradient-brand font-display text-4xl text-primary-foreground shadow-lift">
-            SV
+          <div className="mx-auto h-32 w-32 overflow-hidden rounded-full bg-gradient-brand shadow-lift ring-4 ring-card">
+            <img src={avatarAsset.url} alt="Nguyễn Minh Ngọc" className="h-full w-full object-cover" />
           </div>
           <div className="mt-6 space-y-3 text-sm">
             <Row k="Họ và tên" v="Nguyễn Minh Ngọc" />
