@@ -316,6 +316,29 @@ const PROJECTS: {
     ],
     tags: ["Đạo đức AI", "7 nguyên tắc", "Tư duy phản biện"],
     progress: 100,
+    strengths: [
+      "Xây được bộ 7 nguyên tắc cá nhân súc tích, có thể áp dụng ngay trong mọi bài học.",
+      "Phân tích đủ 5 rủi ro đạo đức AI, kèm giải pháp cụ thể cho từng vấn đề.",
+      "Kết nối được lý thuyết đạo đức AI với các tình huống học tập thực tế.",
+    ],
+    improvements: [
+      "Cần cập nhật thêm các quy định mới nhất về AI của các tổ chức giáo dục quốc tế.",
+      "Có thể mở rộng thảo luận với bạn bè, thầy cô để đa chiều hơn.",
+    ],
+    highlights: [
+      "AI là công cụ — trách nhiệm và giá trị đạo đức thuộc về người dùng.",
+      "Minh bạch về mức độ dùng AI quan trọng hơn việc giấu đi.",
+      "Kỹ năng phản biện là “lá chắn” trước thiên kiến và thông tin sai của AI.",
+    ],
+    aiUsage: [
+      "Không dùng AI để viết bộ nguyên tắc — đây là cam kết cá nhân, phải do bản thân đúc kết.",
+      "Có tham khảo AI để gợi ý phân loại các rủi ro, nhưng nội dung phân tích tự viết.",
+    ],
+    integrity: [
+      "Cam kết áp dụng 7 nguyên tắc trong tất cả các môn học tại trường.",
+      "Không dùng AI để làm hộ bài kiểm tra, tiểu luận hay báo cáo cá nhân.",
+      "Luôn ghi nguồn khi trích dẫn và khai báo khi có sự hỗ trợ của AI.",
+    ],
   },
 ];
 
