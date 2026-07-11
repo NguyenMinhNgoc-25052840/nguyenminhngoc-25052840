@@ -56,8 +56,16 @@ const BAI01_GALLERY = [
 const GALLERIES: Record<string, { url: string; caption: string }[]> = {
   "01": BAI01_GALLERY,
   "02": [
-    { url: ev2.url, caption: "Danh mục 10 nguồn học thuật về EVFTA thu thập từ Google Scholar, World Bank, WTO." },
-    { url: ev2.url, caption: "Bảng đánh giá độ tin cậy theo 5 tiêu chí: tác giả, cơ quan, phương pháp, trích dẫn, cập nhật." },
+    { url: bai02_1.url, caption: "Nguồn 1 — Vu & Hoang, The impact of EVFTA on Vietnam's exports (Journal of Asian Finance, Economics and Business, 2021)." },
+    { url: bai02_2.url, caption: "Nguồn 2 — Nguyen & Tran, Opportunities and challenges of EVFTA (Sustainability, MDPI, 2022)." },
+    { url: bai02_3.url, caption: "Nguồn 3 — Ciuriak & Xiao, Economic impacts of EU–Vietnam FTA (Journal of East Asian Economic Integration, 2018)." },
+    { url: bai02_4.url, caption: "Nguồn 4 — The Journal of International Trade & Economic Development — bài về tác động EVFTA đến xuất khẩu." },
+    { url: bai02_5.url, caption: "Nguồn 5 — Economic Analysis and Policy — nghiên cứu định lượng hiệu ứng thương mại EVFTA." },
+    { url: bai02_6.url, caption: "Nguồn 6 — Krugman, Obstfeld, Melitz, International Economics: Theory and Policy (Pearson, 2018)." },
+    { url: bai02_7.url, caption: "Nguồn 7 — Feenstra & Taylor, International Economics — sách nền tảng về thương mại quốc tế." },
+    { url: bai02_8.url, caption: "Nguồn 8 — Bộ Công Thương, Báo cáo Xuất nhập khẩu Việt Nam năm 2023." },
+    { url: bai02_9.url, caption: "Nguồn 9 — World Bank, Vietnam: Deepening International Integration and Implementing (2020)." },
+    { url: bai02_10.url, caption: "Nguồn 10 — WTO, World Trade Statistical Review 2023." },
   ],
   "03": [
     { url: bai03_34.url, caption: "Prompt cơ bản: “hãy tóm tắt tài liệu này cho tôi” gửi kèm PDF journal.pone.0294456." },
