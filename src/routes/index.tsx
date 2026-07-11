@@ -221,6 +221,29 @@ const PROJECTS: {
     ],
     tags: ["Google Docs", "Google Drive", "Zalo · Nhóm 30"],
     progress: 100,
+    strengths: [
+      "Hoàn thành đúng vai trò soạn thảo — biên tập, đảm bảo tiến độ chung của nhóm.",
+      "Duy trì Version History rõ ràng trên Google Docs, dễ đối chiếu khi cần khôi phục.",
+      "Phối hợp đồng bộ 3 công cụ (Docs · Drive · Zalo) không để sót đầu việc.",
+    ],
+    improvements: [
+      "Cần chủ động hơn trong việc chốt deadline nội bộ, không để dồn về cuối tuần.",
+      "Có thể thử thêm công cụ quản lý task như Trello / Notion để trực quan hóa tiến độ.",
+    ],
+    highlights: [
+      "Làm việc online hiệu quả cần quy ước chung: đặt tên tệp, đánh số phiên bản, cách phản hồi comment.",
+      "Comment và Suggest thay vì sửa trực tiếp giúp tránh xung đột nội dung.",
+      "Kênh chat (Zalo) là để trao đổi nhanh, không thay thế văn bản chính thức trên Docs.",
+    ],
+    aiUsage: [
+      "Không dùng AI để viết nội dung báo cáo nhóm.",
+      "Chỉ dùng AI (nếu có) để gợi ý cách diễn đạt câu tiếng Việt cho mượt hơn — vẫn tự viết lại.",
+    ],
+    integrity: [
+      "Chỉ chịu trách nhiệm và trình bày phần công việc do bản thân thực hiện.",
+      "Ghi nhận công sức của các thành viên khác trong nhóm 30 một cách công bằng.",
+      "Ảnh chụp Docs · Drive · Zalo là minh chứng thật, không dàn dựng.",
+    ],
   },
   {
     n: "05",
