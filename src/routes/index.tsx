@@ -27,6 +27,38 @@ const BAI01_GALLERY = [
   { url: bai01_19.url, caption: "Recycle Bin trên Desktop — mở để Restore khi cần." },
 ];
 
+const GALLERIES: Record<string, { url: string; caption: string }[]> = {
+  "01": BAI01_GALLERY,
+  "02": [
+    { url: ev2.url, caption: "Danh mục 10 nguồn học thuật về EVFTA thu thập từ Google Scholar, World Bank, WTO." },
+    { url: ev2.url, caption: "Bảng đánh giá độ tin cậy theo 5 tiêu chí: tác giả, cơ quan, phương pháp, trích dẫn, cập nhật." },
+  ],
+  "03": [
+    { url: ev3.url, caption: "Prompt cơ bản: “Tóm tắt bài báo này.” — kết quả ngắn, thiếu chiều sâu." },
+    { url: ev3.url, caption: "Prompt cải tiến: chia phần, giới hạn 400 từ, nêu mục tiêu – cơ hội – thách thức." },
+    { url: ev3.url, caption: "Prompt nâng cao: gán vai trò chuyên gia + mô tả bước thực hiện, kết quả bám sát nhất." },
+  ],
+  "04": [
+    { url: ev4.url, caption: "Google Drive — thư mục dự án Nhóm 30, lưu các phiên bản báo cáo." },
+    { url: ev4.url, caption: "Google Docs — Comment và Version History khi biên tập nội dung nhóm." },
+    { url: ev4.url, caption: "Zalo Nhóm 30 — trao đổi công việc và chốt hạn hoàn thành." },
+  ],
+  "05": [
+    { url: ev5.url, caption: "Kịch bản do bản thân xây dựng và tinh chỉnh bằng ChatGPT." },
+    { url: ev5.url, caption: "Ảnh minh hoạ sinh bằng AI, biên tập lại bố cục và màu sắc." },
+    { url: ev5.url, caption: "Sản phẩm cuối cùng sau khi kết hợp AI và biên tập cá nhân." },
+  ],
+  "06": [],
+};
+
+const DOWNLOADS: Record<string, { label: string; url: string } | undefined> = {
+  "01": { label: "Tải tệp minh chứng: GhiChuQuanTrong.docx", url: "#" },
+  "02": { label: "Tải bảng đánh giá 10 nguồn EVFTA.xlsx", url: "#" },
+  "03": { label: "Tải bảng so sánh 3 mức Prompt.pdf", url: "#" },
+  "04": { label: "Tải báo cáo dự án Nhóm 30.docx", url: "#" },
+  "05": { label: "Tải sản phẩm sáng tạo nội dung AI.pdf", url: "#" },
+  "06": { label: "Tải bộ nguyên tắc dùng AI có trách nhiệm.pdf", url: "#" },
+};
 
 const EVIDENCE_IMG: Record<string, string> = {
   "01": ev1.url,
@@ -35,6 +67,7 @@ const EVIDENCE_IMG: Record<string, string> = {
   "04": ev4.url,
   "05": ev5.url,
 };
+
 
 export const Route = createFileRoute("/")({
   component: PortfolioPage,
