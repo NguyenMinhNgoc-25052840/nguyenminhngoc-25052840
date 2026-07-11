@@ -720,9 +720,10 @@ function About() {
             SV
           </div>
           <div className="mt-6 space-y-3 text-sm">
-            <Row k="Họ và tên" v="\n" />
-            <Row k="Ngành học" v="\n" />
-            <Row k="Trường / Lớp" v="\n" />
+            <Row k="Họ và tên" v="Nguyễn Minh Ngọc" />
+            <Row k="MSV" v="25052840" />
+            <Row k="Email" v="25052840@vnu.edu.vn" />
+
             <Row k="Môn học" v="Nhập môn CNS & AI" />
             <Row k="Năm học" v="2025 – 2026" />
           </div>
@@ -1666,7 +1667,8 @@ function Footer() {
         <div className="text-sm">
           <div className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/60">Thông tin</div>
           <ul className="mt-3 space-y-1.5 text-primary-foreground/85">
-            <li>Sinh viên: <span className="font-medium">[Điền tên của bạn]</span></li>
+            <li>Sinh viên: <span className="font-medium">Nguyễn Minh Ngọc</span></li>
+            <li>MSV: <span className="font-medium">25052840</span></li>
             <li>Môn: Nhập môn CNS & AI</li>
             <li>Năm học: 2025 – 2026</li>
           </ul>
@@ -1674,8 +1676,7 @@ function Footer() {
         <div className="text-sm">
           <div className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/60">Liên hệ</div>
           <ul className="mt-3 space-y-1.5 text-primary-foreground/85">
-            <li>Email: <span className="font-medium">your.email@example.com</span></li>
-            <li>Trường: <span className="font-medium">[Điền trường/lớp]</span></li>
+            <li>Email: <span className="font-medium">25052840@vnu.edu.vn</span></li>
           </ul>
         </div>
       </div>
