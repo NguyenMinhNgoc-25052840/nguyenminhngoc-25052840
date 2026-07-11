@@ -10,7 +10,17 @@ import path from "node:path";
 import fs from "node:fs/promises";
 
 // GitHub Pages base path — repo name for user/organization pages under a repo.
-const BASE = "/NguyenMinhNgoc25052840/";
+const [GITHUB_OWNER = "", GITHUB_REPO = ""] = (
+  process.env.GITHUB_REPOSITORY ?? ""
+).split("/");
+
+const BASE =
+  process.env.GITHUB_ACTIONS === "true" && GITHUB_REPO
+    ? GITHUB_REPO.toLowerCase() ===
+      `${GITHUB_OWNER.toLowerCase()}.github.io`
+      ? "/"
+      : `/${GITHUB_REPO}/`
+    : "/";
 // Origin that currently serves the Lovable-hosted assets (project preview).
 const LOVABLE_ORIGIN =
   "https://id-preview--4e0125a8-3138-4b72-a386-b7b856154f27.lovable.app";
