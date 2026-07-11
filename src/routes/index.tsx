@@ -39,6 +39,9 @@ import bai01_27 from "@/assets/evidence/bai01/img_27.jpg.asset.json";
 import bai01_28 from "@/assets/evidence/bai01/img_28.jpg.asset.json";
 import bai01_29 from "@/assets/evidence/bai01/img_29.jpg.asset.json";
 import bai01_30 from "@/assets/evidence/bai01/img_30.jpg.asset.json";
+import bai06_prompt1 from "@/assets/evidence/bai06/prompt1.png.asset.json";
+import bai06_prompt2 from "@/assets/evidence/bai06/prompt2.png.asset.json";
+import bai06_infographic from "@/assets/evidence/bai06/infographic.jpg.asset.json";
 
 const BAI01_GALLERY = [
   { url: bai01_21.url, caption: "Mở File Explorer và truy cập This PC." },
@@ -87,7 +90,11 @@ const GALLERIES: Record<string, { url: string; caption: string }[]> = {
     { url: bai05_36.url, caption: "Nội dung 5 nhóm lợi ích của AI trong giáo dục do AI đề xuất và tinh chỉnh." },
     { url: bai05_37.url, caption: "Bản hoàn thiện sau khi biên tập bố cục, kiểm tra thông tin và chỉnh sửa cá nhân." },
   ],
-  "06": [],
+  "06": [
+    { url: bai06_prompt1.url, caption: "Prompt 1 — Yêu cầu ChatGPT lập dàn ý 5 phần cho bài thuyết trình “Vai trò của AI trong chuyển đổi số tại Việt Nam”." },
+    { url: bai06_prompt2.url, caption: "Prompt 2 — Yêu cầu AI viết ~300 từ về lợi ích của AI trong chuyển đổi số, phù hợp bài thuyết trình sinh viên." },
+    { url: bai06_infographic.url, caption: "Infographic “AI có trách nhiệm” — 6 nguyên tắc: kiểm chứng, trích dẫn, không đạo văn, tự phân tích, bảo vệ dữ liệu, AI hỗ trợ – không thay thế." },
+  ],
 };
 
 const DOWNLOADS: Record<string, { label: string; url: string } | undefined> = {
@@ -385,48 +392,53 @@ const PROJECTS: {
   {
     n: "06",
     title: "Sử dụng AI có trách nhiệm trong học tập và nghiên cứu",
-    goal: "Hiểu các vấn đề đạo đức khi dùng AI và xây dựng bộ nguyên tắc cá nhân.",
+    goal: "Phân tích chính sách của UEB về AI, thực hành làm nhiệm vụ học tập với ChatGPT và xây dựng bộ nguyên tắc cá nhân dùng AI có trách nhiệm.",
     steps: [
-      "Đọc quy định của trường và tài liệu học thuật về đạo đức AI.",
-      "Phân tích các rủi ro: đạo văn, thiên kiến thuật toán, quyền riêng tư, phụ thuộc AI.",
-      "Đề xuất giải pháp giảm thiểu cho từng rủi ro.",
-      "Đúc kết thành bộ 7 nguyên tắc cá nhân áp dụng trong suốt quá trình học.",
+      "Phân tích chính sách của UEB: chưa có quy định riêng về AI nhưng yêu cầu liêm chính học thuật, trung thực và tôn trọng sở hữu trí tuệ; so sánh với hướng dẫn cụ thể hơn của UEH.",
+      "Thực hiện nhiệm vụ học tập với AI: chuẩn bị nội dung thuyết trình “Vai trò của AI trong chuyển đổi số tại Việt Nam”.",
+      "Prompt 1 — yêu cầu ChatGPT lập dàn ý 5 phần, mỗi phần có tiêu đề, 2–3 ý chính và ví dụ thực tế tại Việt Nam.",
+      "Prompt 2 — yêu cầu AI viết ~300 từ về lợi ích của AI trong chuyển đổi số, ngôn ngữ dễ hiểu, có ví dụ minh họa.",
+      "Phân tích 3 vấn đề đạo đức: ranh giới hỗ trợ vs gian lận, quyền sở hữu trí tuệ, tác động đến quá trình học tập.",
+      "Đúc kết 7 nguyên tắc cá nhân và thiết kế infographic “AI có trách nhiệm”.",
     ],
-    tools: ["Tài liệu học thuật", "Quy định nhà trường", "Nguồn tham khảo chính thống"],
-    evidence: "Trang \"Bộ nguyên tắc cá nhân\" và bảng phân tích 5 rủi ro đạo đức AI.",
+    tools: ["ChatGPT", "Quy định UEB & UEH", "Canva (Infographic)"],
+    evidence: "Ảnh chụp 2 lần prompt với ChatGPT về bài thuyết trình “Vai trò của AI trong chuyển đổi số tại Việt Nam” và infographic “AI có trách nhiệm” tổng hợp 6 nguyên tắc sử dụng AI.",
     analysis: [
-      "AI mang lại nhiều cơ hội nhưng cũng đặt ra rủi ro về đạo đức học thuật.",
-      "Người học cần phát triển năng lực tự đánh giá, phản biện và kiểm chứng.",
-      "Sử dụng AI có trách nhiệm bảo vệ tính trung thực, sáng tạo và chất lượng học tập.",
+      "UEB chưa có quy định riêng về AI, nhưng khung liêm chính học thuật hiện có đã đủ ràng buộc sinh viên phải chịu trách nhiệm với nội dung nộp.",
+      "So với UEH — nơi yêu cầu công khai mức độ sử dụng AI — UEB nên sớm ban hành hướng dẫn cụ thể để thống nhất cách áp dụng.",
+      "AI chỉ nên đóng vai trò hỗ trợ tìm ý, lập dàn ý và sửa văn phong; nộp nguyên văn nội dung AI mà không ghi nhận là gian lận.",
+      "Phụ thuộc AI sẽ làm giảm tư duy phản biện, kỹ năng tìm tài liệu và kỹ năng viết — cần chủ động cân bằng.",
     ],
     lesson: [
-      "Trách nhiệm số là kỹ năng cốt lõi trong thời đại AI.",
-      "Sử dụng AI đúng cách giúp người học phát triển bền vững hơn.",
+      "AI là công cụ mạnh, nhưng trách nhiệm học thuật vẫn thuộc về người học.",
+      "Prompt càng rõ vai trò, bối cảnh và định dạng đầu ra thì kết quả AI càng dùng được.",
+      "Minh bạch việc sử dụng AI và trích dẫn đầy đủ là cách bảo vệ chính mình.",
     ],
-    tags: ["Đạo đức AI", "7 nguyên tắc", "Tư duy phản biện"],
+    tags: ["Chính sách UEB", "Prompt thực hành", "7 nguyên tắc", "Infographic"],
     progress: 100,
     strengths: [
-      "Xây được bộ 7 nguyên tắc cá nhân súc tích, có thể áp dụng ngay trong mọi bài học.",
-      "Phân tích đủ 5 rủi ro đạo đức AI, kèm giải pháp cụ thể cho từng vấn đề.",
-      "Kết nối được lý thuyết đạo đức AI với các tình huống học tập thực tế.",
+      "Phân tích đầy đủ chính sách UEB và so sánh với UEH, chỉ ra khoảng trống cần bổ sung.",
+      "Thực hành 2 prompt thực tế cho một nhiệm vụ học tập cụ thể, có bằng chứng đầu vào – đầu ra.",
+      "Đúc kết được 7 nguyên tắc cá nhân và trực quan hóa bằng infographic dễ ghi nhớ.",
     ],
     improvements: [
-      "Cần cập nhật thêm các quy định mới nhất về AI của các tổ chức giáo dục quốc tế.",
-      "Có thể mở rộng thảo luận với bạn bè, thầy cô để đa chiều hơn.",
+      "Có thể bổ sung thêm prompt thứ 3 để so sánh chất lượng đầu ra giữa các mô hình AI.",
+      "Cần cập nhật thêm hướng dẫn AI mới nhất của các đại học quốc tế để tham chiếu.",
     ],
     highlights: [
       "AI là công cụ — trách nhiệm và giá trị đạo đức thuộc về người dùng.",
-      "Minh bạch về mức độ dùng AI quan trọng hơn việc giấu đi.",
-      "Kỹ năng phản biện là “lá chắn” trước thiên kiến và thông tin sai của AI.",
+      "Minh bạch khi dùng AI quan trọng hơn việc giấu đi.",
+      "Tư duy phản biện là “lá chắn” trước thiên kiến và thông tin sai của AI.",
     ],
     aiUsage: [
-      "Không dùng AI để viết bộ nguyên tắc — đây là cam kết cá nhân, phải do bản thân đúc kết.",
-      "Có tham khảo AI để gợi ý phân loại các rủi ro, nhưng nội dung phân tích tự viết.",
+      "Có sử dụng ChatGPT để lập dàn ý và viết bản nháp 300 từ cho bài thuyết trình về AI trong chuyển đổi số.",
+      "Không dùng AI để viết bộ nguyên tắc — đây là cam kết cá nhân do bản thân đúc kết.",
+      "Nội dung nộp cuối cùng đều được đọc lại, kiểm chứng và viết lại bằng ngôn ngữ của mình.",
     ],
     integrity: [
-      "Cam kết áp dụng 7 nguyên tắc trong tất cả các môn học tại trường.",
+      "Cam kết áp dụng 7 nguyên tắc trong tất cả các môn học tại UEB.",
       "Không dùng AI để làm hộ bài kiểm tra, tiểu luận hay báo cáo cá nhân.",
-      "Luôn ghi nguồn khi trích dẫn và khai báo khi có sự hỗ trợ của AI.",
+      "Luôn ghi nguồn khi trích dẫn và khai báo rõ khi có sự hỗ trợ của AI.",
     ],
   },
 ];
