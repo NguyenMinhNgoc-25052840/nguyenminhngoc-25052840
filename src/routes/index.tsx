@@ -79,6 +79,29 @@ const PROJECTS: {
     ],
     tags: ["File Explorer", "Copy · Cut · Paste", "Recycle Bin"],
     progress: 100,
+    strengths: [
+      "Thực hiện đầy đủ, chính xác các thao tác cơ bản với tệp và thư mục.",
+      "Ảnh chụp minh chứng chi tiết từng bước — dễ theo dõi và kiểm tra lại.",
+      "Cấu trúc thư mục ThucHanh_NguyenMinhNgoc rõ ràng, khoa học, đúng quy ước đặt tên.",
+    ],
+    improvements: [
+      "Cần học thêm các phím tắt nâng cao để thao tác nhanh hơn trong File Explorer.",
+      "Nên khai thác thêm tính năng tìm kiếm nâng cao (bộ lọc theo loại tệp, ngày).",
+    ],
+    highlights: [
+      "Quản lý tệp có tổ chức giúp tiết kiệm rất nhiều thời gian tìm kiếm về sau.",
+      "Recycle Bin là bạn thân — luôn cân nhắc trước khi Shift + Delete.",
+      "Shortcut giúp truy cập nhanh các thư mục dùng thường xuyên.",
+    ],
+    aiUsage: [
+      "Không sử dụng AI trong bài tập này.",
+      "Tự thực hành trực tiếp trên máy theo hướng dẫn của giảng viên.",
+    ],
+    integrity: [
+      "Tự thực hiện tất cả thao tác trên máy tính cá nhân.",
+      "Ảnh chụp màn hình là minh chứng thật từ quá trình thực hành.",
+      "Nội dung mô tả được viết dựa trên trải nghiệm thực tế của bản thân.",
+    ],
   },
   {
     n: "02",
