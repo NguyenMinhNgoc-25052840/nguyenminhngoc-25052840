@@ -5,6 +5,28 @@ import ev2 from "@/assets/evidence/bai02.jpg.asset.json";
 import ev3 from "@/assets/evidence/bai03.jpg.asset.json";
 import ev4 from "@/assets/evidence/bai04.jpg.asset.json";
 import ev5 from "@/assets/evidence/bai05.jpg.asset.json";
+import bai01_16 from "@/assets/evidence/bai01/img_16.jpg.asset.json";
+import bai01_17 from "@/assets/evidence/bai01/img_17.jpg.asset.json";
+import bai01_18 from "@/assets/evidence/bai01/img_18.jpg.asset.json";
+import bai01_19 from "@/assets/evidence/bai01/img_19.jpg.asset.json";
+import bai01_20 from "@/assets/evidence/bai01/img_20.jpg.asset.json";
+import bai01_21 from "@/assets/evidence/bai01/img_21.jpg.asset.json";
+import bai01_22 from "@/assets/evidence/bai01/img_22.jpg.asset.json";
+import bai01_23 from "@/assets/evidence/bai01/img_23.jpg.asset.json";
+import bai01_24 from "@/assets/evidence/bai01/img_24.jpg.asset.json";
+
+const BAI01_GALLERY = [
+  { url: bai01_21.url, caption: "Mở File Explorer và truy cập This PC." },
+  { url: bai01_23.url, caption: "Vào ổ đĩa D: — không gian tổ chức bài thực hành." },
+  { url: bai01_24.url, caption: "Tạo thư mục ThucHanh_NguyenMinhNgoc." },
+  { url: bai01_22.url, caption: "Chuột phải → New → Text Document tạo tệp mới." },
+  { url: bai01_16.url, caption: "Đổi tên GhiChu.txt → GhiChuQuanTrong.txt và copy sang TaiLieu." },
+  { url: bai01_18.url, caption: "Menu chuột phải để Copy / Cut / Delete tệp." },
+  { url: bai01_17.url, caption: "Xoá vĩnh viễn tệp bằng Shift + Delete kèm hộp xác nhận." },
+  { url: bai01_20.url, caption: "Recycle Bin — nơi khôi phục tệp lỡ xoá." },
+  { url: bai01_19.url, caption: "Recycle Bin trên Desktop — mở để Restore khi cần." },
+];
+
 
 const EVIDENCE_IMG: Record<string, string> = {
   "01": ev1.url,
@@ -967,7 +989,12 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[number]; index: number
           <EvaluationBlock strengths={p.strengths} improvements={p.improvements} highlights={p.highlights} />
           <IntegrityBlock aiUsage={p.aiUsage} integrity={p.integrity} />
 
-          <EvidenceBox note={p.evidence} tag={`Bài ${p.n}`} img={EVIDENCE_IMG[p.n]} />
+          <EvidenceBox
+            note={p.evidence}
+            tag={`Bài ${p.n}`}
+            img={p.n === "01" ? undefined : EVIDENCE_IMG[p.n]}
+            gallery={p.n === "01" ? BAI01_GALLERY : undefined}
+          />
 
         </div>
       </div>
@@ -1042,16 +1069,18 @@ function IntegrityBlock({ aiUsage, integrity }: { aiUsage: string[]; integrity: 
   );
 }
 
-function EvidenceBox({ note, tag, img }: { note: string; tag: string; img?: string }) {
+function EvidenceBox({ note, tag, img, gallery }: { note: string; tag: string; img?: string; gallery?: { url: string; caption?: string }[] }) {
+  const hasGallery = gallery && gallery.length > 0;
+  const hasAny = hasGallery || !!img;
   return (
     <div className="mt-8 overflow-hidden rounded-2xl border-2 border-dashed border-accent/35 bg-accent-soft/40">
       <div className="flex items-center justify-between px-5 pt-4">
         <span className="text-xs font-semibold uppercase tracking-wider text-accent">Minh chứng · {tag}</span>
         <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold text-accent-foreground">
-          {img ? "ẢNH THẬT" : "PLACEHOLDER"}
+          {hasAny ? "ẢNH THẬT" : "PLACEHOLDER"}
         </span>
       </div>
-      {img && (
+      {img && !hasGallery && (
         <div className="mt-3 border-y border-accent/20 bg-background/50">
           <img
             src={img}
@@ -1061,9 +1090,28 @@ function EvidenceBox({ note, tag, img }: { note: string; tag: string; img?: stri
           />
         </div>
       )}
+      {hasGallery && (
+        <div className="mt-3 grid gap-3 border-y border-accent/20 bg-background/50 p-4 sm:grid-cols-2 lg:grid-cols-3">
+          {gallery!.map((g, i) => (
+            <figure key={i} className="overflow-hidden rounded-xl border border-border bg-card shadow-soft">
+              <img
+                src={g.url}
+                alt={g.caption ?? `Minh chứng ${tag} - ${i + 1}`}
+                loading="lazy"
+                className="block h-44 w-full object-cover"
+              />
+              {g.caption && (
+                <figcaption className="border-t border-border px-3 py-2 text-xs text-muted-foreground">
+                  <span className="font-semibold text-accent">{String(i + 1).padStart(2, "0")}.</span> {g.caption}
+                </figcaption>
+              )}
+            </figure>
+          ))}
+        </div>
+      )}
       <div className="px-5 pb-4 pt-3">
         <p className="text-sm text-foreground/80">{note}</p>
-        {!img && (
+        {!hasAny && (
           <p className="mt-1 text-xs italic text-muted-foreground">→ Thay khu vực này bằng ảnh chụp màn hình / liên kết sản phẩm thật.</p>
         )}
       </div>
