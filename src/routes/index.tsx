@@ -589,6 +589,47 @@ function About() {
           </div>
         </div>
       </div>
+
+      <div className="reveal mt-8 relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-amber-50 via-rose-50 to-fuchsia-50 p-8 shadow-lift dark:from-amber-950/30 dark:via-rose-950/30 dark:to-fuchsia-950/40">
+        <div className="absolute -right-16 -bottom-16 h-52 w-52 rounded-full bg-gradient-to-br from-amber-300/30 to-pink-300/30 blur-3xl" />
+        <div className="relative">
+          <div className="flex items-center gap-3">
+            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-amber-400 to-pink-500 text-xl text-white shadow-accent">🌱</span>
+            <h3 className="font-display text-2xl font-semibold text-primary">Kỹ năng cần cải thiện</h3>
+          </div>
+          <p className="mt-3 text-sm text-muted-foreground">Không hoàn hảo — nhưng luôn cố gắng tốt hơn mỗi ngày. Đây là những mảng mình đang tự trau dồi:</p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { icon: "⏰", t: "Quản lý thời gian", d: "Sắp xếp lịch học – deadline – dự án cá nhân sao cho cân bằng, tránh dồn việc phút chót.", level: 60 },
+              { icon: "💬", t: "Thuyết trình & giao tiếp", d: "Trình bày ý tưởng tự tin, mạch lạc trước lớp và trong các buổi làm việc nhóm.", level: 55 },
+              { icon: "🧠", t: "Tư duy phản biện sâu", d: "Phân tích đa chiều thay vì đồng ý ngay, đặc biệt khi đánh giá thông tin từ AI.", level: 65 },
+              { icon: "🧑‍💻", t: "Kỹ năng lập trình", d: "Học thêm HTML/CSS/JS và Python để tự chủ hơn khi làm sản phẩm số.", level: 45 },
+              { icon: "🌐", t: "Tiếng Anh chuyên ngành", d: "Đọc tài liệu, prompt và tra cứu tool công nghệ bằng tiếng Anh nhanh hơn.", level: 60 },
+              { icon: "🎨", t: "Thiết kế trực quan", d: "Nâng gu thẩm mỹ khi làm infographic, slide và nội dung số bằng Canva/Figma.", level: 70 },
+            ].map((s) => (
+              <div key={s.t} className="rounded-2xl border border-border/60 bg-card/70 p-5 backdrop-blur transition-all hover:-translate-y-1 hover:shadow-lift">
+                <div className="flex items-center gap-2 font-display text-base font-semibold text-primary">
+                  <span className="text-lg">{s.icon}</span>
+                  <span>{s.t}</span>
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+                <div className="mt-4">
+                  <div className="mb-1 flex items-center justify-between text-xs font-medium text-accent">
+                    <span>Mức hiện tại</span>
+                    <span>{s.level}%</span>
+                  </div>
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-pink-400 via-fuchsia-400 to-violet-500"
+                      style={{ width: `${s.level}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </Section>
   );
 }
