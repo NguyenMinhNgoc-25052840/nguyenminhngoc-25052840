@@ -254,12 +254,12 @@ const PRINCIPLES = [
 ];
 
 const EVIDENCES = [
-  { title: "Cấu trúc thư mục môn học", desc: "Sơ đồ thư mục 3 cấp có quy tắc đặt tên nhất quán.", tag: "Bài 01" },
-  { title: "Kết quả tìm kiếm học thuật", desc: "Ảnh chụp kết quả cho 7 toán tử tìm kiếm nâng cao.", tag: "Bài 02" },
-  { title: "So sánh Prompt trước & sau", desc: "Bảng 6 tiêu chí đối chiếu chất lượng phản hồi AI.", tag: "Bài 03" },
-  { title: "Bảng quản lý công việc nhóm", desc: "Kanban 4 trạng thái + phân công theo thành viên.", tag: "Bài 04" },
-  { title: "Sản phẩm nội dung AI", desc: "Video ngắn / infographic về vòng đời dữ liệu AI.", tag: "Bài 05" },
-  { title: "Bộ nguyên tắc dùng AI", desc: "7 nguyên tắc cá nhân + 5 rủi ro đạo đức AI.", tag: "Bài 06" },
+  { title: "Thao tác trên File Explorer", desc: "Ảnh minh chứng thư mục ThucHanh_NguyenMinhNgoc và các tệp GhiChu / DiChuyen.", tag: "Bài 01", img: ev1.url },
+  { title: "Bảng đánh giá 10 nguồn EVFTA", desc: "Danh mục tài liệu và bảng chấm sao độ tin cậy theo 7 tiêu chí.", tag: "Bài 02", img: ev2.url },
+  { title: "So sánh 3 mức Prompt", desc: "Bảng so sánh prompt cơ bản – cải tiến – nâng cao theo 5 tiêu chí.", tag: "Bài 03", img: ev3.url },
+  { title: "Google Drive & Zalo Nhóm 30", desc: "Ảnh Google Drive lưu tài liệu và nhóm Zalo trao đổi công việc.", tag: "Bài 04", img: ev4.url },
+  { title: "Infographic AI trong giáo dục", desc: "Bản thiết kế Canva AI về lợi ích và rủi ro của AI trong giáo dục.", tag: "Bài 05", img: ev5.url },
+  { title: "Bộ nguyên tắc dùng AI", desc: "7 nguyên tắc cá nhân + 5 rủi ro đạo đức AI (placeholder).", tag: "Bài 06", img: "" },
 ];
 
 const SKILLS = [
