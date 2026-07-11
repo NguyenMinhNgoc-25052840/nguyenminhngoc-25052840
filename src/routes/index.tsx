@@ -91,7 +91,7 @@ const NAV = [
   { id: "gioi-thieu", label: "Giới thiệu" },
   { id: "hanh-trinh", label: "Hành trình" },
   { id: "du-an", label: "Dự án" },
-  { id: "minh-chung", label: "Minh chứng" },
+  
   { id: "ky-nang", label: "Kỹ năng" },
   { id: "tong-ket", label: "Tổng kết" },
 ];
@@ -528,7 +528,7 @@ function PortfolioPage() {
         <About />
         <Journey />
         <Projects />
-        <Evidence />
+        
         <Skills />
         <Conclusion />
       </main>
@@ -600,7 +600,7 @@ function Hero() {
             {[
               { href: "#gioi-thieu", label: "Giới thiệu", primary: false },
               { href: "#du-an", label: "Dự án học tập", primary: true },
-              { href: "#minh-chung", label: "Minh chứng", primary: false },
+              
               { href: "#tong-ket", label: "Tổng kết", primary: false },
             ].map((b) => (
               <a
