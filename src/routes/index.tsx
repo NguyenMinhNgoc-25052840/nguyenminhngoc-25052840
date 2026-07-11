@@ -786,14 +786,15 @@ function SourceTable() {
 
 function PromptCompare() {
   return (
-    <Block title="So sánh Prompt ban đầu và Prompt cải tiến">
+    <Block title="So sánh 3 mức Prompt (cơ bản – cải tiến – nâng cao)">
       <div className="overflow-x-auto rounded-xl border border-border">
         <table className="w-full text-left text-xs">
           <thead className="bg-secondary text-primary">
             <tr>
               <th className="px-3 py-2 font-semibold">Tiêu chí</th>
-              <th className="px-3 py-2 font-semibold">Prompt ban đầu</th>
+              <th className="px-3 py-2 font-semibold">Prompt cơ bản</th>
               <th className="px-3 py-2 font-semibold">Prompt cải tiến</th>
+              <th className="px-3 py-2 font-semibold">Prompt nâng cao</th>
             </tr>
           </thead>
           <tbody>
@@ -802,13 +803,14 @@ function PromptCompare() {
                 <td className="px-3 py-2 font-medium text-primary">{r.k}</td>
                 <td className="px-3 py-2 text-muted-foreground">{r.a}</td>
                 <td className="px-3 py-2 text-foreground/85">{r.b}</td>
+                <td className="px-3 py-2 text-foreground/85">{r.c}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <p className="mt-3 text-xs text-muted-foreground">
-        <strong className="text-primary">Cơ chế:</strong> AI phản hồi dựa trên ngữ cảnh và độ cụ thể của yêu cầu; prompt càng rõ vai trò – bối cảnh – tiêu chí, mô hình càng giảm phỏng đoán và bám sát mục tiêu học tập.
+        <strong className="text-primary">Nhận xét:</strong> Prompt càng chi tiết, có vai trò và quy định định dạng đầu ra thì kết quả càng bám sát mục tiêu học tập và ít bị lan man.
       </p>
     </Block>
   );
