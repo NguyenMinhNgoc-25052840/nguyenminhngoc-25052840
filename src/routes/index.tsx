@@ -733,7 +733,7 @@ function About() {
     <Section
       id="gioi-thieu"
       eyebrow="Giới thiệu"
-      title={<>Xin chào, mình là <span className="italic text-accent">sinh viên số</span>.</>}
+      title="Giới Thiệu Bản Thân."
       intro="Portfolio là bức chân dung học tập của mình — nơi hệ thống hóa các bài tập, chứng minh năng lực dùng công cụ số và AI, và rèn luyện thói quen tự đánh giá."
     >
       <div className="grid gap-8 lg:grid-cols-[minmax(0,22rem)_1fr] lg:items-start">
