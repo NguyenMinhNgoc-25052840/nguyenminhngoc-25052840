@@ -8,6 +8,9 @@ import bai03_32 from "@/assets/evidence/bai03/img_32.jpg.asset.json";
 import bai03_33 from "@/assets/evidence/bai03/img_33.jpg.asset.json";
 import bai03_34 from "@/assets/evidence/bai03/img_34.jpg.asset.json";
 import ev4 from "@/assets/evidence/bai04.jpg.asset.json";
+import bai04_42 from "@/assets/evidence/bai04/img_42.png.asset.json";
+import bai04_43 from "@/assets/evidence/bai04/img_43.png.asset.json";
+import bai04_44 from "@/assets/evidence/bai04/img_44.png.asset.json";
 import ev5 from "@/assets/evidence/bai05.jpg.asset.json";
 import bai05_35 from "@/assets/evidence/bai05/img_35.jpg.asset.json";
 import bai05_36 from "@/assets/evidence/bai05/img_36.jpg.asset.json";
@@ -74,9 +77,9 @@ const GALLERIES: Record<string, { url: string; caption: string }[]> = {
     { url: bai03_31.url, caption: "Kết quả prompt nâng cao: tóm tắt 5 mục Bối cảnh – Phương pháp – Kết quả – Cơ hội – Khuyến nghị." },
   ],
   "04": [
-    { url: ev4.url, caption: "Google Drive — thư mục dự án Nhóm 30, lưu các phiên bản báo cáo." },
-    { url: ev4.url, caption: "Google Docs — Comment và Version History khi biên tập nội dung nhóm." },
-    { url: ev4.url, caption: "Zalo Nhóm 30 — trao đổi công việc và chốt hạn hoàn thành." },
+    { url: bai04_42.url, caption: "Messenger Nhóm 30 — bình chọn phân công công việc (video, nội dung, thuyết trình) và chốt deadline." },
+    { url: bai04_43.url, caption: "Google Drive — thư mục Nhóm 30 lưu các phiên bản báo cáo, tài liệu và slide dùng chung." },
+    { url: bai04_44.url, caption: "Google Docs — nội dung “Công nghệ số và AI” do các thành viên cùng biên tập trực tuyến." },
   ],
   "05": [
     { url: bai05_35.url, caption: "Bìa infographic Canva AI — “Lợi ích và rủi ro của AI trong giáo dục”." },
