@@ -526,8 +526,7 @@ const SKILLS: {
   icon: LucideIcon;
 }[] = [
   { s: "Quản lý tệp và dữ liệu số", level: 95, use: "Tổ chức toàn bộ tài liệu học tập, sao lưu đám mây.", color: "#7c3aed", icon: FolderOpen },
-  { s: "Tìm kiếm thông tin học thuật", level: 92, use: "Nghiên cứu, viết tiểu luận, chuẩn bị thuyết trình.", color: "#2563eb", icon: Search },
-  { s: "Đánh giá độ tin cậy của nguồn", level: 98, use: "Sàng lọc thông tin trước khi trích dẫn.", color: "#0d9488", icon: ShieldCheck },
+  { s: "Tìm kiếm và đánh giá thông tin học thuật", level: 95, use: "Nghiên cứu, viết tiểu luận và sàng lọc nguồn tin cậy trước khi trích dẫn.", color: "#0d9488", icon: ShieldCheck },
   { s: "Viết Prompt hiệu quả", level: 94, use: "Khai thác AI cho tóm tắt, dịch, phân tích.", color: "#f97316", icon: MessageSquare },
   { s: "Làm việc nhóm trực tuyến", level: 90, use: "Quản lý dự án nhóm bằng Trello / Notion.", color: "#ec4899", icon: Users },
   { s: "Sáng tạo nội dung số bằng AI", level: 96, use: "Sản xuất video, infographic, thuyết trình.", color: "#3b82f6", icon: Lightbulb },
