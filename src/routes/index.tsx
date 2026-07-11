@@ -1676,8 +1676,7 @@ function Footer() {
         <div className="text-sm">
           <div className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/60">Liên hệ</div>
           <ul className="mt-3 space-y-1.5 text-primary-foreground/85">
-            <li>Email: <span className="font-medium">your.email@example.com</span></li>
-            <li>Trường: <span className="font-medium">[Điền trường/lớp]</span></li>
+            <li>Email: <span className="font-medium">25052840@vnu.edu.vn</span></li>
           </ul>
         </div>
       </div>
