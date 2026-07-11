@@ -52,17 +52,6 @@ const PROJECTS: {
 }[] = [
   {
     n: "01",
-    title: "Thao tác cơ bản với tệp tin và thư mục",
-    goal: "Biết tạo thư mục, lưu trữ tài liệu khoa học, đặt tên tệp nhất quán và quản lý dữ liệu học tập lâu dài.",
-    steps: [
-      "Tạo thư mục gốc cho môn học Nhập môn CNS & AI.",
-      "Chia thành các nhóm: Bài tập, Tài liệu tham khảo, Hình ảnh minh chứng, Sản phẩm cuối kỳ.",
-      "Áp dụng quy tắc đặt tên: NMCNS_Bai01_QuanLyTep_2026_v1 để phân biệt phiên bản.",
-      "Đồng bộ song song trên máy cá nhân và Google Drive để sao lưu.",
-    ],
-    tools: ["File Explorer", "Google Drive", "OneDrive"],
-    evidence: "Ảnh chụp màn hình cấu trúc thư mục cây nhiều cấp và bảng quy tắc đặt tên tệp.",
-    n: "01",
     title: "Thao tác cơ bản với tệp tin và thư mục trên File Explorer",
     goal: "Thực hành đầy đủ các thao tác quản lý tệp — tạo, đổi tên, sao chép, di chuyển, xoá và khôi phục — trên Windows File Explorer.",
     steps: [
