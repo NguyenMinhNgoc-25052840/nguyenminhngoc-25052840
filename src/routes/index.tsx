@@ -174,6 +174,29 @@ const PROJECTS: {
     ],
     tags: ["3 mức prompt", "Role prompting", "Bảng so sánh 5 tiêu chí"],
     progress: 100,
+    strengths: [
+      "Thiết kế được 3 mức prompt tăng dần độ chi tiết, cho thấy sự tiến bộ rõ rệt.",
+      "Bảng so sánh 5 tiêu chí trực quan, có nhận xét cụ thể cho từng lần chạy.",
+      "Rút được 10 nguyên tắc viết prompt cá nhân — có thể tái sử dụng cho mọi bài sau.",
+    ],
+    improvements: [
+      "Cần thử nghiệm thêm với nhiều loại prompt khác (few-shot, chain-of-thought).",
+      "Chưa so sánh song song ChatGPT với các mô hình khác như Gemini, Claude.",
+    ],
+    highlights: [
+      "Prompt tốt = vai trò + bối cảnh + bước làm + định dạng đầu ra.",
+      "Càng rõ ràng và giới hạn cụ thể, AI càng bám sát mục tiêu.",
+      "Nói rõ điều AI không được làm cũng quan trọng như điều cần làm.",
+    ],
+    aiUsage: [
+      "Sử dụng ChatGPT làm đối tượng thử nghiệm chính; đính kèm PDF bài báo học thuật.",
+      "AI được dùng để tóm tắt, không dùng để viết bài phân tích hay đánh giá thay bản thân.",
+    ],
+    integrity: [
+      "Ảnh chụp 3 lần chạy prompt là thật, giữ nguyên trong cùng phiên hội thoại.",
+      "Bảng so sánh và 10 nguyên tắc do bản thân tự viết dựa trên quan sát kết quả.",
+      "Ghi rõ AI hỗ trợ ở khâu nào, tránh nhận là hoàn toàn của bản thân.",
+    ],
   },
   {
     n: "04",
