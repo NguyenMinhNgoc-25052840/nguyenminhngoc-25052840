@@ -940,6 +940,64 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
   );
 }
 
+function EvaluationBlock({ strengths, improvements, highlights }: { strengths: string[]; improvements: string[]; highlights: string[] }) {
+  const cols = [
+    { title: "Điểm tốt", icon: "✅", items: strengths, tone: "from-emerald-50 to-teal-50 border-emerald-300/50 text-emerald-700 dark:from-emerald-950/40 dark:to-teal-950/30 dark:text-emerald-300" },
+    { title: "Cần cải thiện", icon: "🛠️", items: improvements, tone: "from-amber-50 to-orange-50 border-amber-300/50 text-amber-700 dark:from-amber-950/40 dark:to-orange-950/30 dark:text-amber-300" },
+    { title: "Bài học rút ra", icon: "💡", items: highlights, tone: "from-sky-50 to-indigo-50 border-sky-300/50 text-sky-700 dark:from-sky-950/40 dark:to-indigo-950/30 dark:text-sky-300" },
+  ];
+  return (
+    <div className="mt-8">
+      <h4 className="mb-3 flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-accent">
+        <span>📊</span> Phân tích – Đánh giá
+      </h4>
+      <div className="grid gap-3 md:grid-cols-3">
+        {cols.map((c) => (
+          <div key={c.title} className={`rounded-2xl border bg-gradient-to-br p-4 ${c.tone}`}>
+            <div className="flex items-center gap-2 font-display text-sm font-semibold">
+              <span>{c.icon}</span>
+              <span>{c.title}</span>
+            </div>
+            <ul className="mt-2 space-y-1.5 text-xs text-foreground/85">
+              {c.items.map((it, i) => (
+                <li key={i} className="flex gap-1.5"><span>•</span><span>{it}</span></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function IntegrityBlock({ aiUsage, integrity }: { aiUsage: string[]; integrity: string[] }) {
+  return (
+    <div className="mt-6 rounded-2xl border border-violet-300/40 bg-gradient-to-br from-violet-50 via-fuchsia-50 to-pink-50 p-5 dark:from-violet-950/40 dark:via-fuchsia-950/30 dark:to-pink-950/40">
+      <h4 className="flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-accent">
+        <span>🤖</span> Liêm chính học thuật &amp; Sử dụng AI
+      </h4>
+      <div className="mt-3 grid gap-4 md:grid-cols-2">
+        <div>
+          <div className="text-xs font-semibold text-primary">Cách mình sử dụng AI</div>
+          <ul className="mt-1.5 space-y-1.5 text-xs text-foreground/85">
+            {aiUsage.map((a, i) => (
+              <li key={i} className="flex gap-1.5"><span className="text-accent">→</span><span>{a}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div className="text-xs font-semibold text-primary">Cam kết liêm chính</div>
+          <ul className="mt-1.5 space-y-1.5 text-xs text-foreground/85">
+            {integrity.map((a, i) => (
+              <li key={i} className="flex gap-1.5"><span className="text-accent">✓</span><span>{a}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function EvidenceBox({ note, tag, img }: { note: string; tag: string; img?: string }) {
   return (
     <div className="mt-8 overflow-hidden rounded-2xl border-2 border-dashed border-accent/35 bg-accent-soft/40">
