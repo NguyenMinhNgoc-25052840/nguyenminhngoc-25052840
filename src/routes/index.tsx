@@ -1720,7 +1720,7 @@ function Footer() {
       <div className="border-t border-primary-foreground/15">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-5 py-5 text-xs text-primary-foreground/60 md:px-8">
           <span>© 2026 Portfolio Kỹ thuật số cá nhân.</span>
-          <span>Made with intent · Human + AI collaboration</span>
+          <span></span>
         </div>
       </div>
     </footer>
