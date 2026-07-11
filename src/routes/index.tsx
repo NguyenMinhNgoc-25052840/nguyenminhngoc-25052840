@@ -1633,11 +1633,11 @@ function Conclusion() {
           </div>
         </div>
 
-        <div className="reveal rounded-3xl p-8 shadow-lift text-white" style={{ background: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))" }}>
-          <h3 className="flex items-center gap-2 font-display text-xl font-semibold">
+        <div className="reveal rounded-3xl p-8 shadow-lift text-black" style={{ background: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))" }}>
+          <h3 className="flex items-center gap-2 font-display text-xl font-semibold text-black">
             <span aria-hidden>♡</span> Điều em tự hào nhất
           </h3>
-          <div className="mt-4 space-y-3 text-sm leading-relaxed text-white/95">
+          <div className="mt-4 space-y-3 text-sm leading-relaxed text-black">
             <p>
               Điều làm em tự hào hơn cả chính là sự trưởng thành của bản thân sau một học kỳ. Từ một tân sinh viên còn khá lúng túng với công nghệ số, giờ đây em đã có thể tự tin dựng lên một website portfolio hoàn chỉnh và biết cách khai thác AI một cách hiệu quả, có trách nhiệm.
             </p>
