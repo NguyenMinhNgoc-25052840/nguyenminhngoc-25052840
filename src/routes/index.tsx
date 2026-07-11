@@ -647,8 +647,8 @@ function About() {
       title={<>Xin chào, mình là <span className="italic text-accent">sinh viên số</span>.</>}
       intro="Portfolio là bức chân dung học tập của mình — nơi hệ thống hóa các bài tập, chứng minh năng lực dùng công cụ số và AI, và rèn luyện thói quen tự đánh giá."
     >
-      <div className="mx-auto max-w-2xl">
-        <div className="reveal rounded-3xl border border-border bg-card p-8 shadow-lift">
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,22rem)_1fr] lg:items-start">
+        <div className="reveal rounded-3xl border border-border bg-card p-8 shadow-lift lg:sticky lg:top-28">
           <div className="mx-auto grid h-32 w-32 place-items-center rounded-full bg-gradient-brand font-display text-4xl text-primary-foreground shadow-lift">
             SV
           </div>
@@ -665,101 +665,101 @@ function About() {
             ))}
           </div>
         </div>
-      </div>
 
-
-      <div className="mt-12 grid gap-6 lg:grid-cols-2">
-        <div className="reveal relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-pink-50 via-rose-50 to-fuchsia-50 p-8 shadow-lift dark:from-fuchsia-950/40 dark:via-rose-950/30 dark:to-pink-950/40">
-          <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-pink-300/40 to-fuchsia-300/40 blur-2xl" />
-          <div className="relative">
-            <div className="flex items-center gap-3">
-              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-pink-400 to-fuchsia-500 text-xl text-white shadow-accent">🎯</span>
-              <h3 className="font-display text-2xl font-semibold text-primary">Mục tiêu học tập</h3>
-            </div>
-            <ul className="mt-5 space-y-3 text-sm text-primary/90">
-              {[
-                "Phát triển kỹ năng số để bắt kịp thời đại 4.0 và nhu cầu của thị trường lao động hiện đại.",
-                "Chủ động ứng dụng AI như ChatGPT vào việc học và nghiên cứu một cách có trách nhiệm.",
-                "Rèn luyện tư duy phản biện, khả năng đánh giá thông tin và giải quyết vấn đề sáng tạo.",
-                "Xây dựng thói quen học tập suốt đời và cập nhật kiến thức công nghệ liên tục.",
-                "Chinh phục mức Xuất sắc (8.1–10) trong môn Nhập môn Công nghệ số và Ứng dụng AI.",
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-0.5 shrink-0 text-base">💡</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="reveal relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-violet-50 via-sky-50 to-pink-50 p-8 shadow-lift dark:from-violet-950/40 dark:via-sky-950/30 dark:to-pink-950/40">
-          <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-gradient-to-br from-violet-300/40 to-sky-300/40 blur-2xl" />
-          <div className="relative">
-            <div className="flex items-center gap-3">
-              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-violet-400 to-sky-500 text-xl text-white shadow-accent">📖</span>
-              <h3 className="font-display text-2xl font-semibold text-primary">Mục tiêu Portfolio</h3>
-            </div>
-            <p className="mt-3 text-sm text-muted-foreground">Portfolio nhỏ xinh này được tạo ra để:</p>
-            <div className="mt-4 space-y-3">
-              {[
-                { icon: "🗂️", t: "Tổng hợp quá trình học tập", d: "Ghi lại trọn vẹn hành trình học qua từng bài tập và dự án của môn học." },
-                { icon: "💾", t: "Lưu trữ sản phẩm học tập", d: "Xây một kho gọn gàng chứa mọi minh chứng và sản phẩm đã hoàn thành." },
-                { icon: "📈", t: "Thể hiện sự tiến bộ", d: "Cho thấy rõ mình đã trưởng thành và tiến bộ ra sao qua từng bài học." },
-              ].map((it) => (
-                <div key={it.t} className="rounded-2xl border border-border/60 bg-card/70 p-4 backdrop-blur">
-                  <div className="flex items-center gap-2 font-display text-base font-semibold text-accent">
-                    <span>{it.icon}</span>
-                    <span>{it.t}</span>
-                  </div>
-                  <p className="mt-1 text-sm text-muted-foreground">{it.d}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="reveal mt-8 relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-amber-50 via-rose-50 to-fuchsia-50 p-8 shadow-lift dark:from-amber-950/30 dark:via-rose-950/30 dark:to-fuchsia-950/40">
-        <div className="absolute -right-16 -bottom-16 h-52 w-52 rounded-full bg-gradient-to-br from-amber-300/30 to-pink-300/30 blur-3xl" />
-        <div className="relative">
-          <div className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-amber-400 to-pink-500 text-xl text-white shadow-accent">🌱</span>
-            <h3 className="font-display text-2xl font-semibold text-primary">Kỹ năng cần cải thiện</h3>
-          </div>
-          <p className="mt-3 text-sm text-muted-foreground">Không hoàn hảo — nhưng luôn cố gắng tốt hơn mỗi ngày. Đây là những mảng mình đang tự trau dồi:</p>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { icon: "⏰", t: "Quản lý thời gian", d: "Sắp xếp lịch học – deadline – dự án cá nhân sao cho cân bằng, tránh dồn việc phút chót.", level: 60 },
-              { icon: "💬", t: "Thuyết trình & giao tiếp", d: "Trình bày ý tưởng tự tin, mạch lạc trước lớp và trong các buổi làm việc nhóm.", level: 55 },
-              { icon: "🧠", t: "Tư duy phản biện sâu", d: "Phân tích đa chiều thay vì đồng ý ngay, đặc biệt khi đánh giá thông tin từ AI.", level: 65 },
-              { icon: "🧑‍💻", t: "Kỹ năng lập trình", d: "Học thêm HTML/CSS/JS và Python để tự chủ hơn khi làm sản phẩm số.", level: 45 },
-              { icon: "🌐", t: "Tiếng Anh chuyên ngành", d: "Đọc tài liệu, prompt và tra cứu tool công nghệ bằng tiếng Anh nhanh hơn.", level: 60 },
-              { icon: "🎨", t: "Thiết kế trực quan", d: "Nâng gu thẩm mỹ khi làm infographic, slide và nội dung số bằng Canva/Figma.", level: 70 },
-            ].map((s) => (
-              <div key={s.t} className="rounded-2xl border border-border/60 bg-card/70 p-5 backdrop-blur transition-all hover:-translate-y-1 hover:shadow-lift">
-                <div className="flex items-center gap-2 font-display text-base font-semibold text-primary">
-                  <span className="text-lg">{s.icon}</span>
-                  <span>{s.t}</span>
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-                <div className="mt-4">
-                  <div className="mb-1 flex items-center justify-between text-xs font-medium text-accent">
-                    <span>Mức hiện tại</span>
-                    <span>{s.level}%</span>
-                  </div>
-                  <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
-                    <div
-                      className="h-full rounded-full bg-gradient-to-r from-pink-400 via-fuchsia-400 to-violet-500"
-                      style={{ width: `${s.level}%` }}
-                    />
-                  </div>
-                </div>
+        <div className="space-y-6">
+          <div className="reveal relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-pink-50 via-rose-50 to-fuchsia-50 p-8 shadow-lift dark:from-fuchsia-950/40 dark:via-rose-950/30 dark:to-pink-950/40">
+            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-pink-300/40 to-fuchsia-300/40 blur-2xl" />
+            <div className="relative">
+              <div className="flex items-center gap-3">
+                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-pink-400 to-fuchsia-500 text-xl text-white shadow-accent">🎯</span>
+                <h3 className="font-display text-2xl font-semibold text-primary">Mục tiêu học tập</h3>
               </div>
-            ))}
+              <ul className="mt-5 space-y-3 text-sm text-primary/90">
+                {[
+                  "Phát triển kỹ năng số để bắt kịp thời đại 4.0 và nhu cầu của thị trường lao động hiện đại.",
+                  "Chủ động ứng dụng AI như ChatGPT vào việc học và nghiên cứu một cách có trách nhiệm.",
+                  "Rèn luyện tư duy phản biện, khả năng đánh giá thông tin và giải quyết vấn đề sáng tạo.",
+                  "Xây dựng thói quen học tập suốt đời và cập nhật kiến thức công nghệ liên tục.",
+                  "Chinh phục mức Xuất sắc (8.1–10) trong môn Nhập môn Công nghệ số và Ứng dụng AI.",
+                ].map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-0.5 shrink-0 text-base">💡</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="reveal relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-violet-50 via-sky-50 to-pink-50 p-8 shadow-lift dark:from-violet-950/40 dark:via-sky-950/30 dark:to-pink-950/40">
+            <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-gradient-to-br from-violet-300/40 to-sky-300/40 blur-2xl" />
+            <div className="relative">
+              <div className="flex items-center gap-3">
+                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-violet-400 to-sky-500 text-xl text-white shadow-accent">📖</span>
+                <h3 className="font-display text-2xl font-semibold text-primary">Mục tiêu Portfolio</h3>
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">Portfolio nhỏ xinh này được tạo ra để:</p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {[
+                  { icon: "🗂️", t: "Tổng hợp quá trình học tập", d: "Ghi lại trọn vẹn hành trình học qua từng bài tập và dự án của môn học." },
+                  { icon: "💾", t: "Lưu trữ sản phẩm học tập", d: "Xây một kho gọn gàng chứa mọi minh chứng và sản phẩm đã hoàn thành." },
+                  { icon: "📈", t: "Thể hiện sự tiến bộ", d: "Cho thấy rõ mình đã trưởng thành và tiến bộ ra sao qua từng bài học." },
+                ].map((it) => (
+                  <div key={it.t} className="rounded-2xl border border-border/60 bg-card/70 p-4 backdrop-blur">
+                    <div className="flex items-center gap-2 font-display text-sm font-semibold text-accent">
+                      <span>{it.icon}</span>
+                      <span>{it.t}</span>
+                    </div>
+                    <p className="mt-1 text-xs text-muted-foreground">{it.d}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="reveal relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-amber-50 via-rose-50 to-fuchsia-50 p-8 shadow-lift dark:from-amber-950/30 dark:via-rose-950/30 dark:to-fuchsia-950/40">
+            <div className="absolute -right-16 -bottom-16 h-52 w-52 rounded-full bg-gradient-to-br from-amber-300/30 to-pink-300/30 blur-3xl" />
+            <div className="relative">
+              <div className="flex items-center gap-3">
+                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-amber-400 to-pink-500 text-xl text-white shadow-accent">🌱</span>
+                <h3 className="font-display text-2xl font-semibold text-primary">Kỹ năng cần cải thiện</h3>
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">Không hoàn hảo — nhưng luôn cố gắng tốt hơn mỗi ngày. Đây là những mảng mình đang tự trau dồi:</p>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                {[
+                  { icon: "⏰", t: "Quản lý thời gian", d: "Sắp xếp lịch học – deadline – dự án cá nhân sao cho cân bằng, tránh dồn việc phút chót.", level: 60 },
+                  { icon: "💬", t: "Thuyết trình & giao tiếp", d: "Trình bày ý tưởng tự tin, mạch lạc trước lớp và trong các buổi làm việc nhóm.", level: 55 },
+                  { icon: "🧠", t: "Tư duy phản biện sâu", d: "Phân tích đa chiều thay vì đồng ý ngay, đặc biệt khi đánh giá thông tin từ AI.", level: 65 },
+                  { icon: "🧑‍💻", t: "Kỹ năng lập trình", d: "Học thêm HTML/CSS/JS và Python để tự chủ hơn khi làm sản phẩm số.", level: 45 },
+                  { icon: "🌐", t: "Tiếng Anh chuyên ngành", d: "Đọc tài liệu, prompt và tra cứu tool công nghệ bằng tiếng Anh nhanh hơn.", level: 60 },
+                  { icon: "🎨", t: "Thiết kế trực quan", d: "Nâng gu thẩm mỹ khi làm infographic, slide và nội dung số bằng Canva/Figma.", level: 70 },
+                ].map((s) => (
+                  <div key={s.t} className="rounded-2xl border border-border/60 bg-card/70 p-5 backdrop-blur transition-all hover:-translate-y-1 hover:shadow-lift">
+                    <div className="flex items-center gap-2 font-display text-base font-semibold text-primary">
+                      <span className="text-lg">{s.icon}</span>
+                      <span>{s.t}</span>
+                    </div>
+                    <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+                    <div className="mt-4">
+                      <div className="mb-1 flex items-center justify-between text-xs font-medium text-accent">
+                        <span>Mức hiện tại</span>
+                        <span>{s.level}%</span>
+                      </div>
+                      <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
+                        <div
+                          className="h-full rounded-full bg-gradient-to-r from-pink-400 via-fuchsia-400 to-violet-500"
+                          style={{ width: `${s.level}%` }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
     </Section>
   );
 }
