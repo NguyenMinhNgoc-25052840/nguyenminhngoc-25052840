@@ -9,6 +9,9 @@ import bai03_33 from "@/assets/evidence/bai03/img_33.jpg.asset.json";
 import bai03_34 from "@/assets/evidence/bai03/img_34.jpg.asset.json";
 import ev4 from "@/assets/evidence/bai04.jpg.asset.json";
 import ev5 from "@/assets/evidence/bai05.jpg.asset.json";
+import bai05_35 from "@/assets/evidence/bai05/img_35.jpg.asset.json";
+import bai05_36 from "@/assets/evidence/bai05/img_36.jpg.asset.json";
+import bai05_37 from "@/assets/evidence/bai05/img_37.jpg.asset.json";
 import bai01_16 from "@/assets/evidence/bai01/img_16.jpg.asset.json";
 import bai01_17 from "@/assets/evidence/bai01/img_17.jpg.asset.json";
 import bai01_18 from "@/assets/evidence/bai01/img_18.jpg.asset.json";
@@ -58,9 +61,9 @@ const GALLERIES: Record<string, { url: string; caption: string }[]> = {
     { url: ev4.url, caption: "Zalo Nhóm 30 — trao đổi công việc và chốt hạn hoàn thành." },
   ],
   "05": [
-    { url: ev5.url, caption: "Kịch bản do bản thân xây dựng và tinh chỉnh bằng ChatGPT." },
-    { url: ev5.url, caption: "Ảnh minh hoạ sinh bằng AI, biên tập lại bố cục và màu sắc." },
-    { url: ev5.url, caption: "Sản phẩm cuối cùng sau khi kết hợp AI và biên tập cá nhân." },
+    { url: bai05_35.url, caption: "Bìa infographic Canva AI — “Lợi ích và rủi ro của AI trong giáo dục”." },
+    { url: bai05_36.url, caption: "Nội dung 5 nhóm lợi ích của AI trong giáo dục do AI đề xuất và tinh chỉnh." },
+    { url: bai05_37.url, caption: "Bản hoàn thiện sau khi biên tập bố cục, kiểm tra thông tin và chỉnh sửa cá nhân." },
   ],
   "06": [],
 };
