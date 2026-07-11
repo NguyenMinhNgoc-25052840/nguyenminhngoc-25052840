@@ -537,6 +537,58 @@ function About() {
           ))}
         </div>
       </div>
+
+      <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="reveal relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-pink-50 via-rose-50 to-fuchsia-50 p-8 shadow-lift dark:from-fuchsia-950/40 dark:via-rose-950/30 dark:to-pink-950/40">
+          <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-pink-300/40 to-fuchsia-300/40 blur-2xl" />
+          <div className="relative">
+            <div className="flex items-center gap-3">
+              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-pink-400 to-fuchsia-500 text-xl text-white shadow-accent">🎯</span>
+              <h3 className="font-display text-2xl font-semibold text-primary">Mục tiêu học tập</h3>
+            </div>
+            <ul className="mt-5 space-y-3 text-sm text-primary/90">
+              {[
+                "Phát triển kỹ năng số để bắt kịp thời đại 4.0 và nhu cầu của thị trường lao động hiện đại.",
+                "Chủ động ứng dụng AI như ChatGPT vào việc học và nghiên cứu một cách có trách nhiệm.",
+                "Rèn luyện tư duy phản biện, khả năng đánh giá thông tin và giải quyết vấn đề sáng tạo.",
+                "Xây dựng thói quen học tập suốt đời và cập nhật kiến thức công nghệ liên tục.",
+                "Chinh phục mức Xuất sắc (8.1–10) trong môn Nhập môn Công nghệ số và Ứng dụng AI.",
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-0.5 shrink-0 text-base">💡</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="reveal relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-violet-50 via-sky-50 to-pink-50 p-8 shadow-lift dark:from-violet-950/40 dark:via-sky-950/30 dark:to-pink-950/40">
+          <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-gradient-to-br from-violet-300/40 to-sky-300/40 blur-2xl" />
+          <div className="relative">
+            <div className="flex items-center gap-3">
+              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-violet-400 to-sky-500 text-xl text-white shadow-accent">📖</span>
+              <h3 className="font-display text-2xl font-semibold text-primary">Mục tiêu Portfolio</h3>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">Portfolio nhỏ xinh này được tạo ra để:</p>
+            <div className="mt-4 space-y-3">
+              {[
+                { icon: "🗂️", t: "Tổng hợp quá trình học tập", d: "Ghi lại trọn vẹn hành trình học qua từng bài tập và dự án của môn học." },
+                { icon: "💾", t: "Lưu trữ sản phẩm học tập", d: "Xây một kho gọn gàng chứa mọi minh chứng và sản phẩm đã hoàn thành." },
+                { icon: "📈", t: "Thể hiện sự tiến bộ", d: "Cho thấy rõ mình đã trưởng thành và tiến bộ ra sao qua từng bài học." },
+              ].map((it) => (
+                <div key={it.t} className="rounded-2xl border border-border/60 bg-card/70 p-4 backdrop-blur">
+                  <div className="flex items-center gap-2 font-display text-base font-semibold text-accent">
+                    <span>{it.icon}</span>
+                    <span>{it.t}</span>
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground">{it.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </Section>
   );
 }
