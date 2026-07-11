@@ -268,6 +268,30 @@ const PROJECTS: {
     ],
     tags: ["ChatGPT", "Gemini", "Canva AI", "Infographic"],
     progress: 100,
+    strengths: [
+      "Phối hợp linh hoạt 3 công cụ AI, mỗi công cụ đảm nhận đúng thế mạnh của nó.",
+      "Sản phẩm cuối là một infographic hoàn chỉnh, có tính thẩm mỹ và giá trị chia sẻ.",
+      "Tự biên tập lại nội dung do AI đề xuất, không dùng nguyên bản máy sinh.",
+    ],
+    improvements: [
+      "Có thể thử thêm phong cách thiết kế khác (tối màu, minimal) để đa dạng hoá.",
+      "Cần bổ sung nguồn tham khảo cụ thể cho các số liệu để tăng tính học thuật.",
+    ],
+    highlights: [
+      "AI là trợ lý sáng tạo, không phải người sáng tạo — quyết định cuối vẫn là của mình.",
+      "Kết hợp nhiều AI cho kết quả tốt hơn hẳn dùng một công cụ duy nhất.",
+      "Thiết kế trực quan giúp thông điệp đi xa hơn nội dung thuần văn bản.",
+    ],
+    aiUsage: [
+      "ChatGPT: viết nội dung khung, gợi ý cấu trúc infographic.",
+      "Gemini: rút gọn ý, biến câu dài thành bullet ngắn.",
+      "Canva AI: gợi ý bố cục, phối màu, chọn biểu tượng minh hoạ.",
+    ],
+    integrity: [
+      "Khai báo rõ AI đã hỗ trợ ở khâu nào (nội dung / rút gọn / thiết kế).",
+      "Tự kiểm chứng các thông tin AI đưa ra trước khi đưa vào infographic.",
+      "Tôn trọng bản quyền: chỉ dùng biểu tượng, hình ảnh miễn phí từ Canva.",
+    ],
   },
   {
     n: "06",
