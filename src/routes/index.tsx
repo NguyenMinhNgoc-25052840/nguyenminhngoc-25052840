@@ -77,9 +77,9 @@ const GALLERIES: Record<string, { url: string; caption: string }[]> = {
     { url: bai03_31.url, caption: "Kết quả prompt nâng cao: tóm tắt 5 mục Bối cảnh – Phương pháp – Kết quả – Cơ hội – Khuyến nghị." },
   ],
   "04": [
-    { url: ev4.url, caption: "Google Drive — thư mục dự án Nhóm 30, lưu các phiên bản báo cáo." },
-    { url: ev4.url, caption: "Google Docs — Comment và Version History khi biên tập nội dung nhóm." },
-    { url: ev4.url, caption: "Zalo Nhóm 30 — trao đổi công việc và chốt hạn hoàn thành." },
+    { url: bai04_42.url, caption: "Messenger Nhóm 30 — bình chọn phân công công việc (video, nội dung, thuyết trình) và chốt deadline." },
+    { url: bai04_43.url, caption: "Google Drive — thư mục Nhóm 30 lưu các phiên bản báo cáo, tài liệu và slide dùng chung." },
+    { url: bai04_44.url, caption: "Google Docs — nội dung “Công nghệ số và AI” do các thành viên cùng biên tập trực tuyến." },
   ],
   "05": [
     { url: bai05_35.url, caption: "Bìa infographic Canva AI — “Lợi ích và rủi ro của AI trong giáo dục”." },
