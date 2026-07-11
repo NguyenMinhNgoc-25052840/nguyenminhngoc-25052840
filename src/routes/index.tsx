@@ -1,5 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import ev1 from "@/assets/evidence/bai01.jpg.asset.json";
+import ev2 from "@/assets/evidence/bai02.jpg.asset.json";
+import ev3 from "@/assets/evidence/bai03.jpg.asset.json";
+import ev4 from "@/assets/evidence/bai04.jpg.asset.json";
+import ev5 from "@/assets/evidence/bai05.jpg.asset.json";
+
+const EVIDENCE_IMG: Record<string, string> = {
+  "01": ev1.url,
+  "02": ev2.url,
+  "03": ev3.url,
+  "04": ev4.url,
+  "05": ev5.url,
+};
 
 export const Route = createFileRoute("/")({
   component: PortfolioPage,
