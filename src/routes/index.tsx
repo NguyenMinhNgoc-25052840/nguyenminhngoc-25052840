@@ -1654,7 +1654,7 @@ function Skills() {
       id="ky-nang"
       eyebrow="Kỹ năng đạt được"
       title={<>Bức tranh <span className="italic text-accent">năng lực số</span> sau môn học</>}
-      intro="Biểu đồ đánh giá 7 kỹ năng cốt lõi trên thang 60 – 100, giúp so sánh rõ điểm mạnh và vùng cần cải thiện."
+      intro="Biểu đồ đánh giá 6 kỹ năng cốt lõi trên thang 60 – 100, giúp so sánh rõ điểm mạnh và vùng cần cải thiện."
     >
       <div className="reveal overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-slate-50 via-white to-indigo-50/60 p-6 shadow-lift md:p-10 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950/40">
         {/* Header */}
@@ -1672,7 +1672,7 @@ function Skills() {
           </div>
           <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
             <span className="h-px w-8 bg-muted-foreground/40" />
-            7 kỹ năng cốt lõi
+            6 kỹ năng cốt lõi
             <span className="h-px w-8 bg-muted-foreground/40" />
           </div>
         </div>
