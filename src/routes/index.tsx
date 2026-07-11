@@ -890,15 +890,15 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[number]; index: number
       id={`du-an-${p.n}`}
       className="reveal scroll-mt-24 overflow-hidden rounded-3xl border border-border bg-card shadow-lift"
     >
-      <div className={`grid gap-0 md:grid-cols-[1fr_1.35fr] ${isEven ? "" : "md:[&>*:first-child]:order-2"}`}>
-        <div className="relative bg-gradient-brand p-8 text-primary-foreground md:p-10">
+      <div className={`grid gap-0 md:grid-cols-[0.75fr_1.7fr] ${isEven ? "" : "md:[&>*:first-child]:order-2"}`}>
+        <div className="relative bg-gradient-brand p-6 text-primary-foreground md:p-7">
           <div className="flex items-start justify-between">
             <span className="rounded-full bg-primary-foreground/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur">
               Bài {p.n}
             </span>
-            <span className="font-display text-6xl font-semibold opacity-30 md:text-8xl">{p.n}</span>
+            <span className="font-display text-5xl font-semibold opacity-30 md:text-6xl">{p.n}</span>
           </div>
-          <h3 className="mt-6 font-display text-2xl leading-tight md:text-3xl">{p.title}</h3>
+          <h3 className="mt-5 font-display text-xl leading-tight md:text-2xl">{p.title}</h3>
           <p className="mt-4 text-sm text-primary-foreground/85 md:text-base">{p.goal}</p>
 
           <div className="mt-8 flex flex-wrap gap-2">
