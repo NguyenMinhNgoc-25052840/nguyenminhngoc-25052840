@@ -600,7 +600,7 @@ function Hero() {
             {[
               { href: "#gioi-thieu", label: "Giới thiệu", primary: false },
               { href: "#du-an", label: "Dự án học tập", primary: true },
-              { href: "#minh-chung", label: "Minh chứng", primary: false },
+              
               { href: "#tong-ket", label: "Tổng kết", primary: false },
             ].map((b) => (
               <a
