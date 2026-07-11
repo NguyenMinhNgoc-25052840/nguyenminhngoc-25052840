@@ -720,9 +720,10 @@ function About() {
             SV
           </div>
           <div className="mt-6 space-y-3 text-sm">
-            <Row k="Họ và tên" v="\n" />
-            <Row k="Ngành học" v="\n" />
-            <Row k="Trường / Lớp" v="\n" />
+            <Row k="Họ và tên" v="Nguyễn Minh Ngọc" />
+            <Row k="MSV" v="25052840" />
+            <Row k="Email" v="25052840@vnu.edu.vn" />
+
             <Row k="Môn học" v="Nhập môn CNS & AI" />
             <Row k="Năm học" v="2025 – 2026" />
           </div>
