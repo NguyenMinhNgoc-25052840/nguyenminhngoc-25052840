@@ -91,7 +91,7 @@ const NAV = [
   { id: "gioi-thieu", label: "Giới thiệu" },
   { id: "hanh-trinh", label: "Hành trình" },
   { id: "du-an", label: "Dự án" },
-  { id: "minh-chung", label: "Minh chứng" },
+  
   { id: "ky-nang", label: "Kỹ năng" },
   { id: "tong-ket", label: "Tổng kết" },
 ];
