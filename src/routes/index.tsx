@@ -14,6 +14,10 @@ import bai01_21 from "@/assets/evidence/bai01/img_21.jpg.asset.json";
 import bai01_22 from "@/assets/evidence/bai01/img_22.jpg.asset.json";
 import bai01_23 from "@/assets/evidence/bai01/img_23.jpg.asset.json";
 import bai01_24 from "@/assets/evidence/bai01/img_24.jpg.asset.json";
+import bai01_27 from "@/assets/evidence/bai01/img_27.jpg.asset.json";
+import bai01_28 from "@/assets/evidence/bai01/img_28.jpg.asset.json";
+import bai01_29 from "@/assets/evidence/bai01/img_29.jpg.asset.json";
+import bai01_30 from "@/assets/evidence/bai01/img_30.jpg.asset.json";
 
 const BAI01_GALLERY = [
   { url: bai01_21.url, caption: "Mở File Explorer và truy cập This PC." },
@@ -25,7 +29,12 @@ const BAI01_GALLERY = [
   { url: bai01_17.url, caption: "Xoá vĩnh viễn tệp bằng Shift + Delete kèm hộp xác nhận." },
   { url: bai01_20.url, caption: "Recycle Bin — nơi khôi phục tệp lỡ xoá." },
   { url: bai01_19.url, caption: "Recycle Bin trên Desktop — mở để Restore khi cần." },
+  { url: bai01_28.url, caption: "Thư mục ThucHanh_NguyenMinhNgoc chứa TaiLieu và GhiChuQuanTrong.txt." },
+  { url: bai01_29.url, caption: "Menu chuột phải trong thư mục TaiLieu để tạo tệp mới." },
+  { url: bai01_30.url, caption: "TaiLieu sau khi thêm DiChuyen.txt và GhiChuQuanTrong.txt." },
+  { url: bai01_27.url, caption: "Hộp thoại xác nhận xoá vĩnh viễn DiChuyen.txt." },
 ];
+
 
 const GALLERIES: Record<string, { url: string; caption: string }[]> = {
   "01": BAI01_GALLERY,
