@@ -462,8 +462,8 @@ const TEAM_TASKS = [
   { m: "Cá nhân — soạn thảo", t: "Biên soạn nội dung được phân công trên Google Docs", due: "Trong tuần", status: "Hoàn thành", note: "Theo dõi qua Version History" },
   { m: "Cá nhân — biên tập", t: "Chỉnh sửa chính tả, ngữ pháp và định dạng báo cáo", due: "Sau mỗi lần góp ý", status: "Hoàn thành", note: "Tiếp nhận qua tính năng Comment" },
   { m: "Cá nhân — lưu trữ", t: "Tải phiên bản mới lên Google Drive, sắp xếp thư mục", due: "Sau mỗi lần chỉnh sửa", status: "Hoàn thành", note: "Chia sẻ quyền cho cả nhóm" },
-  { m: "Cả nhóm — thảo luận", t: "Thống nhất bố cục, hạn nộp và phân công qua Zalo", due: "Hằng ngày", status: "Đang làm", note: "Nhóm 30 — Nhập môn CNS & AI" },
-  { m: "Nhóm trưởng", t: "Tổng hợp bản cuối và nộp bài", due: "Ngày nộp", status: "Chưa làm", note: "Phụ thuộc phiên bản mới nhất trên Drive" },
+  { m: "Cả nhóm — thảo luận", t: "Thống nhất bố cục, hạn nộp và phân công qua Zalo", due: "Hằng ngày", status: "Hoàn thành", note: "Nhóm 30 — Nhập môn CNS & AI" },
+  { m: "Nhóm trưởng", t: "Tổng hợp bản cuối và nộp bài", due: "Ngày nộp", status: "Hoàn thành", note: "Phụ thuộc phiên bản mới nhất trên Drive" },
 ];
 
 
