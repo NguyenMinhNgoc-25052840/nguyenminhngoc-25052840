@@ -1127,25 +1127,25 @@ function EvidenceBox({
       </div>
 
       {hasGallery && (
-        <div className="mt-5 grid gap-5 px-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-5 grid grid-cols-2 gap-3 px-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {gallery!.map((g, i) => (
             <figure
               key={i}
-              className="group overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+              className="group overflow-hidden rounded-xl border border-border/70 bg-card shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
+              <div className="relative aspect-square overflow-hidden bg-slate-900">
                 <img
                   src={g.url}
                   alt={g.caption ?? `Minh chứng ${tag} - ${i + 1}`}
                   loading="lazy"
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                 />
-                <span className="absolute left-3 top-3 rounded-full bg-background/90 px-2 py-0.5 text-[10px] font-semibold text-accent shadow">
+                <span className="absolute left-1.5 top-1.5 rounded-full bg-background/90 px-1.5 py-0.5 text-[9px] font-semibold text-accent shadow">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
               {g.caption && (
-                <figcaption className="px-4 py-3 text-sm leading-relaxed text-foreground/85">
+                <figcaption className="px-2 py-1.5 text-[11px] leading-snug text-foreground/80 line-clamp-2">
                   {g.caption}
                 </figcaption>
               )}
