@@ -1025,16 +1025,19 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[number]; index: number
             </ul>
           </Block>
 
-          {p.n === "02" && <SearchOperators />}
-          {p.n === "02" && <SourceTable />}
-          {p.n === "03" && <PromptCompare />}
-          {p.n === "04" && <TeamTable />}
-          {p.n === "05" && <AIWorkflow />}
-          {p.n === "06" && <ResponsibleAI />}
-
-          <EvaluationBlock strengths={p.strengths} improvements={p.improvements} highlights={p.highlights} />
-          <IntegrityBlock aiUsage={p.aiUsage} integrity={p.integrity} />
         </div>
+      </div>
+
+      <div className="border-t border-border bg-card px-6 py-8 md:px-10">
+        {p.n === "02" && <SearchOperators />}
+        {p.n === "02" && <SourceTable />}
+        {p.n === "03" && <PromptCompare />}
+        {p.n === "04" && <TeamTable />}
+        {p.n === "05" && <AIWorkflow />}
+        {p.n === "06" && <ResponsibleAI />}
+
+        <EvaluationBlock strengths={p.strengths} improvements={p.improvements} highlights={p.highlights} />
+        <IntegrityBlock aiUsage={p.aiUsage} integrity={p.integrity} />
       </div>
 
       <div className="border-t border-border bg-card px-6 pb-8 pt-2 md:px-10">
