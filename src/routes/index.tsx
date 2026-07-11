@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import ev1 from "@/assets/evidence/bai01.jpg.asset.json";
 import ev2 from "@/assets/evidence/bai02.jpg.asset.json";
 import ev3 from "@/assets/evidence/bai03.jpg.asset.json";
+import bai03_31 from "@/assets/evidence/bai03/img_31.jpg.asset.json";
+import bai03_32 from "@/assets/evidence/bai03/img_32.jpg.asset.json";
+import bai03_33 from "@/assets/evidence/bai03/img_33.jpg.asset.json";
+import bai03_34 from "@/assets/evidence/bai03/img_34.jpg.asset.json";
 import ev4 from "@/assets/evidence/bai04.jpg.asset.json";
 import ev5 from "@/assets/evidence/bai05.jpg.asset.json";
 import bai01_16 from "@/assets/evidence/bai01/img_16.jpg.asset.json";
@@ -43,9 +47,10 @@ const GALLERIES: Record<string, { url: string; caption: string }[]> = {
     { url: ev2.url, caption: "Bảng đánh giá độ tin cậy theo 5 tiêu chí: tác giả, cơ quan, phương pháp, trích dẫn, cập nhật." },
   ],
   "03": [
-    { url: ev3.url, caption: "Prompt cơ bản: “Tóm tắt bài báo này.” — kết quả ngắn, thiếu chiều sâu." },
-    { url: ev3.url, caption: "Prompt cải tiến: chia phần, giới hạn 400 từ, nêu mục tiêu – cơ hội – thách thức." },
-    { url: ev3.url, caption: "Prompt nâng cao: gán vai trò chuyên gia + mô tả bước thực hiện, kết quả bám sát nhất." },
+    { url: bai03_34.url, caption: "Prompt cơ bản: “hãy tóm tắt tài liệu này cho tôi” gửi kèm PDF journal.pone.0294456." },
+    { url: bai03_33.url, caption: "Kết quả prompt cơ bản — tóm tắt ngắn gọn, thiếu cấu trúc và chiều sâu." },
+    { url: bai03_32.url, caption: "Prompt cải tiến: yêu cầu tiếng Việt, ~400 từ, chia mục rõ ràng, bám sát nội dung." },
+    { url: bai03_31.url, caption: "Kết quả prompt nâng cao: tóm tắt 5 mục Bối cảnh – Phương pháp – Kết quả – Cơ hội – Khuyến nghị." },
   ],
   "04": [
     { url: ev4.url, caption: "Google Drive — thư mục dự án Nhóm 30, lưu các phiên bản báo cáo." },
