@@ -49,6 +49,11 @@ const PROJECTS: {
   lesson: string[];
   tags: string[];
   progress: number;
+  strengths: string[];
+  improvements: string[];
+  highlights: string[];
+  aiUsage: string[];
+  integrity: string[];
 }[] = [
   {
     n: "01",
