@@ -346,7 +346,7 @@ function Nav({ scrolled }: { scrolled: boolean }) {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         <a href="#top" className="flex items-center gap-3">
           <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-brand font-display text-primary-foreground shadow-soft">P</span>
-          <span className="hidden font-display text-lg font-semibold sm:block">Portfolio Số</span>
+          <span className="hidden font-display text-lg font-semibold sm:block">Digital Portfolio</span>
         </a>
         <nav className="hidden items-center gap-1 md:flex">
           {NAV.map((n) => (
