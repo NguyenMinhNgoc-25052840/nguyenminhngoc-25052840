@@ -5,6 +5,28 @@ import ev2 from "@/assets/evidence/bai02.jpg.asset.json";
 import ev3 from "@/assets/evidence/bai03.jpg.asset.json";
 import ev4 from "@/assets/evidence/bai04.jpg.asset.json";
 import ev5 from "@/assets/evidence/bai05.jpg.asset.json";
+import bai01_16 from "@/assets/evidence/bai01/img_16.jpg.asset.json";
+import bai01_17 from "@/assets/evidence/bai01/img_17.jpg.asset.json";
+import bai01_18 from "@/assets/evidence/bai01/img_18.jpg.asset.json";
+import bai01_19 from "@/assets/evidence/bai01/img_19.jpg.asset.json";
+import bai01_20 from "@/assets/evidence/bai01/img_20.jpg.asset.json";
+import bai01_21 from "@/assets/evidence/bai01/img_21.jpg.asset.json";
+import bai01_22 from "@/assets/evidence/bai01/img_22.jpg.asset.json";
+import bai01_23 from "@/assets/evidence/bai01/img_23.jpg.asset.json";
+import bai01_24 from "@/assets/evidence/bai01/img_24.jpg.asset.json";
+
+const BAI01_GALLERY = [
+  { url: bai01_21.url, caption: "Mở File Explorer và truy cập This PC." },
+  { url: bai01_23.url, caption: "Vào ổ đĩa D: — không gian tổ chức bài thực hành." },
+  { url: bai01_24.url, caption: "Tạo thư mục ThucHanh_NguyenMinhNgoc." },
+  { url: bai01_22.url, caption: "Chuột phải → New → Text Document tạo tệp mới." },
+  { url: bai01_16.url, caption: "Đổi tên GhiChu.txt → GhiChuQuanTrong.txt và copy sang TaiLieu." },
+  { url: bai01_18.url, caption: "Menu chuột phải để Copy / Cut / Delete tệp." },
+  { url: bai01_17.url, caption: "Xoá vĩnh viễn tệp bằng Shift + Delete kèm hộp xác nhận." },
+  { url: bai01_20.url, caption: "Recycle Bin — nơi khôi phục tệp lỡ xoá." },
+  { url: bai01_19.url, caption: "Recycle Bin trên Desktop — mở để Restore khi cần." },
+];
+
 
 const EVIDENCE_IMG: Record<string, string> = {
   "01": ev1.url,
