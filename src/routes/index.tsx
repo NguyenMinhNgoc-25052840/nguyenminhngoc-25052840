@@ -1025,9 +1025,10 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[number]; index: number
           <EvidenceBox
             note={p.evidence}
             tag={`Bài ${p.n}`}
-            img={p.n === "01" ? undefined : EVIDENCE_IMG[p.n]}
-            gallery={p.n === "01" ? BAI01_GALLERY : undefined}
+            gallery={GALLERIES[p.n] ?? []}
+            download={DOWNLOADS[p.n]}
           />
+
 
         </div>
       </div>
