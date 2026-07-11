@@ -1667,7 +1667,8 @@ function Footer() {
         <div className="text-sm">
           <div className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/60">Thông tin</div>
           <ul className="mt-3 space-y-1.5 text-primary-foreground/85">
-            <li>Sinh viên: <span className="font-medium">[Điền tên của bạn]</span></li>
+            <li>Sinh viên: <span className="font-medium">Nguyễn Minh Ngọc</span></li>
+            <li>MSV: <span className="font-medium">25052840</span></li>
             <li>Môn: Nhập môn CNS & AI</li>
             <li>Năm học: 2025 – 2026</li>
           </ul>
