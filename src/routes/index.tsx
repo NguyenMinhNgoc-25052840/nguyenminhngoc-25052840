@@ -647,7 +647,7 @@ function About() {
       title={<>Xin chào, mình là <span className="italic text-accent">sinh viên số</span>.</>}
       intro="Portfolio là bức chân dung học tập của mình — nơi hệ thống hóa các bài tập, chứng minh năng lực dùng công cụ số và AI, và rèn luyện thói quen tự đánh giá."
     >
-      <div className="grid gap-8 md:grid-cols-[1fr_1.4fr]">
+      <div className="mx-auto max-w-2xl">
         <div className="reveal rounded-3xl border border-border bg-card p-8 shadow-lift">
           <div className="mx-auto grid h-32 w-32 place-items-center rounded-full bg-gradient-brand font-display text-4xl text-primary-foreground shadow-lift">
             SV
@@ -659,28 +659,14 @@ function About() {
             <Row k="Môn học" v="Nhập môn CNS & AI" />
             <Row k="Năm học" v="2025 – 2026" />
           </div>
-          <div className="mt-6 flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
             {["Công nghệ số", "AI tạo sinh", "Sáng tạo nội dung", "Quản lý dữ liệu", "Làm việc nhóm"].map((t) => (
               <span key={t} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-primary">{t}</span>
             ))}
           </div>
         </div>
-
-        <div className="reveal grid gap-4 sm:grid-cols-2">
-          {[
-            { t: "Hệ thống hoá bài tập", d: "Tập hợp toàn bộ 6 bài tập cuối kỳ vào một nơi duy nhất." },
-            { t: "Chứng minh năng lực", d: "Trình bày cách vận dụng công cụ số và AI vào từng nhiệm vụ." },
-            { t: "Lưu trữ & chia sẻ", d: "Dễ dàng truy cập, cập nhật và phát triển sản phẩm trong tương lai." },
-            { t: "Phản tư bản thân", d: "Rèn kỹ năng phân tích, phản biện và tự đánh giá quá trình học." },
-          ].map((g) => (
-            <div key={g.t} className="rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift">
-              <div className="mb-3 grid h-10 w-10 place-items-center rounded-xl bg-accent-soft text-accent">◆</div>
-              <div className="font-display text-lg font-semibold">{g.t}</div>
-              <p className="mt-2 text-sm text-muted-foreground">{g.d}</p>
-            </div>
-          ))}
-        </div>
       </div>
+
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
         <div className="reveal relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-pink-50 via-rose-50 to-fuchsia-50 p-8 shadow-lift dark:from-fuchsia-950/40 dark:via-rose-950/30 dark:to-pink-950/40">
