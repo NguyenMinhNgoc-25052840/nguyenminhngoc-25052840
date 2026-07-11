@@ -49,6 +49,11 @@ const PROJECTS: {
   lesson: string[];
   tags: string[];
   progress: number;
+  strengths: string[];
+  improvements: string[];
+  highlights: string[];
+  aiUsage: string[];
+  integrity: string[];
 }[] = [
   {
     n: "01",
@@ -74,6 +79,29 @@ const PROJECTS: {
     ],
     tags: ["File Explorer", "Copy · Cut · Paste", "Recycle Bin"],
     progress: 100,
+    strengths: [
+      "Thực hiện đầy đủ, chính xác các thao tác cơ bản với tệp và thư mục.",
+      "Ảnh chụp minh chứng chi tiết từng bước — dễ theo dõi và kiểm tra lại.",
+      "Cấu trúc thư mục ThucHanh_NguyenMinhNgoc rõ ràng, khoa học, đúng quy ước đặt tên.",
+    ],
+    improvements: [
+      "Cần học thêm các phím tắt nâng cao để thao tác nhanh hơn trong File Explorer.",
+      "Nên khai thác thêm tính năng tìm kiếm nâng cao (bộ lọc theo loại tệp, ngày).",
+    ],
+    highlights: [
+      "Quản lý tệp có tổ chức giúp tiết kiệm rất nhiều thời gian tìm kiếm về sau.",
+      "Recycle Bin là bạn thân — luôn cân nhắc trước khi Shift + Delete.",
+      "Shortcut giúp truy cập nhanh các thư mục dùng thường xuyên.",
+    ],
+    aiUsage: [
+      "Không sử dụng AI trong bài tập này.",
+      "Tự thực hành trực tiếp trên máy theo hướng dẫn của giảng viên.",
+    ],
+    integrity: [
+      "Tự thực hiện tất cả thao tác trên máy tính cá nhân.",
+      "Ảnh chụp màn hình là minh chứng thật từ quá trình thực hành.",
+      "Nội dung mô tả được viết dựa trên trải nghiệm thực tế của bản thân.",
+    ],
   },
   {
     n: "02",
@@ -98,6 +126,29 @@ const PROJECTS: {
     ],
     tags: ["EVFTA", "10 nguồn học thuật", "5 tiêu chí đánh giá"],
     progress: 100,
+    strengths: [
+      "Xây dựng được danh mục 10 tài liệu đa dạng: bài báo, sách chuyên khảo, báo cáo tổ chức quốc tế.",
+      "Áp dụng nhất quán bộ 5 tiêu chí đánh giá cho từng nguồn, có bảng so sánh trực quan.",
+      "Ưu tiên tài liệu 2020–2025, đảm bảo tính cập nhật của thông tin về EVFTA.",
+    ],
+    improvements: [
+      "Cần bổ sung thêm nguồn tiếng Việt để cân bằng góc nhìn trong nước và quốc tế.",
+      "Kỹ năng đọc lướt (skimming) tài liệu học thuật tiếng Anh cần luyện thêm để làm nhanh hơn.",
+    ],
+    highlights: [
+      "Nguồn từ tổ chức uy tín (World Bank, WTO) là chuẩn tham chiếu hàng đầu.",
+      "Toán tử tìm kiếm nâng cao (site:, filetype:, \"…\") tiết kiệm rất nhiều thời gian.",
+      "Đánh giá nguồn trước khi trích dẫn là bước bắt buộc, không được bỏ qua.",
+    ],
+    aiUsage: [
+      "Có sử dụng ChatGPT để gợi ý từ khóa tìm kiếm bằng tiếng Anh về EVFTA.",
+      "Không dùng AI để tự sinh nội dung đánh giá — mọi nhận xét đều do bản thân đọc và viết.",
+    ],
+    integrity: [
+      "10 nguồn được truy cập, đọc và ghi lại link đầy đủ, không bịa dữ liệu.",
+      "Bảng đánh giá độ tin cậy phản ánh đúng thông tin có trên nguồn gốc.",
+      "Trích dẫn ghi rõ tác giả, năm và nơi xuất bản theo chuẩn học thuật.",
+    ],
   },
   {
     n: "03",
@@ -123,6 +174,29 @@ const PROJECTS: {
     ],
     tags: ["3 mức prompt", "Role prompting", "Bảng so sánh 5 tiêu chí"],
     progress: 100,
+    strengths: [
+      "Thiết kế được 3 mức prompt tăng dần độ chi tiết, cho thấy sự tiến bộ rõ rệt.",
+      "Bảng so sánh 5 tiêu chí trực quan, có nhận xét cụ thể cho từng lần chạy.",
+      "Rút được 10 nguyên tắc viết prompt cá nhân — có thể tái sử dụng cho mọi bài sau.",
+    ],
+    improvements: [
+      "Cần thử nghiệm thêm với nhiều loại prompt khác (few-shot, chain-of-thought).",
+      "Chưa so sánh song song ChatGPT với các mô hình khác như Gemini, Claude.",
+    ],
+    highlights: [
+      "Prompt tốt = vai trò + bối cảnh + bước làm + định dạng đầu ra.",
+      "Càng rõ ràng và giới hạn cụ thể, AI càng bám sát mục tiêu.",
+      "Nói rõ điều AI không được làm cũng quan trọng như điều cần làm.",
+    ],
+    aiUsage: [
+      "Sử dụng ChatGPT làm đối tượng thử nghiệm chính; đính kèm PDF bài báo học thuật.",
+      "AI được dùng để tóm tắt, không dùng để viết bài phân tích hay đánh giá thay bản thân.",
+    ],
+    integrity: [
+      "Ảnh chụp 3 lần chạy prompt là thật, giữ nguyên trong cùng phiên hội thoại.",
+      "Bảng so sánh và 10 nguyên tắc do bản thân tự viết dựa trên quan sát kết quả.",
+      "Ghi rõ AI hỗ trợ ở khâu nào, tránh nhận là hoàn toàn của bản thân.",
+    ],
   },
   {
     n: "04",
@@ -147,6 +221,29 @@ const PROJECTS: {
     ],
     tags: ["Google Docs", "Google Drive", "Zalo · Nhóm 30"],
     progress: 100,
+    strengths: [
+      "Hoàn thành đúng vai trò soạn thảo — biên tập, đảm bảo tiến độ chung của nhóm.",
+      "Duy trì Version History rõ ràng trên Google Docs, dễ đối chiếu khi cần khôi phục.",
+      "Phối hợp đồng bộ 3 công cụ (Docs · Drive · Zalo) không để sót đầu việc.",
+    ],
+    improvements: [
+      "Cần chủ động hơn trong việc chốt deadline nội bộ, không để dồn về cuối tuần.",
+      "Có thể thử thêm công cụ quản lý task như Trello / Notion để trực quan hóa tiến độ.",
+    ],
+    highlights: [
+      "Làm việc online hiệu quả cần quy ước chung: đặt tên tệp, đánh số phiên bản, cách phản hồi comment.",
+      "Comment và Suggest thay vì sửa trực tiếp giúp tránh xung đột nội dung.",
+      "Kênh chat (Zalo) là để trao đổi nhanh, không thay thế văn bản chính thức trên Docs.",
+    ],
+    aiUsage: [
+      "Không dùng AI để viết nội dung báo cáo nhóm.",
+      "Chỉ dùng AI (nếu có) để gợi ý cách diễn đạt câu tiếng Việt cho mượt hơn — vẫn tự viết lại.",
+    ],
+    integrity: [
+      "Chỉ chịu trách nhiệm và trình bày phần công việc do bản thân thực hiện.",
+      "Ghi nhận công sức của các thành viên khác trong nhóm 30 một cách công bằng.",
+      "Ảnh chụp Docs · Drive · Zalo là minh chứng thật, không dàn dựng.",
+    ],
   },
   {
     n: "05",
@@ -171,6 +268,30 @@ const PROJECTS: {
     ],
     tags: ["ChatGPT", "Gemini", "Canva AI", "Infographic"],
     progress: 100,
+    strengths: [
+      "Phối hợp linh hoạt 3 công cụ AI, mỗi công cụ đảm nhận đúng thế mạnh của nó.",
+      "Sản phẩm cuối là một infographic hoàn chỉnh, có tính thẩm mỹ và giá trị chia sẻ.",
+      "Tự biên tập lại nội dung do AI đề xuất, không dùng nguyên bản máy sinh.",
+    ],
+    improvements: [
+      "Có thể thử thêm phong cách thiết kế khác (tối màu, minimal) để đa dạng hoá.",
+      "Cần bổ sung nguồn tham khảo cụ thể cho các số liệu để tăng tính học thuật.",
+    ],
+    highlights: [
+      "AI là trợ lý sáng tạo, không phải người sáng tạo — quyết định cuối vẫn là của mình.",
+      "Kết hợp nhiều AI cho kết quả tốt hơn hẳn dùng một công cụ duy nhất.",
+      "Thiết kế trực quan giúp thông điệp đi xa hơn nội dung thuần văn bản.",
+    ],
+    aiUsage: [
+      "ChatGPT: viết nội dung khung, gợi ý cấu trúc infographic.",
+      "Gemini: rút gọn ý, biến câu dài thành bullet ngắn.",
+      "Canva AI: gợi ý bố cục, phối màu, chọn biểu tượng minh hoạ.",
+    ],
+    integrity: [
+      "Khai báo rõ AI đã hỗ trợ ở khâu nào (nội dung / rút gọn / thiết kế).",
+      "Tự kiểm chứng các thông tin AI đưa ra trước khi đưa vào infographic.",
+      "Tôn trọng bản quyền: chỉ dùng biểu tượng, hình ảnh miễn phí từ Canva.",
+    ],
   },
   {
     n: "06",
@@ -195,6 +316,29 @@ const PROJECTS: {
     ],
     tags: ["Đạo đức AI", "7 nguyên tắc", "Tư duy phản biện"],
     progress: 100,
+    strengths: [
+      "Xây được bộ 7 nguyên tắc cá nhân súc tích, có thể áp dụng ngay trong mọi bài học.",
+      "Phân tích đủ 5 rủi ro đạo đức AI, kèm giải pháp cụ thể cho từng vấn đề.",
+      "Kết nối được lý thuyết đạo đức AI với các tình huống học tập thực tế.",
+    ],
+    improvements: [
+      "Cần cập nhật thêm các quy định mới nhất về AI của các tổ chức giáo dục quốc tế.",
+      "Có thể mở rộng thảo luận với bạn bè, thầy cô để đa chiều hơn.",
+    ],
+    highlights: [
+      "AI là công cụ — trách nhiệm và giá trị đạo đức thuộc về người dùng.",
+      "Minh bạch về mức độ dùng AI quan trọng hơn việc giấu đi.",
+      "Kỹ năng phản biện là “lá chắn” trước thiên kiến và thông tin sai của AI.",
+    ],
+    aiUsage: [
+      "Không dùng AI để viết bộ nguyên tắc — đây là cam kết cá nhân, phải do bản thân đúc kết.",
+      "Có tham khảo AI để gợi ý phân loại các rủi ro, nhưng nội dung phân tích tự viết.",
+    ],
+    integrity: [
+      "Cam kết áp dụng 7 nguyên tắc trong tất cả các môn học tại trường.",
+      "Không dùng AI để làm hộ bài kiểm tra, tiểu luận hay báo cáo cá nhân.",
+      "Luôn ghi nguồn khi trích dẫn và khai báo khi có sự hỗ trợ của AI.",
+    ],
   },
 ];
 
@@ -776,7 +920,11 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[number]; index: number
           {p.n === "05" && <AIWorkflow />}
           {p.n === "06" && <ResponsibleAI />}
 
+          <EvaluationBlock strengths={p.strengths} improvements={p.improvements} highlights={p.highlights} />
+          <IntegrityBlock aiUsage={p.aiUsage} integrity={p.integrity} />
+
           <EvidenceBox note={p.evidence} tag={`Bài ${p.n}`} img={EVIDENCE_IMG[p.n]} />
+
         </div>
       </div>
     </article>
@@ -788,6 +936,64 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
     <div className="mt-6 first:mt-0">
       <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-accent">{title}</h4>
       <div className="mt-2">{children}</div>
+    </div>
+  );
+}
+
+function EvaluationBlock({ strengths, improvements, highlights }: { strengths: string[]; improvements: string[]; highlights: string[] }) {
+  const cols = [
+    { title: "Điểm tốt", icon: "✅", items: strengths, tone: "from-emerald-50 to-teal-50 border-emerald-300/50 text-emerald-700 dark:from-emerald-950/40 dark:to-teal-950/30 dark:text-emerald-300" },
+    { title: "Cần cải thiện", icon: "🛠️", items: improvements, tone: "from-amber-50 to-orange-50 border-amber-300/50 text-amber-700 dark:from-amber-950/40 dark:to-orange-950/30 dark:text-amber-300" },
+    { title: "Bài học rút ra", icon: "💡", items: highlights, tone: "from-sky-50 to-indigo-50 border-sky-300/50 text-sky-700 dark:from-sky-950/40 dark:to-indigo-950/30 dark:text-sky-300" },
+  ];
+  return (
+    <div className="mt-8">
+      <h4 className="mb-3 flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-accent">
+        <span>📊</span> Phân tích – Đánh giá
+      </h4>
+      <div className="grid gap-3 md:grid-cols-3">
+        {cols.map((c) => (
+          <div key={c.title} className={`rounded-2xl border bg-gradient-to-br p-4 ${c.tone}`}>
+            <div className="flex items-center gap-2 font-display text-sm font-semibold">
+              <span>{c.icon}</span>
+              <span>{c.title}</span>
+            </div>
+            <ul className="mt-2 space-y-1.5 text-xs text-foreground/85">
+              {c.items.map((it, i) => (
+                <li key={i} className="flex gap-1.5"><span>•</span><span>{it}</span></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function IntegrityBlock({ aiUsage, integrity }: { aiUsage: string[]; integrity: string[] }) {
+  return (
+    <div className="mt-6 rounded-2xl border border-violet-300/40 bg-gradient-to-br from-violet-50 via-fuchsia-50 to-pink-50 p-5 dark:from-violet-950/40 dark:via-fuchsia-950/30 dark:to-pink-950/40">
+      <h4 className="flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-accent">
+        <span>🤖</span> Liêm chính học thuật &amp; Sử dụng AI
+      </h4>
+      <div className="mt-3 grid gap-4 md:grid-cols-2">
+        <div>
+          <div className="text-xs font-semibold text-primary">Cách mình sử dụng AI</div>
+          <ul className="mt-1.5 space-y-1.5 text-xs text-foreground/85">
+            {aiUsage.map((a, i) => (
+              <li key={i} className="flex gap-1.5"><span className="text-accent">→</span><span>{a}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div className="text-xs font-semibold text-primary">Cam kết liêm chính</div>
+          <ul className="mt-1.5 space-y-1.5 text-xs text-foreground/85">
+            {integrity.map((a, i) => (
+              <li key={i} className="flex gap-1.5"><span className="text-accent">✓</span><span>{a}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
