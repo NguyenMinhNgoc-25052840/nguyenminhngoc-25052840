@@ -244,25 +244,7 @@ const TEAM_TASKS = [
   { m: "Nhóm trưởng", t: "Tổng hợp bản cuối và nộp bài", due: "Ngày nộp", status: "Chưa làm", note: "Phụ thuộc phiên bản mới nhất trên Drive" },
 ];
 
-  { name: "Diễn đàn mạng xã hội", org: "Ẩn danh", year: "—", trust: "Thấp", reason: "Phản ánh trải nghiệm người dùng.", limit: "Không kiểm chứng, dễ sai lệch." },
-];
 
-const PROMPT_COMPARE = [
-  { k: "Độ rõ ràng", a: "Chung chung, một câu.", b: "Có vai trò + bối cảnh + tiêu chí." },
-  { k: "Vai trò", a: "Không chỉ định.", b: "\"Bạn là trợ giảng môn CNS & AI.\"" },
-  { k: "Bối cảnh", a: "Không có.", b: "Sinh viên năm nhất, tài liệu 1 chương." },
-  { k: "Yêu cầu đầu ra", a: "Không quy định.", b: "Bullet 5 ý, kèm ví dụ Việt Nam." },
-  { k: "Mức độ chính xác", a: "Kết quả lan man, lệch chủ đề.", b: "Bám sát mục tiêu, dễ dùng lại." },
-  { k: "Khả năng kiểm soát", a: "Khó chỉnh sửa.", b: "Có thể lặp lại và tinh chỉnh." },
-];
-
-const TEAM_TASKS = [
-  { m: "Thành viên A", t: "Tổng hợp tài liệu chương 1–3", due: "20/11", status: "Hoàn thành", note: "Đã chia sẻ trên Drive" },
-  { m: "Thành viên B", t: "Thiết kế slide thuyết trình", due: "22/11", status: "Đang làm", note: "Cần thêm hình minh họa" },
-  { m: "Thành viên C", t: "Viết kịch bản video AI", due: "25/11", status: "Cần chỉnh sửa", note: "Rút gọn 30%" },
-  { m: "Thành viên D", t: "Kiểm chứng nguồn học thuật", due: "26/11", status: "Đang làm", note: "5/8 nguồn đã kiểm" },
-  { m: "Nhóm trưởng", t: "Tổng hợp & nộp bài", due: "28/11", status: "Chưa làm", note: "Phụ thuộc các mục trên" },
-];
 
 const AI_RISKS = [
   { risk: "Đạo văn / gian lận học thuật", solution: "Ghi chú rõ khi dùng AI, tự viết lại bằng ngôn ngữ cá nhân." },
