@@ -699,15 +699,31 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
   );
 }
 
-function EvidenceBox({ note, tag }: { note: string; tag: string }) {
+function EvidenceBox({ note, tag, img }: { note: string; tag: string; img?: string }) {
   return (
-    <div className="mt-8 rounded-2xl border-2 border-dashed border-accent/35 bg-accent-soft/50 p-5">
-      <div className="flex items-center justify-between">
-        <span className="text-xs font-semibold uppercase tracking-wider text-accent">Khu vực minh chứng · {tag}</span>
-        <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold text-accent-foreground">PLACEHOLDER</span>
+    <div className="mt-8 overflow-hidden rounded-2xl border-2 border-dashed border-accent/35 bg-accent-soft/40">
+      <div className="flex items-center justify-between px-5 pt-4">
+        <span className="text-xs font-semibold uppercase tracking-wider text-accent">Minh chứng · {tag}</span>
+        <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold text-accent-foreground">
+          {img ? "ẢNH THẬT" : "PLACEHOLDER"}
+        </span>
       </div>
-      <p className="mt-2 text-sm text-foreground/80">{note}</p>
-      <p className="mt-1 text-xs italic text-muted-foreground">→ Thay khu vực này bằng ảnh chụp màn hình / liên kết sản phẩm thật.</p>
+      {img && (
+        <div className="mt-3 border-y border-accent/20 bg-background/50">
+          <img
+            src={img}
+            alt={`Minh chứng ${tag}`}
+            loading="lazy"
+            className="mx-auto block max-h-[520px] w-full object-contain"
+          />
+        </div>
+      )}
+      <div className="px-5 pb-4 pt-3">
+        <p className="text-sm text-foreground/80">{note}</p>
+        {!img && (
+          <p className="mt-1 text-xs italic text-muted-foreground">→ Thay khu vực này bằng ảnh chụp màn hình / liên kết sản phẩm thật.</p>
+        )}
+      </div>
     </div>
   );
 }
