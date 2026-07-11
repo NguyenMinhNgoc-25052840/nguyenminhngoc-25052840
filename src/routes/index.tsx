@@ -508,15 +508,16 @@ const EVIDENCES = [
 ];
 
 const SKILLS = [
-  { s: "Quản lý tệp và dữ liệu số", level: 92, use: "Tổ chức toàn bộ tài liệu học tập, sao lưu đám mây." },
-  { s: "Tìm kiếm thông tin học thuật", level: 90, use: "Nghiên cứu, viết tiểu luận, chuẩn bị thuyết trình." },
-  { s: "Đánh giá độ tin cậy của nguồn", level: 88, use: "Sàng lọc thông tin trước khi trích dẫn." },
-  { s: "Viết Prompt hiệu quả", level: 90, use: "Khai thác AI cho tóm tắt, dịch, phân tích." },
-  { s: "Làm việc nhóm trực tuyến", level: 86, use: "Quản lý dự án nhóm bằng Trello / Notion." },
-  { s: "Sáng tạo nội dung số bằng AI", level: 84, use: "Sản xuất video, infographic, thuyết trình." },
-  { s: "Sử dụng AI có trách nhiệm", level: 94, use: "Tuân thủ đạo đức học thuật khi dùng AI." },
-  { s: "Tự đánh giá và cải thiện", level: 88, use: "Phản tư sau mỗi bài tập, điều chỉnh phương pháp." },
+  { s: "Quản lý tệp và dữ liệu số", level: 95, use: "Tổ chức toàn bộ tài liệu học tập, sao lưu đám mây." },
+  { s: "Tìm kiếm thông tin học thuật", level: 92, use: "Nghiên cứu, viết tiểu luận, chuẩn bị thuyết trình." },
+  { s: "Đánh giá độ tin cậy của nguồn", level: 98, use: "Sàng lọc thông tin trước khi trích dẫn." },
+  { s: "Viết Prompt hiệu quả", level: 94, use: "Khai thác AI cho tóm tắt, dịch, phân tích." },
+  { s: "Làm việc nhóm trực tuyến", level: 90, use: "Quản lý dự án nhóm bằng Trello / Notion." },
+  { s: "Sáng tạo nội dung số bằng AI", level: 96, use: "Sản xuất video, infographic, thuyết trình." },
+  { s: "Sử dụng AI có trách nhiệm", level: 99, use: "Tuân thủ đạo đức học thuật khi dùng AI." },
+  { s: "Tự đánh giá và cải thiện", level: 93, use: "Phản tư sau mỗi bài tập, điều chỉnh phương pháp." },
 ];
+
 
 /* -------------------------- Hooks -------------------------- */
 
@@ -1477,6 +1478,91 @@ function Evidence() {
   );
 }
 
+function RadarChart({ data }: { data: { s: string; level: number }[] }) {
+  const size = 520;
+  const cx = size / 2;
+  const cy = size / 2;
+  const R = 180;
+  const N = data.length;
+  const rings = [0.2, 0.4, 0.6, 0.8, 1];
+
+  const angle = (i: number) => (Math.PI * 2 * i) / N - Math.PI / 2;
+  const point = (i: number, r: number) => [cx + Math.cos(angle(i)) * r, cy + Math.sin(angle(i)) * r] as const;
+
+  const dataPath =
+    data
+      .map((d, i) => {
+        const [x, y] = point(i, (d.level / 100) * R);
+        return `${i === 0 ? "M" : "L"}${x.toFixed(2)},${y.toFixed(2)}`;
+      })
+      .join(" ") + " Z";
+
+  return (
+    <svg viewBox={`0 0 ${size} ${size}`} className="mx-auto block h-auto w-full max-w-[560px]" role="img" aria-label="Biểu đồ mạng nhện năng lực số">
+      {/* rings */}
+      {rings.map((k, idx) => {
+        const pts = Array.from({ length: N }, (_, i) => point(i, R * k).join(",")).join(" ");
+        return (
+          <polygon
+            key={idx}
+            points={pts}
+            fill={idx === rings.length - 1 ? "hsl(var(--secondary) / 0.35)" : "none"}
+            stroke="hsl(var(--border))"
+            strokeWidth={1}
+          />
+        );
+      })}
+      {/* spokes */}
+      {data.map((_, i) => {
+        const [x, y] = point(i, R);
+        return <line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke="hsl(var(--border))" strokeWidth={1} />;
+      })}
+      {/* data area */}
+      <path d={dataPath} fill="hsl(var(--accent) / 0.28)" stroke="hsl(var(--accent))" strokeWidth={2.5} strokeLinejoin="round" />
+      {/* data points */}
+      {data.map((d, i) => {
+        const [x, y] = point(i, (d.level / 100) * R);
+        return (
+          <g key={i}>
+            <circle cx={x} cy={y} r={5} fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth={2} />
+          </g>
+        );
+      })}
+      {/* labels */}
+      {data.map((d, i) => {
+        const [lx, ly] = point(i, R + 28);
+        const a = angle(i);
+        const cos = Math.cos(a);
+        const anchor = Math.abs(cos) < 0.2 ? "middle" : cos > 0 ? "start" : "end";
+        return (
+          <g key={`l-${i}`}>
+            <text
+              x={lx}
+              y={ly}
+              textAnchor={anchor}
+              dominantBaseline="middle"
+              className="fill-foreground"
+              style={{ fontSize: 12, fontWeight: 600 }}
+            >
+              {d.s}
+            </text>
+            <text
+              x={lx}
+              y={ly + 14}
+              textAnchor={anchor}
+              dominantBaseline="middle"
+              className="fill-accent"
+              style={{ fontSize: 11, fontWeight: 700 }}
+            >
+              {d.level}%
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 function Skills() {
   return (
     <Section
@@ -1485,29 +1571,32 @@ function Skills() {
       title={<>Bức tranh <span className="italic text-accent">năng lực số</span> sau môn học</>}
       intro="Mỗi kỹ năng đi kèm mức độ thành thạo và ứng dụng thực tế trong học tập."
     >
-      <div className="grid gap-5 md:grid-cols-2">
-        {SKILLS.map((s, i) => (
-          <div
-            key={s.s}
-            className="reveal rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift"
-            style={{ transitionDelay: `${i * 30}ms` }}
-          >
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <h3 className="font-display text-lg font-semibold text-primary">{s.s}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{s.use}</p>
+      <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+        <div className="reveal rounded-3xl border border-border bg-card p-6 shadow-lift md:p-8">
+          <RadarChart data={SKILLS} />
+        </div>
+        <div className="reveal grid gap-3">
+          {SKILLS.map((s) => (
+            <div
+              key={s.s}
+              className="rounded-2xl border border-border bg-card p-4 shadow-soft"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="font-display text-base font-semibold text-primary">{s.s}</h3>
+                <span className="font-display text-lg font-semibold text-accent">{s.level}%</span>
               </div>
-              <span className="font-display text-2xl font-semibold text-accent">{s.level}%</span>
+              <p className="mt-1 text-xs text-muted-foreground">{s.use}</p>
+              <div className="mt-2 h-1.5 rounded-full bg-secondary">
+                <div className="h-1.5 rounded-full bg-gradient-accent transition-all" style={{ width: `${s.level}%` }} />
+              </div>
             </div>
-            <div className="mt-4 h-2 rounded-full bg-secondary">
-              <div className="h-2 rounded-full bg-gradient-accent transition-all" style={{ width: `${s.level}%` }} />
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </Section>
   );
 }
+
 
 function Conclusion() {
   return (
