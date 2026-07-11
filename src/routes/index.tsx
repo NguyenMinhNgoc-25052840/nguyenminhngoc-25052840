@@ -782,29 +782,87 @@ function Journey() {
       intro="Sáu nhiệm vụ nối tiếp nhau, đi từ kỹ năng nền tảng đến năng lực nâng cao trong việc sử dụng AI có trách nhiệm."
       tone="surface"
     >
-      <ol className="relative grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {MISSIONS.map((m, i) => (
-          <li
-            key={m.n}
-            className="reveal group relative rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift"
-            style={{ transitionDelay: `${i * 40}ms` }}
-          >
-            <div className="flex items-start justify-between">
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-secondary text-2xl">{m.icon}</span>
-              <span className="font-display text-sm font-semibold text-accent">Nhiệm vụ {m.n}</span>
-            </div>
-            <h3 className="mt-4 font-display text-xl font-semibold text-primary">{m.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{m.desc}</p>
-            <a
-              href={`#du-an-${m.n}`}
-              className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-transform group-hover:translate-x-1"
-            >
-              Xem chi tiết →
-            </a>
-          </li>
-        ))}
-      </ol>
+      <div className="relative">
+        {/* AI decorative orb */}
+        <div className="pointer-events-none absolute -right-2 -top-16 hidden h-44 w-44 lg:block">
+          <div className="absolute inset-0 rounded-full border border-accent/25" />
+          <div className="absolute inset-4 rounded-full border border-accent/20" />
+          <div className="absolute inset-8 rounded-full border border-accent/15" />
+          <div className="absolute inset-12 rounded-full bg-gradient-to-br from-accent/25 to-primary/25 blur-md" />
+          <div className="absolute inset-0 grid place-items-center font-display text-2xl font-bold tracking-widest text-accent">AI</div>
+        </div>
+
+        {/* SVG dashed connector (desktop only) */}
+        <svg
+          aria-hidden
+          className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
+          preserveAspectRatio="none"
+          viewBox="0 0 1200 620"
+          fill="none"
+        >
+          <defs>
+            <linearGradient id="journeyLine" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="currentColor" stopOpacity="0.15" />
+              <stop offset="50%" stopColor="currentColor" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="currentColor" stopOpacity="0.15" />
+            </linearGradient>
+          </defs>
+          <path
+            className="text-accent"
+            d="M 80 120 C 260 120, 340 120, 480 120 S 760 120, 900 120 C 1080 120, 1120 300, 960 420 S 720 420, 500 420 S 260 420, 120 420"
+            stroke="url(#journeyLine)"
+            strokeWidth="2"
+            strokeDasharray="5 8"
+            fill="none"
+          />
+        </svg>
+
+        <div className="relative grid gap-y-14 gap-x-8 md:grid-cols-2 lg:grid-cols-3">
+          {MISSIONS.map((m, i) => (
+            <JourneyNode key={m.n} m={m} index={i} />
+          ))}
+        </div>
+
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+          <span className="h-px w-10 bg-border" />
+          <span>Kiến thức</span>
+          <span className="text-accent">•</span>
+          <span>Kỹ năng</span>
+          <span className="text-accent">•</span>
+          <span>Tư duy</span>
+          <span className="text-accent">•</span>
+          <span>Trách nhiệm</span>
+          <span className="h-px w-10 bg-border" />
+        </div>
+      </div>
     </Section>
+  );
+}
+
+function JourneyNode({ m, index }: { m: (typeof MISSIONS)[number]; index: number }) {
+  return (
+    <a
+      href={`#du-an-${m.n}`}
+      className="reveal group relative flex items-start gap-4"
+      style={{ transitionDelay: `${index * 60}ms` }}
+    >
+      <div className="relative shrink-0">
+        <div className="grid h-14 w-14 place-items-center rounded-full border-2 border-accent/50 bg-gradient-to-br from-primary to-primary/80 font-display text-base font-bold text-primary-foreground shadow-lift ring-4 ring-accent/10 transition-transform group-hover:scale-105">
+          {m.n}
+        </div>
+        <div className="mt-3 grid h-14 w-14 place-items-center rounded-full border border-border bg-card text-2xl shadow-soft">
+          {m.icon}
+        </div>
+      </div>
+      <div className="min-w-0 flex-1 pt-1">
+        <div className="text-xs font-semibold uppercase tracking-wider text-accent">Nhiệm vụ {m.n}</div>
+        <h3 className="mt-1 font-display text-lg font-semibold leading-snug text-primary transition-colors group-hover:text-accent">
+          {m.title}
+        </h3>
+        <div className="mt-2 h-0.5 w-10 bg-accent" />
+        <p className="mt-3 text-sm text-muted-foreground">{m.desc}</p>
+      </div>
+    </a>
   );
 }
 
