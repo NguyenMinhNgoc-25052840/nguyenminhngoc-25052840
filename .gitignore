@@ -30,3 +30,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Static GH Pages build artifacts
+/dist
+/public/l5e
