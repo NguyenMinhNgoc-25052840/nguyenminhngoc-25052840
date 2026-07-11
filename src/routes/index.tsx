@@ -119,7 +119,7 @@ const NAV = [
 ];
 
 const MISSIONS = [
-  { n: "01", title: "Quản lý tệp và thư mục", desc: "Tổ chức dữ liệu học tập khoa học, đặt tên tệp nhất quán.", icon: "📁" },
+  { n: "01", title: "Quản lý tệp và thư mục", desc: "6 nhiệm vụ nối tiếp nhau, đi từ kỹ năng nền tảng đến năng lực nâng cao trong việc sử dụng AI có trách nhiệm.", icon: "📁" },
   { n: "02", title: "Tìm kiếm và đánh giá thông tin", desc: "Vận dụng toán tử nâng cao, đánh giá độ tin cậy của nguồn.", icon: "🔎" },
   { n: "03", title: "Viết Prompt hiệu quả", desc: "Thiết kế prompt có vai trò, bối cảnh và tiêu chí đầu ra.", icon: "✍️" },
   { n: "04", title: "Hợp tác trực tuyến", desc: "Lập kế hoạch, phân công và theo dõi tiến độ nhóm.", icon: "🤝" },
