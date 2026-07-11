@@ -1,5 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import {
+  FolderOpen,
+  Search,
+  ShieldCheck,
+  MessageSquare,
+  Users,
+  Lightbulb,
+  Scale,
+  BarChart3,
+  Star,
+  Shield,
+  Brain,
+  type LucideIcon,
+} from "lucide-react";
 import avatarAsset from "@/assets/avatar.jpg.asset.json";
 import ev1 from "@/assets/evidence/bai01.jpg.asset.json";
 import ev2 from "@/assets/evidence/bai02.jpg.asset.json";
@@ -504,15 +518,20 @@ const EVIDENCES = [
   { title: "Bộ nguyên tắc dùng AI có trách nhiệm", desc: "Infographic 6 nguyên tắc sử dụng AI có trách nhiệm trong học tập.", tag: "Bài 06", img: bai06_infographic.url },
 ];
 
-const SKILLS = [
-  { s: "Quản lý tệp và dữ liệu số", level: 95, use: "Tổ chức toàn bộ tài liệu học tập, sao lưu đám mây." },
-  { s: "Tìm kiếm thông tin học thuật", level: 92, use: "Nghiên cứu, viết tiểu luận, chuẩn bị thuyết trình." },
-  { s: "Đánh giá độ tin cậy của nguồn", level: 98, use: "Sàng lọc thông tin trước khi trích dẫn." },
-  { s: "Viết Prompt hiệu quả", level: 94, use: "Khai thác AI cho tóm tắt, dịch, phân tích." },
-  { s: "Làm việc nhóm trực tuyến", level: 90, use: "Quản lý dự án nhóm bằng Trello / Notion." },
-  { s: "Sáng tạo nội dung số bằng AI", level: 96, use: "Sản xuất video, infographic, thuyết trình." },
-  { s: "Sử dụng AI có trách nhiệm", level: 99, use: "Tuân thủ đạo đức học thuật khi dùng AI." },
-  { s: "Tự đánh giá và cải thiện", level: 93, use: "Phản tư sau mỗi bài tập, điều chỉnh phương pháp." },
+const SKILLS: {
+  s: string;
+  level: number;
+  use: string;
+  color: string;
+  icon: LucideIcon;
+}[] = [
+  { s: "Quản lý tệp và dữ liệu số", level: 95, use: "Tổ chức toàn bộ tài liệu học tập, sao lưu đám mây.", color: "#7c3aed", icon: FolderOpen },
+  { s: "Tìm kiếm thông tin học thuật", level: 92, use: "Nghiên cứu, viết tiểu luận, chuẩn bị thuyết trình.", color: "#2563eb", icon: Search },
+  { s: "Đánh giá độ tin cậy của nguồn", level: 98, use: "Sàng lọc thông tin trước khi trích dẫn.", color: "#0d9488", icon: ShieldCheck },
+  { s: "Viết Prompt hiệu quả", level: 94, use: "Khai thác AI cho tóm tắt, dịch, phân tích.", color: "#f97316", icon: MessageSquare },
+  { s: "Làm việc nhóm trực tuyến", level: 90, use: "Quản lý dự án nhóm bằng Trello / Notion.", color: "#ec4899", icon: Users },
+  { s: "Sáng tạo nội dung số bằng AI", level: 96, use: "Sản xuất video, infographic, thuyết trình.", color: "#3b82f6", icon: Lightbulb },
+  { s: "Sử dụng AI có trách nhiệm", level: 99, use: "Tuân thủ đạo đức học thuật khi dùng AI.", color: "#8b5cf6", icon: Scale },
 ];
 
 
@@ -1475,16 +1494,19 @@ function Evidence() {
   );
 }
 
-function RadarChart({ data }: { data: { s: string; level: number }[] }) {
-  const size = 560;
+function RadarChart({
+  data,
+}: {
+  data: { s: string; level: number; color: string }[];
+}) {
+  const size = 640;
   const cx = size / 2;
   const cy = size / 2;
-  const R = 190;
+  const R = 200;
   const N = data.length;
-  // Focused scale 60→100 so 90–99 values show meaningful differentiation
   const MIN = 60;
   const MAX = 100;
-  const ringValues = [60, 70, 80, 90, 100];
+  const ringValues = [70, 80, 90, 100];
   const norm = (v: number) => Math.max(0, Math.min(1, (v - MIN) / (MAX - MIN)));
 
   const angle = (i: number) => (Math.PI * 2 * i) / N - Math.PI / 2;
@@ -1502,38 +1524,50 @@ function RadarChart({ data }: { data: { s: string; level: number }[] }) {
   return (
     <svg
       viewBox={`0 0 ${size} ${size}`}
-      className="mx-auto block h-auto w-full max-w-[560px]"
+      className="mx-auto block h-auto w-full max-w-[640px]"
       role="img"
-      aria-label="Biểu đồ mạng nhện năng lực số (thang 60–100)"
+      aria-label="Biểu đồ mạng nhện đánh giá năng lực AI"
     >
+      <defs>
+        <linearGradient id="radar-fill" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.55" />
+          <stop offset="50%" stopColor="#60a5fa" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.5" />
+        </linearGradient>
+        <linearGradient id="radar-stroke" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#8b5cf6" />
+          <stop offset="100%" stopColor="#06b6d4" />
+        </linearGradient>
+      </defs>
+
       {/* rings */}
       {ringValues.map((v, idx) => {
         const r = norm(v) * R;
         const pts = Array.from({ length: N }, (_, i) => point(i, r).join(",")).join(" ");
+        const isOuter = idx === ringValues.length - 1;
         return (
           <polygon
             key={v}
             points={pts}
-            fill={idx === 0 ? "hsl(var(--secondary) / 0.35)" : "none"}
-            stroke="hsl(var(--border))"
-            strokeWidth={idx === ringValues.length - 1 ? 1.4 : 1}
-            strokeDasharray={idx === ringValues.length - 1 ? "0" : "3 3"}
+            fill="none"
+            stroke={isOuter ? "#cbd5e1" : "#e2e8f0"}
+            strokeWidth={isOuter ? 1.2 : 1}
+            strokeDasharray={isOuter ? "0" : "4 4"}
           />
         );
       })}
 
-      {/* ring scale labels (top axis) */}
+      {/* radial scale labels along top spoke */}
       {ringValues.map((v) => {
         const r = norm(v) * R;
         return (
           <text
             key={`rv-${v}`}
-            x={cx + 4}
-            y={cy - r - 2}
-            className="fill-muted-foreground"
-            style={{ fontSize: 10, fontWeight: 600 }}
+            x={cx + 6}
+            y={cy - r + 3}
+            style={{ fontSize: 11, fontWeight: 600, fill: "#94a3b8" }}
           >
-            {v}
+            {v}%
           </text>
         );
       })}
@@ -1548,7 +1582,7 @@ function RadarChart({ data }: { data: { s: string; level: number }[] }) {
             y1={cy}
             x2={x}
             y2={y}
-            stroke="hsl(var(--border))"
+            stroke="#e2e8f0"
             strokeWidth={1}
           />
         );
@@ -1557,32 +1591,24 @@ function RadarChart({ data }: { data: { s: string; level: number }[] }) {
       {/* data area */}
       <path
         d={dataPath}
-        fill="hsl(var(--accent) / 0.25)"
-        stroke="hsl(var(--accent))"
+        fill="url(#radar-fill)"
+        stroke="url(#radar-stroke)"
         strokeWidth={2.5}
         strokeLinejoin="round"
       />
 
-      {/* data points with numeric index badge */}
+      {/* data points */}
       {data.map((d, i) => {
         const [x, y] = point(i, norm(d.level) * R);
         return (
           <g key={`p-${i}`}>
-            <circle
-              cx={x}
-              cy={y}
-              r={11}
-              fill="hsl(var(--primary))"
-              stroke="hsl(var(--background))"
-              strokeWidth={2}
-            />
+            <circle cx={x} cy={y} r={13} fill={d.color} stroke="#fff" strokeWidth={2.5} />
             <text
               x={x}
               y={y}
               textAnchor="middle"
               dominantBaseline="central"
-              className="fill-primary-foreground"
-              style={{ fontSize: 11, fontWeight: 700 }}
+              style={{ fontSize: 12, fontWeight: 800, fill: "#fff" }}
             >
               {i + 1}
             </text>
@@ -1590,24 +1616,46 @@ function RadarChart({ data }: { data: { s: string; level: number }[] }) {
         );
       })}
 
-      {/* axis labels — just index + % to avoid overlap */}
+      {/* labels: big % + wrapped skill name */}
       {data.map((d, i) => {
-        const [lx, ly] = point(i, R + 22);
+        const [lx, ly] = point(i, R + 46);
         const a = angle(i);
         const cos = Math.cos(a);
         const anchor = Math.abs(cos) < 0.2 ? "middle" : cos > 0 ? "start" : "end";
+        const words = d.s.split(" ");
+        // split into 2 balanced lines
+        const mid = Math.ceil(words.length / 2);
+        const line1 = words.slice(0, mid).join(" ");
+        const line2 = words.slice(mid).join(" ");
         return (
-          <text
-            key={`l-${i}`}
-            x={lx}
-            y={ly}
-            textAnchor={anchor}
-            dominantBaseline="middle"
-            className="fill-accent"
-            style={{ fontSize: 13, fontWeight: 700 }}
-          >
-            {i + 1}. {d.level}%
-          </text>
+          <g key={`l-${i}`}>
+            <text
+              x={lx}
+              y={ly - 6}
+              textAnchor={anchor}
+              style={{ fontSize: 22, fontWeight: 800, fill: d.color }}
+            >
+              {d.level}%
+            </text>
+            <text
+              x={lx}
+              y={ly + 18}
+              textAnchor={anchor}
+              style={{ fontSize: 12, fontWeight: 600, fill: "#334155" }}
+            >
+              {line1}
+            </text>
+            {line2 && (
+              <text
+                x={lx}
+                y={ly + 34}
+                textAnchor={anchor}
+                style={{ fontSize: 12, fontWeight: 600, fill: "#334155" }}
+              >
+                {line2}
+              </text>
+            )}
+          </g>
         );
       })}
     </svg>
@@ -1624,58 +1672,133 @@ function Skills() {
       id="ky-nang"
       eyebrow="Kỹ năng đạt được"
       title={<>Bức tranh <span className="italic text-accent">năng lực số</span> sau môn học</>}
-      intro="Biểu đồ mạng nhện thể hiện 8 nhóm năng lực trên thang điểm 60 – 100, giúp so sánh rõ điểm mạnh và vùng cần cải thiện."
+      intro="Biểu đồ đánh giá 7 kỹ năng cốt lõi trên thang 60 – 100, giúp so sánh rõ điểm mạnh và vùng cần cải thiện."
     >
-      <div className="grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-start">
-        <div className="reveal rounded-3xl border border-border bg-card p-6 shadow-lift md:p-8">
-          <RadarChart data={SKILLS} />
-
-          {/* Legend + summary metrics */}
-          <div className="mt-6 grid grid-cols-3 gap-3 border-t border-border pt-5">
-            <div className="text-center">
-              <div className="text-[11px] uppercase tracking-wide text-muted-foreground">Trung bình</div>
-              <div className="font-display text-2xl font-bold text-primary">{avg}%</div>
-            </div>
-            <div className="text-center">
-              <div className="text-[11px] uppercase tracking-wide text-muted-foreground">Cao nhất</div>
-              <div className="font-display text-2xl font-bold text-accent">{top.level}%</div>
-            </div>
-            <div className="text-center">
-              <div className="text-[11px] uppercase tracking-wide text-muted-foreground">Thấp nhất</div>
-              <div className="font-display text-2xl font-bold text-foreground">{low.level}%</div>
-            </div>
+      <div className="reveal overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-slate-50 via-white to-indigo-50/60 p-6 shadow-lift md:p-10 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950/40">
+        {/* Header */}
+        <div className="mb-8 flex flex-col items-center gap-3 text-center">
+          <div className="flex items-center gap-3">
+            <span
+              className="grid h-12 w-12 place-items-center rounded-xl text-white shadow-md"
+              style={{ background: "linear-gradient(135deg,#8b5cf6,#06b6d4)" }}
+            >
+              <Brain size={26} />
+            </span>
+            <h3 className="font-display text-2xl font-extrabold uppercase tracking-wide text-primary md:text-3xl">
+              Đánh giá năng lực AI
+            </h3>
           </div>
-          <p className="mt-4 text-xs text-muted-foreground">
-            * Thang đo hiển thị từ 60% để làm nổi bật khác biệt giữa các nhóm năng lực (mọi giá trị đều ở mức khá – giỏi).
-          </p>
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+            <span className="h-px w-8 bg-muted-foreground/40" />
+            7 kỹ năng cốt lõi
+            <span className="h-px w-8 bg-muted-foreground/40" />
+          </div>
         </div>
 
-        <div className="reveal grid gap-3">
-          {SKILLS.map((s, i) => (
-            <div
-              key={s.s}
-              className="rounded-2xl border border-border bg-card p-4 shadow-soft"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <h3 className="flex items-center gap-2 font-display text-base font-semibold text-primary">
-                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+          {/* Radar chart */}
+          <div>
+            <RadarChart data={SKILLS} />
+          </div>
+
+          {/* Skill cards */}
+          <div className="grid gap-3">
+            {SKILLS.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <div
+                  key={s.s}
+                  className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-soft transition-transform hover:-translate-y-0.5"
+                >
+                  {/* index chip */}
+                  <span
+                    className="grid h-7 w-7 shrink-0 place-items-center rounded-full text-xs font-bold text-white"
+                    style={{ backgroundColor: s.color }}
+                  >
                     {i + 1}
                   </span>
-                  {s.s}
-                </h3>
-                <span className="font-display text-lg font-semibold text-accent">{s.level}%</span>
-              </div>
-              <p className="mt-1 text-xs text-muted-foreground">{s.use}</p>
-              <div className="mt-2 h-1.5 rounded-full bg-secondary">
-                <div className="h-1.5 rounded-full bg-gradient-accent transition-all" style={{ width: `${s.level}%` }} />
+                  {/* icon */}
+                  <span
+                    className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-white shadow-md"
+                    style={{
+                      background: `linear-gradient(135deg, ${s.color}, ${s.color}cc)`,
+                    }}
+                  >
+                    <Icon size={22} />
+                  </span>
+                  {/* content */}
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <h4 className="truncate font-display text-sm font-bold text-primary md:text-base">
+                        {s.s}
+                      </h4>
+                      <span
+                        className="font-display text-lg font-extrabold"
+                        style={{ color: s.color }}
+                      >
+                        {s.level}%
+                      </span>
+                    </div>
+                    <p className="mt-0.5 truncate text-xs text-muted-foreground">
+                      {s.use}
+                    </p>
+                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-secondary">
+                      <div
+                        className="h-full rounded-full transition-all"
+                        style={{
+                          width: `${s.level}%`,
+                          background: `linear-gradient(90deg, ${s.color}, ${s.color}dd)`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Summary strip */}
+        <div className="mt-8 grid gap-3 rounded-2xl border border-border bg-card p-4 sm:grid-cols-3 sm:p-5">
+          {[
+            { label: "Trung bình", value: avg, color: "#7c3aed", Icon: BarChart3 },
+            { label: "Cao nhất", value: top.level, color: "#10b981", Icon: Star },
+            { label: "Thấp nhất", value: low.level, color: "#3b82f6", Icon: Shield },
+          ].map((m) => (
+            <div
+              key={m.label}
+              className="flex items-center gap-4 rounded-xl px-3 py-2 sm:justify-center"
+            >
+              <span
+                className="grid h-11 w-11 place-items-center rounded-full text-white shadow-md"
+                style={{ background: `linear-gradient(135deg, ${m.color}, ${m.color}cc)` }}
+              >
+                <m.Icon size={20} />
+              </span>
+              <div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  {m.label}
+                </div>
+                <div
+                  className="font-display text-2xl font-extrabold"
+                  style={{ color: m.color }}
+                >
+                  {m.value}%
+                </div>
               </div>
             </div>
           ))}
         </div>
+
+        <p className="mt-4 text-xs italic text-muted-foreground">
+          * Thang đo hiển thị từ 60% để làm nổi bật khác biệt giữa các nhóm năng lực (mọi giá trị đều ở mức khá – giỏi).
+        </p>
       </div>
     </Section>
   );
 }
+
+
 
 
 
