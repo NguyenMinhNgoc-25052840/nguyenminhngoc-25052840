@@ -590,7 +590,7 @@ function Projects() {
     <Section
       id="du-an"
       eyebrow="Dự án học tập"
-      title={<>Sáu dự án — <span className="italic text-accent">một bức tranh năng lực</span></>}
+      title={<>6 dự án — <span className="italic text-accent">một bức tranh năng lực</span></>}
       intro="Mỗi dự án được trình bày thống nhất: mục tiêu, quy trình, công cụ, minh chứng, phân tích và bài học rút ra."
     >
       <div className="space-y-10">
