@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import avatarAsset from "@/assets/avatar.jpg.asset.json";
 import ev1 from "@/assets/evidence/bai01.jpg.asset.json";
 import ev2 from "@/assets/evidence/bai02.jpg.asset.json";
 import ev3 from "@/assets/evidence/bai03.jpg.asset.json";
