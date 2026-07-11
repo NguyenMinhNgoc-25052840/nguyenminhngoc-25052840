@@ -126,6 +126,29 @@ const PROJECTS: {
     ],
     tags: ["EVFTA", "10 nguồn học thuật", "5 tiêu chí đánh giá"],
     progress: 100,
+    strengths: [
+      "Xây dựng được danh mục 10 tài liệu đa dạng: bài báo, sách chuyên khảo, báo cáo tổ chức quốc tế.",
+      "Áp dụng nhất quán bộ 5 tiêu chí đánh giá cho từng nguồn, có bảng so sánh trực quan.",
+      "Ưu tiên tài liệu 2020–2025, đảm bảo tính cập nhật của thông tin về EVFTA.",
+    ],
+    improvements: [
+      "Cần bổ sung thêm nguồn tiếng Việt để cân bằng góc nhìn trong nước và quốc tế.",
+      "Kỹ năng đọc lướt (skimming) tài liệu học thuật tiếng Anh cần luyện thêm để làm nhanh hơn.",
+    ],
+    highlights: [
+      "Nguồn từ tổ chức uy tín (World Bank, WTO) là chuẩn tham chiếu hàng đầu.",
+      "Toán tử tìm kiếm nâng cao (site:, filetype:, \"…\") tiết kiệm rất nhiều thời gian.",
+      "Đánh giá nguồn trước khi trích dẫn là bước bắt buộc, không được bỏ qua.",
+    ],
+    aiUsage: [
+      "Có sử dụng ChatGPT để gợi ý từ khóa tìm kiếm bằng tiếng Anh về EVFTA.",
+      "Không dùng AI để tự sinh nội dung đánh giá — mọi nhận xét đều do bản thân đọc và viết.",
+    ],
+    integrity: [
+      "10 nguồn được truy cập, đọc và ghi lại link đầy đủ, không bịa dữ liệu.",
+      "Bảng đánh giá độ tin cậy phản ánh đúng thông tin có trên nguồn gốc.",
+      "Trích dẫn ghi rõ tác giả, năm và nơi xuất bản theo chuẩn học thuật.",
+    ],
   },
   {
     n: "03",
