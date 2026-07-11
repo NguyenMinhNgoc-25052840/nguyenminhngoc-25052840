@@ -526,8 +526,7 @@ const SKILLS: {
   icon: LucideIcon;
 }[] = [
   { s: "Quản lý tệp và dữ liệu số", level: 95, use: "Tổ chức toàn bộ tài liệu học tập, sao lưu đám mây.", color: "#7c3aed", icon: FolderOpen },
-  { s: "Tìm kiếm thông tin học thuật", level: 92, use: "Nghiên cứu, viết tiểu luận, chuẩn bị thuyết trình.", color: "#2563eb", icon: Search },
-  { s: "Đánh giá độ tin cậy của nguồn", level: 98, use: "Sàng lọc thông tin trước khi trích dẫn.", color: "#0d9488", icon: ShieldCheck },
+  { s: "Tìm kiếm và đánh giá thông tin học thuật", level: 95, use: "Nghiên cứu, viết tiểu luận và sàng lọc nguồn tin cậy trước khi trích dẫn.", color: "#0d9488", icon: ShieldCheck },
   { s: "Viết Prompt hiệu quả", level: 94, use: "Khai thác AI cho tóm tắt, dịch, phân tích.", color: "#f97316", icon: MessageSquare },
   { s: "Làm việc nhóm trực tuyến", level: 90, use: "Quản lý dự án nhóm bằng Trello / Notion.", color: "#ec4899", icon: Users },
   { s: "Sáng tạo nội dung số bằng AI", level: 96, use: "Sản xuất video, infographic, thuyết trình.", color: "#3b82f6", icon: Lightbulb },
@@ -1655,7 +1654,7 @@ function Skills() {
       id="ky-nang"
       eyebrow="Kỹ năng đạt được"
       title={<>Bức tranh <span className="italic text-accent">năng lực số</span> sau môn học</>}
-      intro="Biểu đồ đánh giá 7 kỹ năng cốt lõi trên thang 60 – 100, giúp so sánh rõ điểm mạnh và vùng cần cải thiện."
+      intro="Biểu đồ đánh giá 6 kỹ năng cốt lõi trên thang 60 – 100, giúp so sánh rõ điểm mạnh và vùng cần cải thiện."
     >
       <div className="reveal overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-slate-50 via-white to-indigo-50/60 p-6 shadow-lift md:p-10 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950/40">
         {/* Header */}
@@ -1673,7 +1672,7 @@ function Skills() {
           </div>
           <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
             <span className="h-px w-8 bg-muted-foreground/40" />
-            7 kỹ năng cốt lõi
+            6 kỹ năng cốt lõi
             <span className="h-px w-8 bg-muted-foreground/40" />
           </div>
         </div>
