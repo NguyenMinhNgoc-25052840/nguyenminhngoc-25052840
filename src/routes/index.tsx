@@ -27,14 +27,42 @@ const BAI01_GALLERY = [
   { url: bai01_19.url, caption: "Recycle Bin trên Desktop — mở để Restore khi cần." },
 ];
 
-
-const EVIDENCE_IMG: Record<string, string> = {
-  "01": ev1.url,
-  "02": ev2.url,
-  "03": ev3.url,
-  "04": ev4.url,
-  "05": ev5.url,
+const GALLERIES: Record<string, { url: string; caption: string }[]> = {
+  "01": BAI01_GALLERY,
+  "02": [
+    { url: ev2.url, caption: "Danh mục 10 nguồn học thuật về EVFTA thu thập từ Google Scholar, World Bank, WTO." },
+    { url: ev2.url, caption: "Bảng đánh giá độ tin cậy theo 5 tiêu chí: tác giả, cơ quan, phương pháp, trích dẫn, cập nhật." },
+  ],
+  "03": [
+    { url: ev3.url, caption: "Prompt cơ bản: “Tóm tắt bài báo này.” — kết quả ngắn, thiếu chiều sâu." },
+    { url: ev3.url, caption: "Prompt cải tiến: chia phần, giới hạn 400 từ, nêu mục tiêu – cơ hội – thách thức." },
+    { url: ev3.url, caption: "Prompt nâng cao: gán vai trò chuyên gia + mô tả bước thực hiện, kết quả bám sát nhất." },
+  ],
+  "04": [
+    { url: ev4.url, caption: "Google Drive — thư mục dự án Nhóm 30, lưu các phiên bản báo cáo." },
+    { url: ev4.url, caption: "Google Docs — Comment và Version History khi biên tập nội dung nhóm." },
+    { url: ev4.url, caption: "Zalo Nhóm 30 — trao đổi công việc và chốt hạn hoàn thành." },
+  ],
+  "05": [
+    { url: ev5.url, caption: "Kịch bản do bản thân xây dựng và tinh chỉnh bằng ChatGPT." },
+    { url: ev5.url, caption: "Ảnh minh hoạ sinh bằng AI, biên tập lại bố cục và màu sắc." },
+    { url: ev5.url, caption: "Sản phẩm cuối cùng sau khi kết hợp AI và biên tập cá nhân." },
+  ],
+  "06": [],
 };
+
+const DOWNLOADS: Record<string, { label: string; url: string } | undefined> = {
+  "01": { label: "Tải tệp minh chứng: GhiChuQuanTrong.docx", url: "#" },
+  "02": { label: "Tải bảng đánh giá 10 nguồn EVFTA.xlsx", url: "#" },
+  "03": { label: "Tải bảng so sánh 3 mức Prompt.pdf", url: "#" },
+  "04": { label: "Tải báo cáo dự án Nhóm 30.docx", url: "#" },
+  "05": { label: "Tải sản phẩm sáng tạo nội dung AI.pdf", url: "#" },
+  "06": { label: "Tải bộ nguyên tắc dùng AI có trách nhiệm.pdf", url: "#" },
+};
+
+
+
+
 
 export const Route = createFileRoute("/")({
   component: PortfolioPage,
@@ -992,9 +1020,10 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[number]; index: number
           <EvidenceBox
             note={p.evidence}
             tag={`Bài ${p.n}`}
-            img={p.n === "01" ? undefined : EVIDENCE_IMG[p.n]}
-            gallery={p.n === "01" ? BAI01_GALLERY : undefined}
+            gallery={GALLERIES[p.n] ?? []}
+            download={DOWNLOADS[p.n]}
           />
+
 
         </div>
       </div>
@@ -1069,55 +1098,80 @@ function IntegrityBlock({ aiUsage, integrity }: { aiUsage: string[]; integrity: 
   );
 }
 
-function EvidenceBox({ note, tag, img, gallery }: { note: string; tag: string; img?: string; gallery?: { url: string; caption?: string }[] }) {
-  const hasGallery = gallery && gallery.length > 0;
-  const hasAny = hasGallery || !!img;
+function EvidenceBox({
+  note,
+  tag,
+  gallery,
+  download,
+}: {
+  note: string;
+  tag: string;
+  gallery?: { url: string; caption?: string }[];
+  download?: { label: string; url: string };
+}) {
+  const hasGallery = !!gallery && gallery.length > 0;
   return (
-    <div className="mt-8 overflow-hidden rounded-2xl border-2 border-dashed border-accent/35 bg-accent-soft/40">
-      <div className="flex items-center justify-between px-5 pt-4">
-        <span className="text-xs font-semibold uppercase tracking-wider text-accent">Minh chứng · {tag}</span>
-        <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold text-accent-foreground">
-          {hasAny ? "ẢNH THẬT" : "PLACEHOLDER"}
+    <div className="mt-8 overflow-hidden rounded-3xl border border-accent/25 bg-gradient-to-br from-accent-soft/60 via-background to-accent-soft/30 shadow-soft">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-6 pt-5">
+        <div className="flex items-center gap-2">
+          <span className="grid h-8 w-8 place-items-center rounded-full bg-accent/15 text-base">📸</span>
+          <div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">Ảnh minh chứng thực hành</div>
+            <div className="text-xs text-muted-foreground">{tag} · {hasGallery ? `${gallery!.length} ảnh` : "Chưa có ảnh"}</div>
+          </div>
+        </div>
+        <span className="rounded-full bg-accent px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
+          {hasGallery ? "Ảnh thật" : "Placeholder"}
         </span>
       </div>
-      {img && !hasGallery && (
-        <div className="mt-3 border-y border-accent/20 bg-background/50">
-          <img
-            src={img}
-            alt={`Minh chứng ${tag}`}
-            loading="lazy"
-            className="mx-auto block max-h-[520px] w-full object-contain"
-          />
-        </div>
-      )}
+
       {hasGallery && (
-        <div className="mt-3 grid gap-3 border-y border-accent/20 bg-background/50 p-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-5 grid gap-5 px-6 sm:grid-cols-2 lg:grid-cols-3">
           {gallery!.map((g, i) => (
-            <figure key={i} className="overflow-hidden rounded-xl border border-border bg-card shadow-soft">
-              <img
-                src={g.url}
-                alt={g.caption ?? `Minh chứng ${tag} - ${i + 1}`}
-                loading="lazy"
-                className="block h-44 w-full object-cover"
-              />
+            <figure
+              key={i}
+              className="group overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
+                <img
+                  src={g.url}
+                  alt={g.caption ?? `Minh chứng ${tag} - ${i + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                />
+                <span className="absolute left-3 top-3 rounded-full bg-background/90 px-2 py-0.5 text-[10px] font-semibold text-accent shadow">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
               {g.caption && (
-                <figcaption className="border-t border-border px-3 py-2 text-xs text-muted-foreground">
-                  <span className="font-semibold text-accent">{String(i + 1).padStart(2, "0")}.</span> {g.caption}
+                <figcaption className="px-4 py-3 text-sm leading-relaxed text-foreground/85">
+                  {g.caption}
                 </figcaption>
               )}
             </figure>
           ))}
         </div>
       )}
-      <div className="px-5 pb-4 pt-3">
-        <p className="text-sm text-foreground/80">{note}</p>
-        {!hasAny && (
-          <p className="mt-1 text-xs italic text-muted-foreground">→ Thay khu vực này bằng ảnh chụp màn hình / liên kết sản phẩm thật.</p>
+
+      <div className="flex flex-wrap items-center justify-between gap-3 px-6 pb-6 pt-5">
+        <p className="max-w-2xl text-sm text-foreground/75">{note}</p>
+        {download && (
+          <a
+            href={download.url}
+            className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-background px-4 py-2 text-sm font-semibold text-accent shadow-sm transition hover:bg-accent hover:text-accent-foreground"
+          >
+            <span>📄</span>
+            <span>{download.label}</span>
+          </a>
         )}
       </div>
+      {!hasGallery && (
+        <p className="px-6 pb-5 text-xs italic text-muted-foreground">→ Thay khu vực này bằng ảnh chụp màn hình / liên kết sản phẩm thật.</p>
+      )}
     </div>
   );
 }
+
 
 function SearchOperators() {
   return (
