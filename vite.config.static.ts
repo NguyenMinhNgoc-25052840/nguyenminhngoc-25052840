@@ -22,12 +22,20 @@ const LOVABLE_ORIGIN =
  */
 function assetPointerMirror(): Plugin {
   const publicRoot = path.resolve("public");
+  const SUFFIX = "?mirrored";
   return {
     name: "asset-pointer-mirror",
     enforce: "pre",
+    async resolveId(source, importer) {
+      if (!source.endsWith(".asset.json")) return null;
+      const resolved = await this.resolve(source, importer, { skipSelf: true });
+      if (!resolved) return null;
+      return resolved.id + SUFFIX;
+    },
     async load(id) {
-      if (!id.endsWith(".asset.json")) return null;
-      const raw = JSON.parse(await fs.readFile(id, "utf-8"));
+      if (!id.endsWith(".asset.json" + SUFFIX)) return null;
+      const filePath = id.slice(0, -SUFFIX.length);
+      const raw = JSON.parse(await fs.readFile(filePath, "utf-8"));
       if (!raw?.url || !raw?.asset_id || !raw?.original_filename) return null;
 
       const relDir = path.join("l5e", raw.asset_id);
