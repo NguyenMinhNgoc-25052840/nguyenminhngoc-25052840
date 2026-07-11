@@ -60,13 +60,8 @@ const DOWNLOADS: Record<string, { label: string; url: string } | undefined> = {
   "06": { label: "Tải bộ nguyên tắc dùng AI có trách nhiệm.pdf", url: "#" },
 };
 
-const EVIDENCE_IMG: Record<string, string> = {
-  "01": ev1.url,
-  "02": ev2.url,
-  "03": ev3.url,
-  "04": ev4.url,
-  "05": ev5.url,
-};
+
+
 
 
 export const Route = createFileRoute("/")({
