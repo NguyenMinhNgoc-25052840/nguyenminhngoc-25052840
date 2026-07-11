@@ -1,5 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import {
+  FolderOpen,
+  Search,
+  ShieldCheck,
+  MessageSquare,
+  Users,
+  Lightbulb,
+  Scale,
+  BarChart3,
+  Star,
+  Shield,
+  Brain,
+  type LucideIcon,
+} from "lucide-react";
 import avatarAsset from "@/assets/avatar.jpg.asset.json";
 import ev1 from "@/assets/evidence/bai01.jpg.asset.json";
 import ev2 from "@/assets/evidence/bai02.jpg.asset.json";
@@ -504,15 +518,20 @@ const EVIDENCES = [
   { title: "Bộ nguyên tắc dùng AI có trách nhiệm", desc: "Infographic 6 nguyên tắc sử dụng AI có trách nhiệm trong học tập.", tag: "Bài 06", img: bai06_infographic.url },
 ];
 
-const SKILLS = [
-  { s: "Quản lý tệp và dữ liệu số", level: 95, use: "Tổ chức toàn bộ tài liệu học tập, sao lưu đám mây." },
-  { s: "Tìm kiếm thông tin học thuật", level: 92, use: "Nghiên cứu, viết tiểu luận, chuẩn bị thuyết trình." },
-  { s: "Đánh giá độ tin cậy của nguồn", level: 98, use: "Sàng lọc thông tin trước khi trích dẫn." },
-  { s: "Viết Prompt hiệu quả", level: 94, use: "Khai thác AI cho tóm tắt, dịch, phân tích." },
-  { s: "Làm việc nhóm trực tuyến", level: 90, use: "Quản lý dự án nhóm bằng Trello / Notion." },
-  { s: "Sáng tạo nội dung số bằng AI", level: 96, use: "Sản xuất video, infographic, thuyết trình." },
-  { s: "Sử dụng AI có trách nhiệm", level: 99, use: "Tuân thủ đạo đức học thuật khi dùng AI." },
-  { s: "Tự đánh giá và cải thiện", level: 93, use: "Phản tư sau mỗi bài tập, điều chỉnh phương pháp." },
+const SKILLS: {
+  s: string;
+  level: number;
+  use: string;
+  color: string;
+  icon: LucideIcon;
+}[] = [
+  { s: "Quản lý tệp và dữ liệu số", level: 95, use: "Tổ chức toàn bộ tài liệu học tập, sao lưu đám mây.", color: "#7c3aed", icon: FolderOpen },
+  { s: "Tìm kiếm thông tin học thuật", level: 92, use: "Nghiên cứu, viết tiểu luận, chuẩn bị thuyết trình.", color: "#2563eb", icon: Search },
+  { s: "Đánh giá độ tin cậy của nguồn", level: 98, use: "Sàng lọc thông tin trước khi trích dẫn.", color: "#0d9488", icon: ShieldCheck },
+  { s: "Viết Prompt hiệu quả", level: 94, use: "Khai thác AI cho tóm tắt, dịch, phân tích.", color: "#f97316", icon: MessageSquare },
+  { s: "Làm việc nhóm trực tuyến", level: 90, use: "Quản lý dự án nhóm bằng Trello / Notion.", color: "#ec4899", icon: Users },
+  { s: "Sáng tạo nội dung số bằng AI", level: 96, use: "Sản xuất video, infographic, thuyết trình.", color: "#3b82f6", icon: Lightbulb },
+  { s: "Sử dụng AI có trách nhiệm", level: 99, use: "Tuân thủ đạo đức học thuật khi dùng AI.", color: "#8b5cf6", icon: Scale },
 ];
 
 
