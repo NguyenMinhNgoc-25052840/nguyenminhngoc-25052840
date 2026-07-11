@@ -935,17 +935,28 @@ function Evidence() {
             style={{ transitionDelay: `${i * 40}ms` }}
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-gradient-brand">
-              <div className="absolute inset-0 opacity-25" style={{
-                backgroundImage: "radial-gradient(circle at 30% 30%, white 1px, transparent 1px), radial-gradient(circle at 70% 70%, white 1px, transparent 1px)",
-                backgroundSize: "24px 24px, 32px 32px",
-              }} />
-              <div className="absolute inset-0 grid place-items-center">
-                <span className="rounded-full bg-primary-foreground/15 px-4 py-1.5 text-xs font-semibold text-primary-foreground backdrop-blur">
-                  {e.tag} · Placeholder
-                </span>
-              </div>
+              {e.img ? (
+                <img
+                  src={e.img}
+                  alt={`Minh chứng ${e.tag} — ${e.title}`}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0 opacity-25" style={{
+                    backgroundImage: "radial-gradient(circle at 30% 30%, white 1px, transparent 1px), radial-gradient(circle at 70% 70%, white 1px, transparent 1px)",
+                    backgroundSize: "24px 24px, 32px 32px",
+                  }} />
+                  <div className="absolute inset-0 grid place-items-center">
+                    <span className="rounded-full bg-primary-foreground/15 px-4 py-1.5 text-xs font-semibold text-primary-foreground backdrop-blur">
+                      {e.tag} · Placeholder
+                    </span>
+                  </div>
+                </>
+              )}
               <div className="absolute right-3 top-3 rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
-                Minh chứng
+                {e.img ? e.tag : "Minh chứng"}
               </div>
             </div>
             <div className="p-5">
