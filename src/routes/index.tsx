@@ -868,8 +868,8 @@ function Journey() {
     <Section
       id="hanh-trinh"
       eyebrow="Tổng quan dự án"
-      title={<>Hành trình <span className="italic text-accent">6 nhiệm vụ</span> học tập</>}
-      intro="Sáu nhiệm vụ nối tiếp nhau, đi từ kỹ năng nền tảng đến năng lực nâng cao trong việc sử dụng AI có trách nhiệm."
+      title={<>Hành trình{"\u00a0"}6 nhiệm vụ{"\u00a0"} học tập.{"\n"}</>}
+      intro="6 nhiệm vụ nối tiếp nhau, đi từ kỹ năng nền tảng đến năng lực nâng cao trong việc sử dụng AI có trách nhiệm."
       tone="surface"
     >
       <div className="relative">
