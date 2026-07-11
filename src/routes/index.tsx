@@ -1479,84 +1479,138 @@ function Evidence() {
 }
 
 function RadarChart({ data }: { data: { s: string; level: number }[] }) {
-  const size = 520;
+  const size = 560;
   const cx = size / 2;
   const cy = size / 2;
-  const R = 180;
+  const R = 190;
   const N = data.length;
-  const rings = [0.2, 0.4, 0.6, 0.8, 1];
+  // Focused scale 60→100 so 90–99 values show meaningful differentiation
+  const MIN = 60;
+  const MAX = 100;
+  const ringValues = [60, 70, 80, 90, 100];
+  const norm = (v: number) => Math.max(0, Math.min(1, (v - MIN) / (MAX - MIN)));
 
   const angle = (i: number) => (Math.PI * 2 * i) / N - Math.PI / 2;
-  const point = (i: number, r: number) => [cx + Math.cos(angle(i)) * r, cy + Math.sin(angle(i)) * r] as const;
+  const point = (i: number, r: number) =>
+    [cx + Math.cos(angle(i)) * r, cy + Math.sin(angle(i)) * r] as const;
 
   const dataPath =
     data
       .map((d, i) => {
-        const [x, y] = point(i, (d.level / 100) * R);
+        const [x, y] = point(i, norm(d.level) * R);
         return `${i === 0 ? "M" : "L"}${x.toFixed(2)},${y.toFixed(2)}`;
       })
       .join(" ") + " Z";
 
   return (
-    <svg viewBox={`0 0 ${size} ${size}`} className="mx-auto block h-auto w-full max-w-[560px]" role="img" aria-label="Biểu đồ mạng nhện năng lực số">
+    <svg
+      viewBox={`0 0 ${size} ${size}`}
+      className="mx-auto block h-auto w-full max-w-[560px]"
+      role="img"
+      aria-label="Biểu đồ mạng nhện năng lực số (thang 60–100)"
+    >
       {/* rings */}
-      {rings.map((k, idx) => {
-        const pts = Array.from({ length: N }, (_, i) => point(i, R * k).join(",")).join(" ");
+      {ringValues.map((v, idx) => {
+        const r = norm(v) * R;
+        const pts = Array.from({ length: N }, (_, i) => point(i, r).join(",")).join(" ");
         return (
           <polygon
-            key={idx}
+            key={v}
             points={pts}
-            fill={idx === rings.length - 1 ? "hsl(var(--secondary) / 0.35)" : "none"}
+            fill={idx === 0 ? "hsl(var(--secondary) / 0.35)" : "none"}
+            stroke="hsl(var(--border))"
+            strokeWidth={idx === ringValues.length - 1 ? 1.4 : 1}
+            strokeDasharray={idx === ringValues.length - 1 ? "0" : "3 3"}
+          />
+        );
+      })}
+
+      {/* ring scale labels (top axis) */}
+      {ringValues.map((v) => {
+        const r = norm(v) * R;
+        return (
+          <text
+            key={`rv-${v}`}
+            x={cx + 4}
+            y={cy - r - 2}
+            className="fill-muted-foreground"
+            style={{ fontSize: 10, fontWeight: 600 }}
+          >
+            {v}
+          </text>
+        );
+      })}
+
+      {/* spokes */}
+      {data.map((_, i) => {
+        const [x, y] = point(i, R);
+        return (
+          <line
+            key={i}
+            x1={cx}
+            y1={cy}
+            x2={x}
+            y2={y}
             stroke="hsl(var(--border))"
             strokeWidth={1}
           />
         );
       })}
-      {/* spokes */}
-      {data.map((_, i) => {
-        const [x, y] = point(i, R);
-        return <line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke="hsl(var(--border))" strokeWidth={1} />;
-      })}
+
       {/* data area */}
-      <path d={dataPath} fill="hsl(var(--accent) / 0.28)" stroke="hsl(var(--accent))" strokeWidth={2.5} strokeLinejoin="round" />
-      {/* data points */}
+      <path
+        d={dataPath}
+        fill="hsl(var(--accent) / 0.25)"
+        stroke="hsl(var(--accent))"
+        strokeWidth={2.5}
+        strokeLinejoin="round"
+      />
+
+      {/* data points with numeric index badge */}
       {data.map((d, i) => {
-        const [x, y] = point(i, (d.level / 100) * R);
+        const [x, y] = point(i, norm(d.level) * R);
         return (
-          <g key={i}>
-            <circle cx={x} cy={y} r={5} fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth={2} />
+          <g key={`p-${i}`}>
+            <circle
+              cx={x}
+              cy={y}
+              r={11}
+              fill="hsl(var(--primary))"
+              stroke="hsl(var(--background))"
+              strokeWidth={2}
+            />
+            <text
+              x={x}
+              y={y}
+              textAnchor="middle"
+              dominantBaseline="central"
+              className="fill-primary-foreground"
+              style={{ fontSize: 11, fontWeight: 700 }}
+            >
+              {i + 1}
+            </text>
           </g>
         );
       })}
-      {/* labels */}
+
+      {/* axis labels — just index + % to avoid overlap */}
       {data.map((d, i) => {
-        const [lx, ly] = point(i, R + 28);
+        const [lx, ly] = point(i, R + 22);
         const a = angle(i);
         const cos = Math.cos(a);
         const anchor = Math.abs(cos) < 0.2 ? "middle" : cos > 0 ? "start" : "end";
         return (
-          <g key={`l-${i}`}>
-            <text
-              x={lx}
-              y={ly}
-              textAnchor={anchor}
-              dominantBaseline="middle"
-              className="fill-foreground"
-              style={{ fontSize: 12, fontWeight: 600 }}
-            >
-              {d.s}
-            </text>
-            <text
-              x={lx}
-              y={ly + 14}
-              textAnchor={anchor}
-              dominantBaseline="middle"
-              className="fill-accent"
-              style={{ fontSize: 11, fontWeight: 700 }}
-            >
-              {d.level}%
-            </text>
-          </g>
+          <text
+            key={`l-${i}`}
+            x={lx}
+            y={ly}
+            textAnchor={anchor}
+            dominantBaseline="middle"
+            className="fill-accent"
+            style={{ fontSize: 13, fontWeight: 700 }}
+          >
+            {i + 1}. {d.level}%
+          </text>
         );
       })}
     </svg>
@@ -1564,25 +1618,54 @@ function RadarChart({ data }: { data: { s: string; level: number }[] }) {
 }
 
 function Skills() {
+  const avg = Math.round(SKILLS.reduce((a, b) => a + b.level, 0) / SKILLS.length);
+  const top = [...SKILLS].sort((a, b) => b.level - a.level)[0];
+  const low = [...SKILLS].sort((a, b) => a.level - b.level)[0];
+
   return (
     <Section
       id="ky-nang"
       eyebrow="Kỹ năng đạt được"
       title={<>Bức tranh <span className="italic text-accent">năng lực số</span> sau môn học</>}
-      intro="Mỗi kỹ năng đi kèm mức độ thành thạo và ứng dụng thực tế trong học tập."
+      intro="Biểu đồ mạng nhện thể hiện 8 nhóm năng lực trên thang điểm 60 – 100, giúp so sánh rõ điểm mạnh và vùng cần cải thiện."
     >
-      <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+      <div className="grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-start">
         <div className="reveal rounded-3xl border border-border bg-card p-6 shadow-lift md:p-8">
           <RadarChart data={SKILLS} />
+
+          {/* Legend + summary metrics */}
+          <div className="mt-6 grid grid-cols-3 gap-3 border-t border-border pt-5">
+            <div className="text-center">
+              <div className="text-[11px] uppercase tracking-wide text-muted-foreground">Trung bình</div>
+              <div className="font-display text-2xl font-bold text-primary">{avg}%</div>
+            </div>
+            <div className="text-center">
+              <div className="text-[11px] uppercase tracking-wide text-muted-foreground">Cao nhất</div>
+              <div className="font-display text-2xl font-bold text-accent">{top.level}%</div>
+            </div>
+            <div className="text-center">
+              <div className="text-[11px] uppercase tracking-wide text-muted-foreground">Thấp nhất</div>
+              <div className="font-display text-2xl font-bold text-foreground">{low.level}%</div>
+            </div>
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">
+            * Thang đo hiển thị từ 60% để làm nổi bật khác biệt giữa các nhóm năng lực (mọi giá trị đều ở mức khá – giỏi).
+          </p>
         </div>
+
         <div className="reveal grid gap-3">
-          {SKILLS.map((s) => (
+          {SKILLS.map((s, i) => (
             <div
               key={s.s}
               className="rounded-2xl border border-border bg-card p-4 shadow-soft"
             >
               <div className="flex items-center justify-between gap-3">
-                <h3 className="font-display text-base font-semibold text-primary">{s.s}</h3>
+                <h3 className="flex items-center gap-2 font-display text-base font-semibold text-primary">
+                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                    {i + 1}
+                  </span>
+                  {s.s}
+                </h3>
                 <span className="font-display text-lg font-semibold text-accent">{s.level}%</span>
               </div>
               <p className="mt-1 text-xs text-muted-foreground">{s.use}</p>
@@ -1596,6 +1679,7 @@ function Skills() {
     </Section>
   );
 }
+
 
 
 function Conclusion() {
