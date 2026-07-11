@@ -1,5 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import ev1 from "@/assets/evidence/bai01.jpg.asset.json";
+import ev2 from "@/assets/evidence/bai02.jpg.asset.json";
+import ev3 from "@/assets/evidence/bai03.jpg.asset.json";
+import ev4 from "@/assets/evidence/bai04.jpg.asset.json";
+import ev5 from "@/assets/evidence/bai05.jpg.asset.json";
+
+const EVIDENCE_IMG: Record<string, string> = {
+  "01": ev1.url,
+  "02": ev2.url,
+  "03": ev3.url,
+  "04": ev4.url,
+  "05": ev5.url,
+};
 
 export const Route = createFileRoute("/")({
   component: PortfolioPage,
@@ -39,122 +52,124 @@ const PROJECTS: {
 }[] = [
   {
     n: "01",
-    title: "Thao tác cơ bản với tệp tin và thư mục",
-    goal: "Biết tạo thư mục, lưu trữ tài liệu khoa học, đặt tên tệp nhất quán và quản lý dữ liệu học tập lâu dài.",
+    title: "Thao tác cơ bản với tệp tin và thư mục trên File Explorer",
+    goal: "Thực hành đầy đủ các thao tác quản lý tệp — tạo, đổi tên, sao chép, di chuyển, xoá và khôi phục — trên Windows File Explorer.",
     steps: [
-      "Tạo thư mục gốc cho môn học Nhập môn CNS & AI.",
-      "Chia thành các nhóm: Bài tập, Tài liệu tham khảo, Hình ảnh minh chứng, Sản phẩm cuối kỳ.",
-      "Áp dụng quy tắc đặt tên: NMCNS_Bai01_QuanLyTep_2026_v1 để phân biệt phiên bản.",
-      "Đồng bộ song song trên máy cá nhân và Google Drive để sao lưu.",
+      "Mở File Explorer (Windows + E) và truy cập ổ đĩa D: (hoặc thư mục Documents).",
+      "Tạo thư mục ThucHanh_NguyenMinhNgoc và thư mục con TaiLieu bên trong.",
+      "Tạo tệp GhiChu.txt rồi Rename thành GhiChuQuanTrong.txt.",
+      "Copy tệp sang thư mục TaiLieu; tạo DiChuyen.txt rồi Cut & Paste sang TaiLieu.",
+      "Xoá tệp vào Recycle Bin, xoá vĩnh viễn bằng Shift + Delete, và Restore lại tệp khi cần.",
     ],
-    tools: ["File Explorer", "Google Drive", "OneDrive"],
-    evidence: "Ảnh chụp màn hình cấu trúc thư mục cây nhiều cấp và bảng quy tắc đặt tên tệp.",
+    tools: ["Windows File Explorer", "Recycle Bin", "Phím tắt Ctrl+C / Ctrl+X / Ctrl+V"],
+    evidence: "Ảnh chụp màn hình quá trình tạo thư mục ThucHanh_NguyenMinhNgoc, tệp GhiChuQuanTrong.txt và thao tác Copy – Cut – Delete – Restore trong File Explorer.",
     analysis: [
-      "Cấu trúc phân cấp theo chức năng giúp dữ liệu dễ tìm, tránh thất lạc và thuận tiện khi nộp bài.",
-      "Quy tắc đặt tên có STT + tên bài + ngày + phiên bản giúp phân biệt bản nháp và bản cuối, hỗ trợ làm việc lâu dài.",
-      "Việc đồng bộ đám mây bảo vệ dữ liệu trước rủi ro mất máy hoặc hỏng ổ cứng.",
+      "Phân biệt rõ Copy (giữ bản gốc) và Cut (chuyển hẳn) giúp tránh mất dữ liệu khi tổ chức thư mục.",
+      "Recycle Bin là lớp bảo vệ; Shift + Delete xoá vĩnh viễn nên chỉ dùng khi chắc chắn.",
+      "Đặt tên thư mục kèm họ tên (ThucHanh_NguyenMinhNgoc) giúp dễ nhận diện khi làm việc chung.",
     ],
     lesson: [
-      "Quản lý dữ liệu khoa học là kỹ năng nền tảng của công dân số.",
-      "Một cấu trúc thư mục tốt tiết kiệm thời gian và tăng hiệu quả học tập rõ rệt.",
+      "Nắm vững thao tác cơ bản với tệp là nền tảng cho mọi công việc số.",
+      "Thói quen kiểm tra kỹ trước khi xoá vĩnh viễn tránh mất dữ liệu học tập.",
     ],
-    tags: ["Tổ chức dữ liệu", "Đặt tên nhất quán", "Sao lưu đám mây"],
+    tags: ["File Explorer", "Copy · Cut · Paste", "Recycle Bin"],
     progress: 100,
   },
   {
     n: "02",
-    title: "Tìm kiếm và đánh giá thông tin học thuật",
-    goal: "Biết sử dụng toán tử tìm kiếm nâng cao và đánh giá độ tin cậy của nguồn thông tin học thuật.",
+    title: "Tìm kiếm và đánh giá thông tin học thuật về EVFTA",
+    goal: "Tìm, tổng hợp và đánh giá độ tin cậy của các nguồn học thuật về tác động của Hiệp định EVFTA đến hoạt động xuất khẩu của Việt Nam.",
     steps: [
-      "Chọn chủ đề: Ứng dụng AI tạo sinh trong giáo dục đại học.",
-      "Kết hợp hơn 6 toán tử: site:, filetype:, intitle:, \"cụm chính xác\", OR, dấu -, after:.",
-      "So sánh kết quả giữa Google Search, Google Scholar và cổng thư viện trường.",
-      "Lập bảng đánh giá 5 nguồn theo tác giả, tổ chức, năm, độ tin cậy, hạn chế.",
+      "Chọn chủ đề: Tác động của EVFTA đến xuất khẩu của Việt Nam.",
+      "Tìm nguồn trên Google Scholar, cơ sở dữ liệu thư viện, tạp chí khoa học, sách chuyên khảo và báo cáo của Bộ Công Thương, World Bank, WTO, OECD.",
+      "Lập danh mục 10 tài liệu gồm bài báo khoa học, sách và báo cáo.",
+      "Đánh giá từng nguồn theo 5 tiêu chí: tác giả, cơ quan xuất bản, phương pháp nghiên cứu, số trích dẫn và tính cập nhật.",
     ],
-    tools: ["Google Search", "Google Scholar", "Website đại học", "Báo cáo PDF"],
-    evidence: "Ảnh kết quả tìm kiếm cho từng toán tử và bảng so sánh 5 nguồn.",
+    tools: ["Google Scholar", "Thư viện điện tử", "Báo cáo Bộ Công Thương", "World Bank", "WTO"],
+    evidence: "Danh mục 10 tài liệu và bảng đánh giá độ tin cậy 10 nguồn theo 7 cột (tác giả, cơ quan, phương pháp, trích dẫn, cập nhật, đánh giá sao).",
     analysis: [
-      "Tìm kiếm hiệu quả cần chiến lược từ khóa và toán tử phù hợp, không chỉ nhập từ khóa thô.",
-      "Toán tử site: và filetype:pdf giúp thu hẹp về nguồn học thuật, giảm nhiễu tin quảng cáo.",
-      "Nguồn học thuật có phản biện thường đáng tin hơn blog cá nhân dù blog viết dễ đọc.",
+      "Tạp chí bình duyệt và tổ chức quốc tế (World Bank, WTO) đạt độ tin cậy cao nhất nhờ có kiểm định và phương pháp minh bạch.",
+      "Sách chuyên khảo của Krugman và Salvatore cung cấp nền tảng lý thuyết vững cho phân tích thương mại quốc tế.",
+      "Ưu tiên tài liệu 2020–2025 để phản ánh tác động mới nhất của EVFTA.",
     ],
     lesson: [
-      "Cần kiểm chứng thông tin qua ít nhất hai nguồn độc lập trước khi trích dẫn.",
-      "Không phụ thuộc vào một công cụ tìm kiếm duy nhất.",
+      "Kết hợp nhiều loại nguồn (bài báo, sách, báo cáo chính phủ) làm tăng tính khách quan.",
+      "Đánh giá nguồn theo bộ tiêu chí giúp loại bỏ thông tin thiếu kiểm chứng trước khi trích dẫn.",
     ],
-    tags: ["6+ toán tử nâng cao", "Đánh giá nguồn", "Tư duy phản biện"],
+    tags: ["EVFTA", "10 nguồn học thuật", "5 tiêu chí đánh giá"],
     progress: 100,
   },
   {
     n: "03",
-    title: "Viết Prompt hiệu quả cho các tác vụ học tập",
-    goal: "Biết cách viết prompt rõ ràng để AI trả lời đúng yêu cầu và phục vụ trực tiếp mục tiêu học tập.",
+    title: "Thử nghiệm Prompt — Tóm tắt bài đọc học thuật",
+    goal: "So sánh chất lượng ba mức prompt (cơ bản, cải tiến, nâng cao) khi yêu cầu AI tóm tắt bài báo khoa học dài về tác động của EVFTA đến thị trường chứng khoán Việt Nam.",
     steps: [
-      "Viết prompt ban đầu chung chung: \"Tóm tắt bài về AI trong giáo dục.\"",
-      "Viết prompt cải tiến có vai trò, bối cảnh, yêu cầu và tiêu chí đầu ra.",
-      "Chạy song song hai prompt, ghi lại kết quả AI trả về.",
-      "Lập bảng so sánh và rút ra nguyên tắc viết prompt cho bản thân.",
+      "Chọn bài báo 13 trang: The Effects of Free Trade Agreements on the Stock Market — Evidence from Vietnam.",
+      "Prompt cơ bản: “Tóm tắt bài báo này.” — nhận được bản tóm tắt ngắn, thiếu chiều sâu.",
+      "Prompt cải tiến: yêu cầu chia theo phần, mỗi phần 3–5 ý, nhấn mạnh mục tiêu, cơ hội, thách thức, khuyến nghị; giới hạn 400 từ.",
+      "Prompt nâng cao: gán vai trò “chuyên gia phân tích tài liệu học thuật”, mô tả các bước thực hiện và yêu cầu đầu ra rõ ràng.",
+      "Lập bảng so sánh 5 tiêu chí và rút ra 10 nguyên tắc viết prompt cho bản thân.",
     ],
-    tools: ["ChatGPT", "Gemini", "Claude"],
-    evidence: "Ảnh chụp prompt ban đầu, prompt cải tiến, kết quả AI và bảng so sánh 6 tiêu chí.",
+    tools: ["ChatGPT (đính kèm PDF)", "Prompt Engineering", "Role Prompting"],
+    evidence: "Ảnh chụp ba lần chạy prompt, ba bản tóm tắt AI trả về và bảng so sánh 5 tiêu chí (rõ ràng, chi tiết, cấu trúc, chính xác, phù hợp học tập).",
     analysis: [
-      "Prompt cải tiến giúp AI hiểu rõ vai trò, phạm vi và định dạng đầu ra mong muốn.",
-      "Khi yêu cầu càng cụ thể, kết quả càng có cấu trúc, ít lệch chủ đề và dễ dùng lại.",
-      "Prompt Engineering biến AI thành công cụ hỗ trợ tư duy, không thay thế người học.",
+      "Prompt càng chi tiết và có cấu trúc, câu trả lời càng bám sát mục tiêu và ít bị lan man.",
+      "Việc gán vai trò (role prompting) giúp AI chọn văn phong và mức độ chuyên môn phù hợp.",
+      "Yêu cầu định dạng đầu ra (chia phần, số ý, độ dài) tăng tính có thể tái sử dụng của kết quả.",
     ],
     lesson: [
-      "Muốn AI trả lời tốt thì phải đặt câu hỏi tốt.",
-      "Prompt hiệu quả cần rõ vai trò, bối cảnh, nhiệm vụ, tiêu chí và định dạng.",
+      "Prompt hiệu quả cần: mục tiêu — vai trò — bối cảnh — bước thực hiện — định dạng đầu ra.",
+      "Nên chỉ rõ điều AI không được làm (không suy diễn, không thêm thông tin ngoài tài liệu).",
     ],
-    tags: ["Prompt Engineering", "So sánh trước–sau", "Tiêu chí đầu ra"],
+    tags: ["3 mức prompt", "Role prompting", "Bảng so sánh 5 tiêu chí"],
     progress: 100,
   },
   {
     n: "04",
     title: "Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm",
-    goal: "Biết lập kế hoạch, phân công công việc và theo dõi tiến độ nhóm bằng công cụ trực tuyến.",
+    goal: "Với vai trò soạn thảo và biên tập nội dung, phối hợp cùng các thành viên nhóm 30 hoàn thiện báo cáo dự án bằng Google Docs, Google Drive và Zalo.",
     steps: [
-      "Khởi tạo không gian làm việc chung trên Trello / Notion.",
-      "Chia bảng theo trạng thái: Chưa làm — Đang làm — Cần chỉnh sửa — Hoàn thành.",
-      "Phân công nhiệm vụ theo thành viên, đặt hạn hoàn thành và người phản biện.",
-      "Định kỳ họp nhanh 15 phút để cập nhật tiến độ và tháo gỡ vướng mắc.",
+      "Google Docs: soạn thảo nội dung được phân công, chỉnh sửa lỗi chính tả, tiếp nhận Comment và theo dõi Version History.",
+      "Google Drive: tạo thư mục dự án, tải lên các phiên bản báo cáo, chia sẻ quyền truy cập cho toàn nhóm.",
+      "Zalo (Nhóm 30): trao đổi công việc, gửi bản mới, phản hồi góp ý và thống nhất hạn hoàn thành.",
+      "Sau mỗi lần chỉnh sửa lớn, lưu phiên bản mới lên Drive để nhóm dễ theo dõi.",
     ],
-    tools: ["Trello", "Notion", "Google Sheets", "Microsoft Planner"],
-    evidence: "Ảnh bảng công việc nhóm với đầy đủ cột thành viên, nhiệm vụ, hạn, trạng thái, ghi chú.",
+    tools: ["Google Docs", "Google Drive", "Zalo"],
+    evidence: "Ảnh Google Drive hiển thị danh sách tệp dự án, ảnh Google Docs với Comment / Version History và ảnh nhóm Zalo trao đổi công việc.",
     analysis: [
-      "Công cụ trực tuyến làm việc nhóm minh bạch, dễ kiểm soát tiến độ theo thời gian thực.",
-      "Mỗi thành viên thấy rõ nhiệm vụ, tránh trùng lặp hoặc bỏ sót công việc.",
-      "Theo dõi trạng thái giúp phát hiện điểm nghẽn sớm và điều chỉnh kế hoạch kịp thời.",
+      "Google Docs cho phép nhiều thành viên chỉnh sửa thời gian thực, giảm việc gửi qua lại nhiều phiên bản.",
+      "Google Drive tập trung toàn bộ tài liệu, hạn chế thất lạc và nhầm phiên bản.",
+      "Zalo giúp trao đổi nhanh vì cả nhóm đều dùng hằng ngày, tiến độ được cập nhật kịp thời.",
     ],
     lesson: [
-      "Làm việc nhóm hiệu quả cần kế hoạch rõ ràng và quy ước chung.",
-      "Công cụ số nâng cao trách nhiệm cá nhân và khả năng phối hợp của cả nhóm.",
+      "Phân chia rõ phạm vi chỉnh sửa của từng thành viên tránh trùng lặp trên Docs.",
+      "Kết hợp ba công cụ (soạn thảo — lưu trữ — giao tiếp) hiệu quả hơn dùng đơn lẻ.",
     ],
-    tags: ["Kanban", "Phân công minh bạch", "Theo dõi tiến độ"],
+    tags: ["Google Docs", "Google Drive", "Zalo · Nhóm 30"],
     progress: 100,
   },
   {
     n: "05",
-    title: "Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung",
-    goal: "Biết dùng AI tạo sinh để sản xuất một sản phẩm số hoàn chỉnh phục vụ học tập.",
+    title: "Ứng dụng AI tạo sinh — Infographic “Lợi ích và rủi ro của AI trong giáo dục”",
+    goal: "Kết hợp ChatGPT, Google Gemini và Canva AI để hoàn thành một infographic hoàn chỉnh về lợi ích, rủi ro và nguyên tắc sử dụng AI trong giáo dục.",
     steps: [
-      "Chọn khái niệm: \"Vòng đời dữ liệu trong hệ thống AI\".",
-      "Dùng ChatGPT xây kịch bản video ngắn dưới 5 phút.",
-      "Tạo hình ảnh minh họa bằng DALL·E, dựng video trên CapCut / Canva.",
-      "Chỉnh sửa lời thoại, kiểm tra tính chính xác, chuẩn hóa thương hiệu cá nhân.",
+      "ChatGPT — xây dựng nội dung: khái niệm, lợi ích, rủi ro, khuyến nghị dành cho sinh viên.",
+      "Google Gemini — bổ sung, so sánh và rút gọn ý dưới dạng gạch đầu dòng phù hợp infographic.",
+      "Canva AI — thiết kế infographic tông xanh dương – trắng, bố cục rõ ràng cho sinh viên.",
+      "Tự chỉnh sửa: rút gọn câu, thay biểu tượng, cân đối màu sắc và bổ sung ví dụ thực tế.",
     ],
-    tools: ["ChatGPT", "Gemini", "DALL·E", "Canva", "CapCut"],
-    evidence: "Video ngắn hoặc infographic — nhúng liên kết sản phẩm cuối cùng.",
+    tools: ["ChatGPT", "Google Gemini", "Canva AI"],
+    evidence: "Ảnh kết quả nội dung từ ChatGPT, Gemini và bản thiết kế infographic “Blue and White Modern AI Technology” trong Canva.",
     analysis: [
-      "AI giúp tăng tốc lên ý tưởng và sản xuất bản nháp đầu tiên.",
-      "Người học vẫn cần kiểm duyệt, chỉnh sửa và đảm bảo tính chính xác học thuật.",
-      "Sản phẩm tốt là sự cộng tác giữa năng lực con người và công cụ AI.",
+      "ChatGPT tạo nội dung chi tiết, logic; Gemini bổ sung góc nhìn ngắn gọn theo bullet; Canva AI hỗ trợ bố cục và màu sắc.",
+      "Kết hợp nhiều công cụ AI nâng cao chất lượng sản phẩm rõ rệt so với dùng một công cụ duy nhất.",
+      "AI chỉ tạo bản nháp — chất lượng cuối cùng vẫn phụ thuộc vào khả năng biên tập, chọn lọc và sáng tạo của người dùng.",
     ],
     lesson: [
-      "AI là công cụ hỗ trợ sáng tạo, không thay thế tư duy cá nhân.",
-      "Cần chọn lọc, biên tập và chịu trách nhiệm với nội dung mình công bố.",
+      "Trung thực về mức độ hỗ trợ của AI trong sản phẩm; luôn kiểm chứng thông tin trước khi công bố.",
+      "Tôn trọng bản quyền hình ảnh, dữ liệu và không xem AI là nơi thay thế tư duy cá nhân.",
     ],
-    tags: ["Quy trình 6 bước", "Human-in-the-loop", "Đa phương tiện"],
+    tags: ["ChatGPT", "Gemini", "Canva AI", "Infographic"],
     progress: 100,
   },
   {
@@ -194,29 +209,31 @@ const SEARCH_OPERATORS = [
 ];
 
 const SOURCES = [
-  { name: "UNESCO — Guidance on Generative AI in Education", org: "UNESCO", year: "2023", trust: "Rất cao", reason: "Tổ chức quốc tế có phản biện chặt chẽ.", limit: "Tổng quan toàn cầu, chưa sát bối cảnh Việt Nam." },
-  { name: "Bài báo Scholar về Prompt Engineering", org: "IEEE / ACM", year: "2024", trust: "Cao", reason: "Có bình duyệt (peer-review).", limit: "Ngôn ngữ chuyên sâu, cần nền tảng kỹ thuật." },
-  { name: "Báo cáo của trường đại học", org: "ĐH trong nước", year: "2024", trust: "Cao", reason: "Nguồn chính thống, sát bối cảnh học tập.", limit: "Phạm vi khảo sát hẹp." },
-  { name: "Bài blog công nghệ", org: "Trang tin công nghệ", year: "2024", trust: "Trung bình", reason: "Cập nhật nhanh, dễ hiểu.", limit: "Không có phản biện học thuật." },
-  { name: "Diễn đàn mạng xã hội", org: "Ẩn danh", year: "—", trust: "Thấp", reason: "Phản ánh trải nghiệm người dùng.", limit: "Không kiểm chứng, dễ sai lệch." },
+  { name: "Vu & Hoang — The impact of EVFTA on Vietnam's exports", org: "Journal of Asian Finance, Economics and Business", year: "2021", trust: "Rất cao", reason: "Tạp chí quốc tế bình duyệt, phương pháp định lượng.", limit: "Dữ liệu giai đoạn đầu, cần cập nhật thêm." },
+  { name: "Nguyen & Tran — Opportunities and challenges of EVFTA", org: "Sustainability (MDPI)", year: "2022", trust: "Rất cao", reason: "Bình duyệt quốc tế, phương pháp định lượng.", limit: "Tập trung vào doanh nghiệp nói chung." },
+  { name: "Ciuriak & Xiao — Economic impacts of EU–Vietnam FTA", org: "Journal of East Asian Economic Integration", year: "2018", trust: "Rất cao", reason: "Mô hình kinh tế, số trích dẫn rất cao.", limit: "Xuất bản trước khi EVFTA có hiệu lực." },
+  { name: "Krugman, Obstfeld, Melitz — International Economics", org: "Pearson", year: "2018", trust: "Rất cao", reason: "Sách học thuật nền tảng về thương mại quốc tế.", limit: "Không đề cập trực tiếp EVFTA." },
+  { name: "World Bank — Vietnam: Deepening International Integration", org: "World Bank", year: "2020", trust: "Rất cao", reason: "Báo cáo tổ chức quốc tế, dữ liệu thực nghiệm.", limit: "Bao quát nhiều FTA, không chỉ EVFTA." },
+  { name: "Bộ Công Thương — Báo cáo thực hiện EVFTA", org: "Bộ Công Thương", year: "2024", trust: "Cao", reason: "Nguồn chính thống, số liệu cập nhật nhất.", limit: "Góc nhìn quản lý nhà nước, thiếu phản biện độc lập." },
 ];
 
 const PROMPT_COMPARE = [
-  { k: "Độ rõ ràng", a: "Chung chung, một câu.", b: "Có vai trò + bối cảnh + tiêu chí." },
-  { k: "Vai trò", a: "Không chỉ định.", b: "\"Bạn là trợ giảng môn CNS & AI.\"" },
-  { k: "Bối cảnh", a: "Không có.", b: "Sinh viên năm nhất, tài liệu 1 chương." },
-  { k: "Yêu cầu đầu ra", a: "Không quy định.", b: "Bullet 5 ý, kèm ví dụ Việt Nam." },
-  { k: "Mức độ chính xác", a: "Kết quả lan man, lệch chủ đề.", b: "Bám sát mục tiêu, dễ dùng lại." },
-  { k: "Khả năng kiểm soát", a: "Khó chỉnh sửa.", b: "Có thể lặp lại và tinh chỉnh." },
+  { k: "Độ rõ ràng", a: "Thấp — chỉ một câu ngắn.", b: "Tốt — có cấu trúc từng phần.", c: "Rất tốt — có vai trò, bước thực hiện, tiêu chí." },
+  { k: "Mức độ chi tiết", a: "Ít — bản tóm tắt ngắn thiếu chiều sâu.", b: "Khá đầy đủ — 3–5 ý mỗi phần.", c: "Rất đầy đủ — bám sát toàn bộ tài liệu." },
+  { k: "Cấu trúc câu trả lời", a: "Chưa rõ, không chia mục.", b: "Chia theo phần chính.", c: "Chuyên nghiệp, đúng chuẩn báo cáo học thuật." },
+  { k: "Tính chính xác", a: "Trung bình — thiếu kết luận quan trọng.", b: "Cao — giữ được ý cốt lõi.", c: "Rất cao — không suy diễn, bám sát tài liệu gốc." },
+  { k: "Phù hợp học tập", a: "Trung bình.", b: "Tốt.", c: "Rất tốt — dùng được ngay cho báo cáo." },
 ];
 
 const TEAM_TASKS = [
-  { m: "Thành viên A", t: "Tổng hợp tài liệu chương 1–3", due: "20/11", status: "Hoàn thành", note: "Đã chia sẻ trên Drive" },
-  { m: "Thành viên B", t: "Thiết kế slide thuyết trình", due: "22/11", status: "Đang làm", note: "Cần thêm hình minh họa" },
-  { m: "Thành viên C", t: "Viết kịch bản video AI", due: "25/11", status: "Cần chỉnh sửa", note: "Rút gọn 30%" },
-  { m: "Thành viên D", t: "Kiểm chứng nguồn học thuật", due: "26/11", status: "Đang làm", note: "5/8 nguồn đã kiểm" },
-  { m: "Nhóm trưởng", t: "Tổng hợp & nộp bài", due: "28/11", status: "Chưa làm", note: "Phụ thuộc các mục trên" },
+  { m: "Cá nhân — soạn thảo", t: "Biên soạn nội dung được phân công trên Google Docs", due: "Trong tuần", status: "Hoàn thành", note: "Theo dõi qua Version History" },
+  { m: "Cá nhân — biên tập", t: "Chỉnh sửa chính tả, ngữ pháp và định dạng báo cáo", due: "Sau mỗi lần góp ý", status: "Hoàn thành", note: "Tiếp nhận qua tính năng Comment" },
+  { m: "Cá nhân — lưu trữ", t: "Tải phiên bản mới lên Google Drive, sắp xếp thư mục", due: "Sau mỗi lần chỉnh sửa", status: "Hoàn thành", note: "Chia sẻ quyền cho cả nhóm" },
+  { m: "Cả nhóm — thảo luận", t: "Thống nhất bố cục, hạn nộp và phân công qua Zalo", due: "Hằng ngày", status: "Đang làm", note: "Nhóm 30 — Nhập môn CNS & AI" },
+  { m: "Nhóm trưởng", t: "Tổng hợp bản cuối và nộp bài", due: "Ngày nộp", status: "Chưa làm", note: "Phụ thuộc phiên bản mới nhất trên Drive" },
 ];
+
+
 
 const AI_RISKS = [
   { risk: "Đạo văn / gian lận học thuật", solution: "Ghi chú rõ khi dùng AI, tự viết lại bằng ngôn ngữ cá nhân." },
@@ -237,12 +254,12 @@ const PRINCIPLES = [
 ];
 
 const EVIDENCES = [
-  { title: "Cấu trúc thư mục môn học", desc: "Sơ đồ thư mục 3 cấp có quy tắc đặt tên nhất quán.", tag: "Bài 01" },
-  { title: "Kết quả tìm kiếm học thuật", desc: "Ảnh chụp kết quả cho 7 toán tử tìm kiếm nâng cao.", tag: "Bài 02" },
-  { title: "So sánh Prompt trước & sau", desc: "Bảng 6 tiêu chí đối chiếu chất lượng phản hồi AI.", tag: "Bài 03" },
-  { title: "Bảng quản lý công việc nhóm", desc: "Kanban 4 trạng thái + phân công theo thành viên.", tag: "Bài 04" },
-  { title: "Sản phẩm nội dung AI", desc: "Video ngắn / infographic về vòng đời dữ liệu AI.", tag: "Bài 05" },
-  { title: "Bộ nguyên tắc dùng AI", desc: "7 nguyên tắc cá nhân + 5 rủi ro đạo đức AI.", tag: "Bài 06" },
+  { title: "Thao tác trên File Explorer", desc: "Ảnh minh chứng thư mục ThucHanh_NguyenMinhNgoc và các tệp GhiChu / DiChuyen.", tag: "Bài 01", img: ev1.url },
+  { title: "Bảng đánh giá 10 nguồn EVFTA", desc: "Danh mục tài liệu và bảng chấm sao độ tin cậy theo 7 tiêu chí.", tag: "Bài 02", img: ev2.url },
+  { title: "So sánh 3 mức Prompt", desc: "Bảng so sánh prompt cơ bản – cải tiến – nâng cao theo 5 tiêu chí.", tag: "Bài 03", img: ev3.url },
+  { title: "Google Drive & Zalo Nhóm 30", desc: "Ảnh Google Drive lưu tài liệu và nhóm Zalo trao đổi công việc.", tag: "Bài 04", img: ev4.url },
+  { title: "Infographic AI trong giáo dục", desc: "Bản thiết kế Canva AI về lợi ích và rủi ro của AI trong giáo dục.", tag: "Bài 05", img: ev5.url },
+  { title: "Bộ nguyên tắc dùng AI", desc: "7 nguyên tắc cá nhân + 5 rủi ro đạo đức AI (placeholder).", tag: "Bài 06", img: "" },
 ];
 
 const SKILLS = [
@@ -666,7 +683,7 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[number]; index: number
           {p.n === "05" && <AIWorkflow />}
           {p.n === "06" && <ResponsibleAI />}
 
-          <EvidenceBox note={p.evidence} tag={`Bài ${p.n}`} />
+          <EvidenceBox note={p.evidence} tag={`Bài ${p.n}`} img={EVIDENCE_IMG[p.n]} />
         </div>
       </div>
     </article>
@@ -682,15 +699,31 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
   );
 }
 
-function EvidenceBox({ note, tag }: { note: string; tag: string }) {
+function EvidenceBox({ note, tag, img }: { note: string; tag: string; img?: string }) {
   return (
-    <div className="mt-8 rounded-2xl border-2 border-dashed border-accent/35 bg-accent-soft/50 p-5">
-      <div className="flex items-center justify-between">
-        <span className="text-xs font-semibold uppercase tracking-wider text-accent">Khu vực minh chứng · {tag}</span>
-        <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold text-accent-foreground">PLACEHOLDER</span>
+    <div className="mt-8 overflow-hidden rounded-2xl border-2 border-dashed border-accent/35 bg-accent-soft/40">
+      <div className="flex items-center justify-between px-5 pt-4">
+        <span className="text-xs font-semibold uppercase tracking-wider text-accent">Minh chứng · {tag}</span>
+        <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold text-accent-foreground">
+          {img ? "ẢNH THẬT" : "PLACEHOLDER"}
+        </span>
       </div>
-      <p className="mt-2 text-sm text-foreground/80">{note}</p>
-      <p className="mt-1 text-xs italic text-muted-foreground">→ Thay khu vực này bằng ảnh chụp màn hình / liên kết sản phẩm thật.</p>
+      {img && (
+        <div className="mt-3 border-y border-accent/20 bg-background/50">
+          <img
+            src={img}
+            alt={`Minh chứng ${tag}`}
+            loading="lazy"
+            className="mx-auto block max-h-[520px] w-full object-contain"
+          />
+        </div>
+      )}
+      <div className="px-5 pb-4 pt-3">
+        <p className="text-sm text-foreground/80">{note}</p>
+        {!img && (
+          <p className="mt-1 text-xs italic text-muted-foreground">→ Thay khu vực này bằng ảnh chụp màn hình / liên kết sản phẩm thật.</p>
+        )}
+      </div>
     </div>
   );
 }
@@ -753,14 +786,15 @@ function SourceTable() {
 
 function PromptCompare() {
   return (
-    <Block title="So sánh Prompt ban đầu và Prompt cải tiến">
+    <Block title="So sánh 3 mức Prompt (cơ bản – cải tiến – nâng cao)">
       <div className="overflow-x-auto rounded-xl border border-border">
         <table className="w-full text-left text-xs">
           <thead className="bg-secondary text-primary">
             <tr>
               <th className="px-3 py-2 font-semibold">Tiêu chí</th>
-              <th className="px-3 py-2 font-semibold">Prompt ban đầu</th>
+              <th className="px-3 py-2 font-semibold">Prompt cơ bản</th>
               <th className="px-3 py-2 font-semibold">Prompt cải tiến</th>
+              <th className="px-3 py-2 font-semibold">Prompt nâng cao</th>
             </tr>
           </thead>
           <tbody>
@@ -769,13 +803,14 @@ function PromptCompare() {
                 <td className="px-3 py-2 font-medium text-primary">{r.k}</td>
                 <td className="px-3 py-2 text-muted-foreground">{r.a}</td>
                 <td className="px-3 py-2 text-foreground/85">{r.b}</td>
+                <td className="px-3 py-2 text-foreground/85">{r.c}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <p className="mt-3 text-xs text-muted-foreground">
-        <strong className="text-primary">Cơ chế:</strong> AI phản hồi dựa trên ngữ cảnh và độ cụ thể của yêu cầu; prompt càng rõ vai trò – bối cảnh – tiêu chí, mô hình càng giảm phỏng đoán và bám sát mục tiêu học tập.
+        <strong className="text-primary">Nhận xét:</strong> Prompt càng chi tiết, có vai trò và quy định định dạng đầu ra thì kết quả càng bám sát mục tiêu học tập và ít bị lan man.
       </p>
     </Block>
   );
@@ -821,15 +856,15 @@ function TeamTable() {
 
 function AIWorkflow() {
   const steps = [
-    { s: "Lên ý tưởng", h: "Con người", a: "Xác định khái niệm & thông điệp" },
-    { s: "Viết kịch bản", h: "AI + Con người", a: "AI đề xuất, người biên tập" },
-    { s: "Tạo hình ảnh / giọng đọc", h: "AI", a: "DALL·E / TTS tạo bản nháp" },
-    { s: "Dựng video", h: "Con người", a: "CapCut / Canva ghép hoàn thiện" },
-    { s: "Kiểm tra chất lượng", h: "Con người", a: "Đối chiếu tính chính xác học thuật" },
-    { s: "Hoàn thiện & xuất bản", h: "Con người", a: "Chuẩn hoá thương hiệu, đăng tải" },
+    { s: "Xác định chủ đề", h: "Con người", a: "Chọn: Lợi ích và rủi ro của AI trong giáo dục" },
+    { s: "Xây dựng nội dung", h: "ChatGPT", a: "Sinh bản nháp: khái niệm, lợi ích, rủi ro, khuyến nghị" },
+    { s: "Bổ sung & so sánh ý", h: "Google Gemini", a: "Rút gọn theo bullet, đối chiếu để chọn ý phù hợp" },
+    { s: "Thiết kế infographic", h: "Canva AI", a: "Gợi ý bố cục, tông màu xanh dương – trắng" },
+    { s: "Biên tập cá nhân", h: "Con người", a: "Rút gọn câu, đổi biểu tượng, thêm ví dụ thực tế" },
+    { s: "Kiểm chứng & hoàn thiện", h: "Con người", a: "Xác minh thông tin, đảm bảo bản quyền, xuất bản" },
   ];
   return (
-    <Block title="Quy trình sản xuất nội dung với AI (6 bước)">
+    <Block title="Quy trình sáng tạo nội dung với 3 công cụ AI (6 bước)">
       <ol className="grid gap-2 sm:grid-cols-2">
         {steps.map((s, i) => (
           <li key={s.s} className="rounded-xl border border-border bg-surface p-3">
@@ -900,17 +935,28 @@ function Evidence() {
             style={{ transitionDelay: `${i * 40}ms` }}
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-gradient-brand">
-              <div className="absolute inset-0 opacity-25" style={{
-                backgroundImage: "radial-gradient(circle at 30% 30%, white 1px, transparent 1px), radial-gradient(circle at 70% 70%, white 1px, transparent 1px)",
-                backgroundSize: "24px 24px, 32px 32px",
-              }} />
-              <div className="absolute inset-0 grid place-items-center">
-                <span className="rounded-full bg-primary-foreground/15 px-4 py-1.5 text-xs font-semibold text-primary-foreground backdrop-blur">
-                  {e.tag} · Placeholder
-                </span>
-              </div>
+              {e.img ? (
+                <img
+                  src={e.img}
+                  alt={`Minh chứng ${e.tag} — ${e.title}`}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0 opacity-25" style={{
+                    backgroundImage: "radial-gradient(circle at 30% 30%, white 1px, transparent 1px), radial-gradient(circle at 70% 70%, white 1px, transparent 1px)",
+                    backgroundSize: "24px 24px, 32px 32px",
+                  }} />
+                  <div className="absolute inset-0 grid place-items-center">
+                    <span className="rounded-full bg-primary-foreground/15 px-4 py-1.5 text-xs font-semibold text-primary-foreground backdrop-blur">
+                      {e.tag} · Placeholder
+                    </span>
+                  </div>
+                </>
+              )}
               <div className="absolute right-3 top-3 rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
-                Minh chứng
+                {e.img ? e.tag : "Minh chứng"}
               </div>
             </div>
             <div className="p-5">
