@@ -119,7 +119,7 @@ const NAV = [
 ];
 
 const MISSIONS = [
-  { n: "01", title: "Quản lý tệp và thư mục", desc: "Tổ chức dữ liệu học tập khoa học, đặt tên tệp nhất quán.", icon: "📁" },
+  { n: "01", title: "Quản lý tệp và thư mục", desc: "6 nhiệm vụ nối tiếp nhau, đi từ kỹ năng nền tảng đến năng lực nâng cao trong việc sử dụng AI có trách nhiệm.", icon: "📁" },
   { n: "02", title: "Tìm kiếm và đánh giá thông tin", desc: "Vận dụng toán tử nâng cao, đánh giá độ tin cậy của nguồn.", icon: "🔎" },
   { n: "03", title: "Viết Prompt hiệu quả", desc: "Thiết kế prompt có vai trò, bối cảnh và tiêu chí đầu ra.", icon: "✍️" },
   { n: "04", title: "Hợp tác trực tuyến", desc: "Lập kế hoạch, phân công và theo dõi tiến độ nhóm.", icon: "🤝" },
@@ -462,8 +462,8 @@ const TEAM_TASKS = [
   { m: "Cá nhân — soạn thảo", t: "Biên soạn nội dung được phân công trên Google Docs", due: "Trong tuần", status: "Hoàn thành", note: "Theo dõi qua Version History" },
   { m: "Cá nhân — biên tập", t: "Chỉnh sửa chính tả, ngữ pháp và định dạng báo cáo", due: "Sau mỗi lần góp ý", status: "Hoàn thành", note: "Tiếp nhận qua tính năng Comment" },
   { m: "Cá nhân — lưu trữ", t: "Tải phiên bản mới lên Google Drive, sắp xếp thư mục", due: "Sau mỗi lần chỉnh sửa", status: "Hoàn thành", note: "Chia sẻ quyền cho cả nhóm" },
-  { m: "Cả nhóm — thảo luận", t: "Thống nhất bố cục, hạn nộp và phân công qua Zalo", due: "Hằng ngày", status: "Đang làm", note: "Nhóm 30 — Nhập môn CNS & AI" },
-  { m: "Nhóm trưởng", t: "Tổng hợp bản cuối và nộp bài", due: "Ngày nộp", status: "Chưa làm", note: "Phụ thuộc phiên bản mới nhất trên Drive" },
+  { m: "Cả nhóm — thảo luận", t: "Thống nhất bố cục, hạn nộp và phân công qua Zalo", due: "Hằng ngày", status: "Hoàn thành", note: "Nhóm 30 — Nhập môn CNS & AI" },
+  { m: "Nhóm trưởng", t: "Tổng hợp bản cuối và nộp bài", due: "Ngày nộp", status: "Hoàn thành", note: "Phụ thuộc phiên bản mới nhất trên Drive" },
 ];
 
 
@@ -733,7 +733,7 @@ function About() {
     <Section
       id="gioi-thieu"
       eyebrow="Giới thiệu"
-      title={<>Xin chào, mình là <span className="italic text-accent">sinh viên số</span>.</>}
+      title="Giới Thiệu Bản Thân."
       intro="Portfolio là bức chân dung học tập của mình — nơi hệ thống hóa các bài tập, chứng minh năng lực dùng công cụ số và AI, và rèn luyện thói quen tự đánh giá."
     >
       <div className="grid gap-8 lg:grid-cols-[minmax(0,22rem)_1fr] lg:items-start">
@@ -868,8 +868,8 @@ function Journey() {
     <Section
       id="hanh-trinh"
       eyebrow="Tổng quan dự án"
-      title={<>Hành trình <span className="italic text-accent">6 nhiệm vụ</span> học tập</>}
-      intro="Sáu nhiệm vụ nối tiếp nhau, đi từ kỹ năng nền tảng đến năng lực nâng cao trong việc sử dụng AI có trách nhiệm."
+      title={<>Hành trình{"\u00a0"}6 nhiệm vụ{"\u00a0"} học tập.{"\n"}</>}
+      intro="6 nhiệm vụ nối tiếp nhau, đi từ kỹ năng nền tảng đến năng lực nâng cao trong việc sử dụng AI có trách nhiệm."
       tone="surface"
     >
       <div className="relative">
