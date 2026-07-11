@@ -528,7 +528,7 @@ function PortfolioPage() {
         <About />
         <Journey />
         <Projects />
-        <Evidence />
+        
         <Skills />
         <Conclusion />
       </main>
