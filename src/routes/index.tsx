@@ -98,13 +98,10 @@ const GALLERIES: Record<string, { url: string; caption: string }[]> = {
 };
 
 const DOWNLOADS: Record<string, { label: string; url: string } | undefined> = {
-  "01": { label: "Tải tệp minh chứng: GhiChuQuanTrong.docx", url: "#" },
-  "02": { label: "Tải bảng đánh giá 10 nguồn EVFTA.xlsx", url: "#" },
-  "03": { label: "Tải bảng so sánh 3 mức Prompt.pdf", url: "#" },
-  "04": { label: "Tải báo cáo dự án Nhóm 30.docx", url: "#" },
-  "05": { label: "Tải sản phẩm sáng tạo nội dung AI.pdf", url: "#" },
-  "06": { label: "Tải bộ nguyên tắc dùng AI có trách nhiệm.pdf", url: "#" },
+  // Chưa có tệp thật để tải — ẩn nút để tránh link chết ("#").
+  // Khi có file, thêm URL thật vào từng mục dưới đây.
 };
+
 
 
 
@@ -126,7 +123,7 @@ const NAV = [
 ];
 
 const MISSIONS = [
-  { n: "01", title: "Quản lý tệp và thư mục", desc: "6 nhiệm vụ nối tiếp nhau, đi từ kỹ năng nền tảng đến năng lực nâng cao trong việc sử dụng AI có trách nhiệm.", icon: "📁" },
+  { n: "01", title: "Quản lý tệp và thư mục", desc: "Thao tác tạo, đổi tên, sao chép, di chuyển, xoá và khôi phục tệp trên File Explorer.", icon: "📁" },
   { n: "02", title: "Tìm kiếm và đánh giá thông tin", desc: "Vận dụng toán tử nâng cao, đánh giá độ tin cậy của nguồn.", icon: "🔎" },
   { n: "03", title: "Viết Prompt hiệu quả", desc: "Thiết kế prompt có vai trò, bối cảnh và tiêu chí đầu ra.", icon: "✍️" },
   { n: "04", title: "Hợp tác trực tuyến", desc: "Lập kế hoạch, phân công và theo dõi tiến độ nhóm.", icon: "🤝" },
@@ -504,7 +501,7 @@ const EVIDENCES = [
   { title: "So sánh 3 mức Prompt", desc: "Bảng so sánh prompt cơ bản – cải tiến – nâng cao theo 5 tiêu chí.", tag: "Bài 03", img: ev3.url },
   { title: "Google Drive & Zalo Nhóm 30", desc: "Ảnh Google Drive lưu tài liệu và nhóm Zalo trao đổi công việc.", tag: "Bài 04", img: ev4.url },
   { title: "Infographic AI trong giáo dục", desc: "Bản thiết kế Canva AI về lợi ích và rủi ro của AI trong giáo dục.", tag: "Bài 05", img: ev5.url },
-  { title: "Bộ nguyên tắc dùng AI", desc: "7 nguyên tắc cá nhân + 5 rủi ro đạo đức AI (placeholder).", tag: "Bài 06", img: "" },
+  { title: "Bộ nguyên tắc dùng AI có trách nhiệm", desc: "Infographic 6 nguyên tắc sử dụng AI có trách nhiệm trong học tập.", tag: "Bài 06", img: bai06_infographic.url },
 ];
 
 const SKILLS = [
