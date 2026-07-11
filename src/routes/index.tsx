@@ -107,7 +107,7 @@ const GALLERIES: Record<string, { url: string; caption: string }[]> = {
   "06": [
     { url: bai06_prompt1.url, caption: "Prompt 1 — Yêu cầu ChatGPT lập dàn ý 5 phần cho bài thuyết trình “Vai trò của AI trong chuyển đổi số tại Việt Nam”." },
     { url: bai06_prompt2.url, caption: "Prompt 2 — Yêu cầu AI viết ~300 từ về lợi ích của AI trong chuyển đổi số, phù hợp bài thuyết trình sinh viên." },
-    { url: bai06_infographic.url, caption: "Infographic “AI có trách nhiệm” — 6 nguyên tắc: kiểm chứng, trích dẫn, không đạo văn, tự phân tích, bảo vệ dữ liệu, AI hỗ trợ – không thay thế." },
+    { url: bai06_infographic.url, caption: "Infographic “AI có trách nhiệm” — tổng hợp các nguyên tắc: kiểm chứng, trích dẫn, không đạo văn, tự phân tích, bảo vệ dữ liệu, AI hỗ trợ – không thay thế." },
   ],
 };
 
@@ -413,7 +413,7 @@ const PROJECTS: {
       "Đúc kết 7 nguyên tắc cá nhân và thiết kế infographic “AI có trách nhiệm”.",
     ],
     tools: ["ChatGPT", "Quy định UEB & UEH", "Canva (Infographic)"],
-    evidence: "Ảnh chụp 2 lần prompt với ChatGPT về bài thuyết trình “Vai trò của AI trong chuyển đổi số tại Việt Nam” và infographic “AI có trách nhiệm” tổng hợp 6 nguyên tắc sử dụng AI.",
+    evidence: "Ảnh chụp 2 lần prompt với ChatGPT về bài thuyết trình “Vai trò của AI trong chuyển đổi số tại Việt Nam” và infographic “AI có trách nhiệm” tổng hợp các nguyên tắc sử dụng AI.",
     analysis: [
       "UEB chưa có quy định riêng về AI, nhưng khung liêm chính học thuật hiện có đã đủ ràng buộc sinh viên phải chịu trách nhiệm với nội dung nộp.",
       "So với UEH — nơi yêu cầu công khai mức độ sử dụng AI — UEB nên sớm ban hành hướng dẫn cụ thể để thống nhất cách áp dụng.",
@@ -515,7 +515,7 @@ const EVIDENCES = [
   { title: "So sánh 3 mức Prompt", desc: "Bảng so sánh prompt cơ bản – cải tiến – nâng cao theo 5 tiêu chí.", tag: "Bài 03", img: ev3.url },
   { title: "Google Drive & Zalo Nhóm 30", desc: "Ảnh Google Drive lưu tài liệu và nhóm Zalo trao đổi công việc.", tag: "Bài 04", img: ev4.url },
   { title: "Infographic AI trong giáo dục", desc: "Bản thiết kế Canva AI về lợi ích và rủi ro của AI trong giáo dục.", tag: "Bài 05", img: ev5.url },
-  { title: "Bộ nguyên tắc dùng AI có trách nhiệm", desc: "Infographic 6 nguyên tắc sử dụng AI có trách nhiệm trong học tập.", tag: "Bài 06", img: bai06_infographic.url },
+  { title: "Bộ nguyên tắc dùng AI có trách nhiệm", desc: "Infographic tổng hợp các nguyên tắc sử dụng AI có trách nhiệm trong học tập.", tag: "Bài 06", img: bai06_infographic.url },
 ];
 
 const SKILLS: {
@@ -1194,7 +1194,7 @@ function EvidenceBox({
           </div>
         </div>
         <span className="rounded-full bg-accent px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
-          {hasGallery ? "Ảnh thật" : "Placeholder"}
+          Ảnh thật
         </span>
       </div>
 
@@ -1238,9 +1238,6 @@ function EvidenceBox({
           </a>
         )}
       </div>
-      {!hasGallery && (
-        <p className="px-6 pb-5 text-xs italic text-muted-foreground">→ Thay khu vực này bằng ảnh chụp màn hình / liên kết sản phẩm thật.</p>
-      )}
     </div>
   );
 }
@@ -1442,7 +1439,7 @@ function Evidence() {
       id="minh-chung"
       eyebrow="Minh chứng"
       title={<>Thư viện <span className="italic text-accent">minh chứng</span> học tập</>}
-      intro="Mỗi minh chứng gắn với một bài tập cụ thể — có thể thay bằng ảnh/video thật khi nộp bài."
+      intro="Mỗi minh chứng là ảnh chụp thật từ quá trình thực hành 6 bài học — từ thao tác tệp cơ bản đến sản phẩm AI hoàn chỉnh."
       tone="surface-2"
     >
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -1453,28 +1450,14 @@ function Evidence() {
             style={{ transitionDelay: `${i * 40}ms` }}
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-gradient-brand">
-              {e.img ? (
-                <img
-                  src={e.img}
-                  alt={`Minh chứng ${e.tag} — ${e.title}`}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              ) : (
-                <>
-                  <div className="absolute inset-0 opacity-25" style={{
-                    backgroundImage: "radial-gradient(circle at 30% 30%, white 1px, transparent 1px), radial-gradient(circle at 70% 70%, white 1px, transparent 1px)",
-                    backgroundSize: "24px 24px, 32px 32px",
-                  }} />
-                  <div className="absolute inset-0 grid place-items-center">
-                    <span className="rounded-full bg-primary-foreground/15 px-4 py-1.5 text-xs font-semibold text-primary-foreground backdrop-blur">
-                      {e.tag} · Placeholder
-                    </span>
-                  </div>
-                </>
-              )}
+              <img
+                src={e.img}
+                alt={`Minh chứng ${e.tag} — ${e.title}`}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
               <div className="absolute right-3 top-3 rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
-                {e.img ? e.tag : "Minh chứng"}
+                {e.tag}
               </div>
             </div>
             <div className="p-5">
