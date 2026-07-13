@@ -1183,7 +1183,7 @@ function EvidenceBox({
 }) {
   const hasGallery = !!gallery && gallery.length > 0;
   const VISIBLE = 5;
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
   const total = gallery?.length ?? 0;
   const showToggle = hasGallery && total > VISIBLE + 1;
   const visibleItems = hasGallery
