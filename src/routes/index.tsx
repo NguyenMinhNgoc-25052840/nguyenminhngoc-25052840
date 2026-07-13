@@ -1182,6 +1182,18 @@ function EvidenceBox({
   download?: { label: string; url: string };
 }) {
   const hasGallery = !!gallery && gallery.length > 0;
+  const VISIBLE = 5;
+  const [expanded, setExpanded] = useState(false);
+  const total = gallery?.length ?? 0;
+  const showToggle = hasGallery && total > VISIBLE + 1;
+  const visibleItems = hasGallery
+    ? expanded
+      ? gallery!
+      : showToggle
+        ? gallery!.slice(0, VISIBLE)
+        : gallery!
+    : [];
+  const hiddenCount = total - VISIBLE;
   return (
     <div className="mt-8 overflow-hidden rounded-3xl border border-accent/25 bg-gradient-to-br from-accent-soft/60 via-background to-accent-soft/30 shadow-soft">
       <div className="flex flex-wrap items-center justify-between gap-3 px-6 pt-5">
@@ -1199,7 +1211,7 @@ function EvidenceBox({
 
       {hasGallery && (
         <div className="mt-5 grid grid-cols-2 gap-3 px-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-          {gallery!.map((g, i) => (
+          {visibleItems.map((g, i) => (
             <figure
               key={i}
               className="group overflow-hidden rounded-xl border border-border/70 bg-card shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
@@ -1222,6 +1234,47 @@ function EvidenceBox({
               )}
             </figure>
           ))}
+          {showToggle && !expanded && (
+            <button
+              type="button"
+              onClick={() => setExpanded(true)}
+              className="group relative overflow-hidden rounded-xl border border-dashed border-accent/50 bg-accent/10 shadow-sm transition hover:-translate-y-0.5 hover:bg-accent/20 hover:shadow-lg"
+              aria-label={`Xem thêm ${hiddenCount} ảnh`}
+            >
+              <div className="relative aspect-square overflow-hidden">
+                {gallery![VISIBLE] && (
+                  <img
+                    src={gallery![VISIBLE].url}
+                    alt=""
+                    loading="lazy"
+                    className="h-full w-full object-cover opacity-40 blur-[1px]"
+                  />
+                )}
+                <div className="absolute inset-0 grid place-items-center bg-accent/40 text-accent-foreground">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">+{hiddenCount}</div>
+                    <div className="text-[10px] font-semibold uppercase tracking-wider">Xem thêm</div>
+                  </div>
+                </div>
+              </div>
+              <div className="px-2 py-1.5 text-[11px] font-semibold text-accent">Hiện tất cả {total} ảnh</div>
+            </button>
+          )}
+          {showToggle && expanded && (
+            <button
+              type="button"
+              onClick={() => setExpanded(false)}
+              className="group overflow-hidden rounded-xl border border-dashed border-accent/50 bg-accent/10 shadow-sm transition hover:-translate-y-0.5 hover:bg-accent/20 hover:shadow-lg"
+            >
+              <div className="grid aspect-square place-items-center bg-accent/20 text-accent">
+                <div className="text-center">
+                  <div className="text-2xl">▲</div>
+                  <div className="text-[10px] font-semibold uppercase tracking-wider">Thu gọn</div>
+                </div>
+              </div>
+              <div className="px-2 py-1.5 text-[11px] font-semibold text-accent">Ẩn bớt</div>
+            </button>
+          )}
         </div>
       )}
 
